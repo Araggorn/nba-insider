@@ -2,6 +2,7 @@ package pl.coderslab.nbainsider.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pl.coderslab.nbainsider.entity.User;
 import pl.coderslab.nbainsider.repository.UserRepository;
 
@@ -16,6 +17,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void save(User user) {
         userRepository.save(user);
     }

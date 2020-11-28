@@ -3,10 +3,7 @@ package pl.coderslab.nbainsider.entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -28,6 +25,9 @@ public class User {
     private String password;
 
     @NotNull
+    @Column(unique=true)
     private String email;
+
+    private String favouriteTeam;
 
 }
