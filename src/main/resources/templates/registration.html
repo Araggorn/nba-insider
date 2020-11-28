@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.tymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rejestracja</title>
+</head>
+<body>
+<h1>Rejestracja użytkownika</h1>
+    <form th:object="${user}" method="post" th:action="@{/registration/form}">
+        <section>
+            <label>Registration</label>
+            <input type="text" th:field="*{login}"/>
+            <input type="hidden" th:field="*{id}"/>
+        </section>
+        <section>
+            <label>Email</label>
+            <input type="text" th:field="*{email}"/>
+        </section>
+        <section>
+            <label>Password</label>
+            <input type="password" th:field="*{password}"/>
+        </section>
+        <section>
+            <label>Favourite Team</label>
+            <input type="text" th:field="*{favouriteTeam}"/>
+
+        </section>
+        <section>
+            <label>Type</label>
+            <input type="text" th:field="*{favouritePlayer}">
+        </section>
+        <section>
+            <button type="submit">Save</button>
+        </section>
+    </form>
+</body>
+</html>

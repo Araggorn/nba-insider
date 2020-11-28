@@ -6,18 +6,18 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionTemplate;
 import pl.coderslab.nbainsider.entity.User;
+
+import javax.validation.ValidationException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-@Transactional(propagation = Propagation.NOT_SUPPORTED)
 class UserRepositoryTest {
 
     @Autowired
@@ -55,11 +55,25 @@ class UserRepositoryTest {
         //given
         User user1 = testUser();
         User user2 = testUser();
-        transactionTemplate.execute(context -> userRepository.saveAndFlush(user1));
+        userRepository.save(user1);
         //when
-        transactionTemplate.execute(context -> userRepository.saveAndFlush(user2));
+        try {
+            userRepository.save(user2);
+            Assertions.fail("Exception should have been thrown");
+        } catch (Exception e) {
+            Assertions.assertEquals(DataIntegrityViolationException.class, e.getClass());
+        }
 
+    }
 
+    @Test
+    public void shouldNotAllowToSaveTwoUsersWithTheSameEmailLambda() {
+        //given
+        User user1 = testUser();
+        User user2 = testUser();
+        userRepository.save(user1);
+        //when then
+        Assertions.assertThrows(DataIntegrityViolationException.class, () -> userRepository.save(user2));
     }
 
     private User testUser() {

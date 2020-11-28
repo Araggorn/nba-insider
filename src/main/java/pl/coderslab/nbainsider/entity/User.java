@@ -30,4 +30,12 @@ public class User {
 
     private String favouriteTeam;
 
+    private String favouritePlayer;
+
+    public User(Long id, String login, String password, String email) {
+        this.id = id;
+        this.login = login;
+        this.password = password;
+        this.email = email;
+    }
 }
