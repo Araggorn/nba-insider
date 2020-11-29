@@ -10,4 +10,7 @@ public interface TeamService {
     List<Team> findAllTeams();
 
     Team findById(Long id);
+
+
+    void add(Team team);
 }

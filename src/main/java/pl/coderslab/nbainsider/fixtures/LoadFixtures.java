@@ -9,15 +9,19 @@ import org.springframework.stereotype.Component;
 public class LoadFixtures {
 
     private UserFixture userFixture;
+    private TeamFixture teamFixture;
 
     @Autowired
-    public LoadFixtures(UserFixture userFixture) {
+    public LoadFixtures(UserFixture userFixture, TeamFixture teamFixture) {
         this.userFixture = userFixture;
+        this.teamFixture = teamFixture;
     }
+
 
     @EventListener(ApplicationReadyEvent.class)
     public void runAfterStartup()
     {
         userFixture.loadIntoDB();
+        teamFixture.loadIntoDB();
     }
 }

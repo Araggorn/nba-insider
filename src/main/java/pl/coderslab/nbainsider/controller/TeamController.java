@@ -19,10 +19,10 @@ public class TeamController {
         this.teamService = teamService;
     }
 
-    @GetMapping("/teamlist")
-    public String list(Model model) {
-        List<Team> teams = teamService.findAllTeams();
-        model.addAttribute("teams", teams);
-        return "teamlist";
-    }
+//    @GetMapping("/teamlist")
+//    public String list(Model model) {
+//        List<Team> teams = teamService.findAllTeams();
+//        model.addAttribute("teams", teams);
+//        return "teamlist";
+//    }
 }

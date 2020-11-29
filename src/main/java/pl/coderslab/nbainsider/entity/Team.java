@@ -19,4 +19,9 @@ public class Team {
     @NotNull
     private String twitterAddress;
 
+    public Team(Long id, @NotNull String name, @NotNull String twitterAddress) {
+        this.id = id;
+        this.name = name;
+        this.twitterAddress = twitterAddress;
+    }
 }
