@@ -20,7 +20,7 @@ public class PlayerController {
         this.playerService = playerService;
     }
 
-    @GetMapping("/teamlist")
+    @GetMapping("/playerlist")
     public String list(Model model) {
         List<Player> players = playerService.findAllPlayers();
         model.addAttribute("players", players);

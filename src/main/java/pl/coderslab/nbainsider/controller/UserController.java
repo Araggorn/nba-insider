@@ -21,11 +21,11 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/userslist")
+    @GetMapping("admin/userslist")
     public String list(Model model) {
         List<User> users = userService.findAllUsers();
         model.addAttribute("users", users);
-        return "list";
+        return "userslist";
     }
 
     @GetMapping("/registration")
@@ -48,9 +48,9 @@ public class UserController {
     }
 
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("user/delete/{id}")
     public String removeBook(@PathVariable Long id) {
         userService.delete(id);
-        return "redirect:/user";
+        return "redirect:/userlist";
     }
 }

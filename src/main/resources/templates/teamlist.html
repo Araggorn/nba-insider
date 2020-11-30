@@ -1,10 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Users!</title>
+    <style>
+        body
+        {
+            background-color: whitesmoke;
+            color: orange;
+        }
+        a {
+            text-decoration: none;
+        }
+        .button {
+            background-color: darkblue;
+            border: none;
+            color: white;
+            padding: 20px 33px;
+            border-radius: 3px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            filter: brightness(80%);
+            transition: all .3s ease-in-out;
+        }
+        .buttondelete {
+            background-color: darkred;
+            border: none;
+            color: white;
+            padding: 20px 33px;
+            border-radius: 3px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            filter: brightness(80%);
+            transition: all .3s ease-in-out;
+        }
+        .buttonadd {
+            background-color: blue;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 3px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            filter: brightness(80%);
+            transition: all .3s ease-in-out;}
+        .button:hover{
+            background-color: gray;
+        }
+        .buttondelete:hover{
+            background-color: darkred;
+        }
+    </style>
 </head>
 <body>
+<div style="color: darkgreen;font-size: 32px;text-align: center;align-items: center; justify-content: center">Teams</div>
 
+<ul th:each="team: ${teams}" style="align-items: space-evenly; list-style-type: none;column-count: 3">
+    <li th:text="'Id:        ' +${team.id}"></li>
+    <li style="color: darkblue;font-size: 20px" th:text="'Name: ' + ${team.name}"></li>
+    <li th:text="'Twitter address:   ' +${team.twitterAddress}"></li>
+
+</ul>
 </body>
 </html>

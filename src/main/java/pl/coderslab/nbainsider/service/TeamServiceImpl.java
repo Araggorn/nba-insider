@@ -31,4 +31,10 @@ public class TeamServiceImpl implements TeamService {
     public void add(Team team) {
         teamRepository.save(team);
     }
+
+    @Override
+    public List<Team> find3mostlikedteams() {
+        return teamRepository.find3mostlikedteams();
+    }
+
 }

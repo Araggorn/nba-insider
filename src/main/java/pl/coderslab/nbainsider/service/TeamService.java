@@ -11,6 +11,9 @@ public interface TeamService {
 
     Team findById(Long id);
 
-
     void add(Team team);
+
+    List<Team> find3mostlikedteams();
+
+
 }

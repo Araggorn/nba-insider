@@ -1,15 +1,18 @@
 package pl.coderslab.nbainsider.entity;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
+@Table(name="users")
 public class User {
 
     @Id
@@ -28,14 +31,38 @@ public class User {
     @Column(unique=true)
     private String email;
 
-    private String favouriteTeam;
+    @ColumnDefault("false")
+    private boolean admin;
 
-    private String favouritePlayer;
+    @ManyToOne
+    private Team team;
+
+    @ManyToOne
+    private Player player;
 
     public User(Long id, String login, String password, String email) {
         this.id = id;
         this.login = login;
         this.password = password;
         this.email = email;
+    }
+
+    public User(Long id, @NotNull @Size(min = 3, max = 50) String login, @NotNull @Size(max = 64) String password, @NotNull String email, Team team, Player player) {
+        this.id = id;
+        this.login = login;
+        this.password = password;
+        this.email = email;
+        this.team = team;
+        this.player = player;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }

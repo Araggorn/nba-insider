@@ -5,10 +5,10 @@
     <title>Rejestracja</title>
 </head>
 <body>
-<h1>Rejestracja użytkownika</h1>
+<h1>User registration</h1>
     <form th:object="${user}" method="post" th:action="@{/registration/form}">
         <section>
-            <label>Registration</label>
+            <label>Login</label>
             <input type="text" th:field="*{login}"/>
             <input type="hidden" th:field="*{id}"/>
         </section>
@@ -20,14 +20,17 @@
             <label>Password</label>
             <input type="password" th:field="*{password}"/>
         </section>
-        <section>
-            <label>Favourite Team</label>
-            <input type="text" th:field="*{favouriteTeam}"/>
+<!--        <section>-->
+<!--            <label>Favourite Team</label>-->
+<!--            <input type="text" th:field="*{team.name}"/>-->
 
-        </section>
+<!--        </section>-->
+<!--        <section>-->
+<!--            <label>Favourite Player</label>-->
+<!--            <input type="hidden" th:field="*{player.lastname}">-->
+<!--        </section>-->
         <section>
-            <label>Favourite Player</label>
-            <input type="text" th:field="*{favouritePlayer}">
+            <input type="hidden" th:field="*{admin}">
         </section>
         <section>
             <button type="submit">Save</button>
