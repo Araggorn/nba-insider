@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>User registration</h1>
-    <form th:object="${user}" method="post" th:action="@{/registration/form}">
+    <form th:object="${user}" method="post" th:action="@{/registration}">
         <section>
             <label>Login</label>
             <input type="text" th:field="*{login}"/>
@@ -19,18 +19,6 @@
         <section>
             <label>Password</label>
             <input type="password" th:field="*{password}"/>
-        </section>
-<!--        <section>-->
-<!--            <label>Favourite Team</label>-->
-<!--            <input type="text" th:field="*{team.name}"/>-->
-
-<!--        </section>-->
-<!--        <section>-->
-<!--            <label>Favourite Player</label>-->
-<!--            <input type="hidden" th:field="*{player.lastname}">-->
-<!--        </section>-->
-        <section>
-            <input type="hidden" th:field="*{admin}">
         </section>
         <section>
             <button type="submit">Save</button>

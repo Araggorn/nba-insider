@@ -13,27 +13,22 @@
             text-decoration: none;
         }
         .button {
-            background-color: darkblue;
-            border: none;
-            color: white;
-            padding: 20px 33px;
+            padding: 10px 20px;
             border-radius: 3px;
             text-align: center;
             text-decoration: none;
             cursor: pointer;
-            filter: brightness(80%);
+            filter: brightness(95%);
             transition: all .3s ease-in-out;
         }
         .buttondelete {
-            background-color: darkred;
-            border: none;
             color: white;
-            padding: 20px 33px;
+            -webkit-text-fill-color: black;
+            padding: 10px 20px;
             border-radius: 3px;
             text-align: center;
             text-decoration: none;
             cursor: pointer;
-            filter: brightness(80%);
             transition: all .3s ease-in-out;
         }
         .buttonadd {
@@ -57,12 +52,18 @@
 </head>
 <body>
 <div style="color: darkgreen;font-size: 32px;text-align: center;align-items: center; justify-content: center">Teams</div>
+<a class="button" th:href="@{/playerlist}"><button class="button" style="min-width: 50px">Players</button> </a>
 
-<ul th:each="team: ${teams}" style="align-items: center; list-style-type: none;column-count: 3">
-    <li th:text="'Id:        ' +${team.id}"></li>
-    <li style="color: darkblue;font-size: 20px" th:text="'Name: ' + ${team.name}"></li>
-    <li th:text="'Twitter address:   ' +${team.twitterAddress}"></li>
-
-</ul>
+<table  style="color: black; justify-content:center; text-align: left;width:100%;border: solid 2px">
+    <tr style="border: solid 1px">
+        <th class="tables">Id</th>
+        <th class="tables">Name</th>
+        <th class="tables">Twitter</th>
+        <th class="tables">Other</th>
+    </tr>
+    <tr style="border: solid 1px" th:each="team: ${teams}">
+        <td class="tables" th:text="${team.id}"></td>
+        <td class="tables" th:text="${team.name}"></td>
+        <td class="tables" th:text="${team.twitterAddress}"></td></tr></table>
 </body>
 </html>

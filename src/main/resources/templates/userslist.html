@@ -75,14 +75,20 @@
         <th class="tables">Status</th>
     </tr>
     <tr style="border: solid 1px" th:each="user: ${users}">
-        <td class="tables" th:text="${user.getId()}"></td>
-        <td class="tables" th:text="${user.getLogin()}"></td>
-        <td class="tables" th:text="${user.getEmail()}"></td>
-        <td class="tables" th:text="${user.team.getName()}"></td>
-        <td class="tables" th:text="|${user.player.getFirstName()}  ${user.player.getLastName()}|">
-         <td><a class="button" th:href="@{/user/delete/{id}(id=${user.id})}"><button class="buttondelete" style="min-width: 50px">Delete</button></a></td>
+        <td class="tables" th:text="${user.id}"></td>
+        <td class="tables" th:text="${user.login}"></td>
+        <td class="tables" th:text="${user.email}"></td>
+        <td class="tables" th:text="${user.team != null} ? ${user.team.name} : 'You forgot to choose favourite team'"></td>
+        <td class="tables" th:text="${user.player != null} ? ${user.player.firstName} + ' '+ ${user.player.lastName} : 'You forgot to choose favourite player'"></td>
+
+        <td><a class="button" th:href="@{/user/delete/{id}(id=${user.id})}"><button class="buttondelete" style="min-width: 50px">Delete</button></a>
+             <a class="button" th:href="@{/edit/{id}(id=${user.id})}"><button class="buttondelete" style="min-width: 50px">Edit</button></a></td>
     </tr>
 </table>
+<div style="display:flex; justify-content: space-evenly">
+    <a class="button" th:href="@{/playerlist}"><button class="button" style="min-width: 50px">Players</button> </a>
+    <a class="button" th:href="@{/teamlist}"><button class="button" style="min-width: 50px">Teams</button> </a>
+</div>
 
 </body>
 </html>

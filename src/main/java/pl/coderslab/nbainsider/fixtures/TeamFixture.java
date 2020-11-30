@@ -20,7 +20,8 @@ public class TeamFixture {
             new Team(null, "Miami Heat", "https://twitter.com/MiamiHEAT"),
             new Team(null, "Houston Rockets", "https://twitter.com/HoustonRockets"),
             new Team(null, "Chicago Bulls", "https://twitter.com/chicagobulls"),
-            new Team(null, "New York Knicks", "https://twitter.com/nyknicks")
+            new Team(null, "New York Knicks", "https://twitter.com/nyknicks"),
+            new Team(null, "Los Angeles Clippers", "https://twitter.com/LAClippers")
     );
 
     @Autowired

@@ -27,7 +27,9 @@ public class UserFixture {
             new User(null, "pinka", "malinka", "korniszonek@nba.com", null, null),
             new User(null, "Arek", "aserehe", "arekbezbarek@nba.com", null, null),
             new User(null, "Irenka", "beza", "beza@beza.beza", null, null),
-            new User(null, "admin", "admin", "drednor@o2.pl", null, null)
+            new User(null, "admin", "admin", "drednor@o2.pl", null, null),
+            new User(null, "Buggs Bunny", "ali", "buckik@toons.pl", null, null),
+            new User(null, "Donald Duck", "duckyduck", "dduck@kaczogrod.info", null, null)
     );
 
     @Autowired

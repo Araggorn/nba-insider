@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.nbainsider.entity.User;
 import pl.coderslab.nbainsider.service.UserService;
 
@@ -35,17 +34,25 @@ public class UserController {
     }
 
     @PostMapping("/registration")
-    public String add(User user, Model model) {
+    public String add(User user) {
         userService.add(user);
-        return "redirect:/users";
+        return "redirect:/userlist";
     }
-
-    @GetMapping("/form/{id}")
-    public String updateBook(@PathVariable Long id, Model model) {
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable Long id, Model model) {
         User user = userService.findById(id);
         model.addAttribute(user);
-        return "form";
+        return "edit";
     }
+// TODO edycja sie nie zapisuje
+
+    @PostMapping("/edit")
+    public String addedit(User user) {
+        userService.add(user);
+
+        return "redirect:/userlist";
+    }
+
 
 
     @GetMapping("/user/delete/{id}")

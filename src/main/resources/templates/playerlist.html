@@ -13,27 +13,22 @@
             text-decoration: none;
         }
         .button {
-            background-color: darkblue;
-            border: none;
-            color: white;
-            padding: 20px 33px;
+            padding: 10px 20px;
             border-radius: 3px;
             text-align: center;
             text-decoration: none;
             cursor: pointer;
-            filter: brightness(80%);
+            filter: brightness(95%);
             transition: all .3s ease-in-out;
         }
         .buttondelete {
-            background-color: darkred;
-            border: none;
             color: white;
-            padding: 20px 33px;
+            -webkit-text-fill-color: black;
+            padding: 10px 20px;
             border-radius: 3px;
             text-align: center;
             text-decoration: none;
             cursor: pointer;
-            filter: brightness(80%);
             transition: all .3s ease-in-out;
         }
         .buttonadd {
@@ -57,7 +52,7 @@
 </head>
 <body>
 <div style="color: darkgreen;font-size: 32px;text-align: center;align-items: center; justify-content: center">Players</div>
-
+<a class="button" th:href="@{/teamlist}"><button class="button" style="min-width: 50px">Teams</button> </a>
 <ul th:each="player: ${players}" style="align-items: center; list-style-type: none">
     <li th:text="'Id:        ' +${player.id}"></li>
     <li th:text="'Name:  '+${player.firstName}"></li>
