@@ -2,6 +2,7 @@ package pl.coderslab.nbainsider.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pl.coderslab.nbainsider.entity.Player;
 import pl.coderslab.nbainsider.entity.Team;
 import pl.coderslab.nbainsider.repository.PlayerRepository;
@@ -9,6 +10,7 @@ import pl.coderslab.nbainsider.repository.PlayerRepository;
 import java.util.List;
 
 @Service
+@Transactional
 public class PlayerServiceImpl implements PlayerService {
 
     PlayerRepository playerRepository;

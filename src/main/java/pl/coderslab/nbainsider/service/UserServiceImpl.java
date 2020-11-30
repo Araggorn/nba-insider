@@ -9,6 +9,7 @@ import pl.coderslab.nbainsider.repository.UserRepository;
 import java.util.List;
 
 @Service
+@Transactional
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
@@ -19,7 +20,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional
     public void save(User user) {
         userRepository.save(user);
     }
@@ -30,6 +30,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<User> findAllByActiveTrue() {
+        return userRepository.findAllByActiveTrue();
+    }
+
+    @Override
     public void add(User user) {
         userRepository.save(user);
     }
@@ -37,7 +42,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void delete(Long id) {
-        userRepository.deleteById(id);
+       User user = userRepository.getOne(id);
+        user.setActive(false);
+        userRepository.save(user);
+     //   userRepository.deleteById(id);
     }
 
     @Override

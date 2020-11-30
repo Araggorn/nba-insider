@@ -56,12 +56,12 @@
     </style>
 </head>
 <body>
-<div style="color: darkgreen;font-size: 32px;text-align: center;align-items: center; justify-content: center">Teams</div>
+<div style="color: darkgreen;font-size: 32px;text-align: center;align-items: center; justify-content: center">Players</div>
 
-<ul th:each="team: ${teams}" style="align-items: center; list-style-type: none;column-count: 3">
-    <li th:text="'Id:        ' +${team.id}"></li>
-    <li style="color: darkblue;font-size: 20px" th:text="'Name: ' + ${team.name}"></li>
-    <li th:text="'Twitter address:   ' +${team.twitterAddress}"></li>
+<ul th:each="player: ${players}" style="align-items: center; list-style-type: none">
+    <li th:text="'Id:        ' +${player.id}"></li>
+    <li th:text="'Name:  '+${player.firstName}"></li>
+    <li style="color: darkblue; font-size: 22px" th:text="'LastName:  '+${player.lastName}"></li>
 
 </ul>
 </body>

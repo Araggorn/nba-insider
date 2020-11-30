@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import pl.coderslab.nbainsider.entity.Player;
-import pl.coderslab.nbainsider.entity.Team;
 import pl.coderslab.nbainsider.service.PlayerService;
 
 import java.util.List;
@@ -24,6 +23,6 @@ public class PlayerController {
     public String list(Model model) {
         List<Player> players = playerService.findAllPlayers();
         model.addAttribute("players", players);
-        return "playerslist";
+        return "playerlist";
     }
 }

@@ -31,14 +31,13 @@ public class User {
     @Column(unique=true)
     private String email;
 
-    @ColumnDefault("false")
-    private boolean admin;
-
     @ManyToOne
     private Team team;
 
     @ManyToOne
     private Player player;
+
+    private boolean active = true;
 
     public User(Long id, String login, String password, String email) {
         this.id = id;

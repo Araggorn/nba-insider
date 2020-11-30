@@ -21,4 +21,6 @@ public interface UserService {
 
     User findById(Long id);
 
+    List<User> findAllByActiveTrue();
+
 }

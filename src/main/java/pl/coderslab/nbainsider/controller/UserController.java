@@ -21,9 +21,9 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("admin/userslist")
+    @GetMapping("/userlist")
     public String list(Model model) {
-        List<User> users = userService.findAllUsers();
+        List<User> users = userService.findAllByActiveTrue();
         model.addAttribute("users", users);
         return "userslist";
     }
@@ -48,8 +48,8 @@ public class UserController {
     }
 
 
-    @GetMapping("user/delete/{id}")
-    public String removeBook(@PathVariable Long id) {
+    @GetMapping("/user/delete/{id}")
+    public String removeUser(@PathVariable Long id) {
         userService.delete(id);
         return "redirect:/userlist";
     }
