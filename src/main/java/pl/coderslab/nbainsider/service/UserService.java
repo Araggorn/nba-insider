@@ -23,4 +23,6 @@ public interface UserService {
 
     List<User> findAllByActiveTrue();
 
+    String hashPassword(String password);
+
 }

@@ -1,18 +1,20 @@
 package pl.coderslab.nbainsider.entity;
 
 import lombok.*;
-import org.hibernate.annotations.ColumnDefault;
-import org.springframework.boot.context.properties.bind.DefaultValue;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Set;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @Table(name="users")
+@EqualsAndHashCode(of = "login")
+@ToString(exclude = "password")
+
 public class User {
 
     @Id
@@ -24,7 +26,6 @@ public class User {
     private String login;
 
     @NotNull
-    @Size(max = 64)
     private String password;
 
     @NotNull
@@ -38,6 +39,12 @@ public class User {
     private Player player;
 
     private boolean active = true;
+
+//    @Transient
+//    @ElementCollection
+//    @CollectionTable(name = "users_roles", joinColumns = @JoinColumn(name = "username", referencedColumnName = "id"))
+//    @Column(name = "role")
+//    private Set<String> roles;
 
     public User(Long id, String login, String password, String email) {
         this.id = id;

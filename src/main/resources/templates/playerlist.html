@@ -12,6 +12,24 @@
         a {
             text-decoration: none;
         }
+        .contener
+        {
+            width: 100%;
+            display: inline-block;
+        }
+        .left
+        {
+            display: inline-block;
+            width: 40%;
+            position: initial;
+            vertical-align:top;
+            top: 2px;
+        }
+        .right
+        {
+            display: inline-block;
+            width: 59%;
+        }
         .button {
             padding: 10px 20px;
             border-radius: 3px;
@@ -52,12 +70,34 @@
 </head>
 <body>
 <div style="color: darkgreen;font-size: 32px;text-align: center;align-items: center; justify-content: center">Players</div>
+<div class="contener">
+    <div class="left">
 <a class="button" th:href="@{/teamlist}"><button class="button" style="min-width: 50px">Teams</button> </a>
+<div class="form">
+    <h3>Add player to database</h3>
+    <form th:object="${player}" method="post" th:action="@{/playerlist}">
+        <section>
+            <label>First Name</label>
+            <input type="text" th:field="*{firstName}"/>
+            <input type="hidden" th:field="*{id}"/>
+        </section>
+        <section>
+            <label>Last name:</label>
+            <input type="text" th:field="*{lastName}"/>
+        </section>
+        <section>
+            <button type="submit">Add player!</button>
+        </section>
+    </form>
+</div></div>
+<div class="right">
 <ul th:each="player: ${players}" style="align-items: center; list-style-type: none">
     <li th:text="'Id:        ' +${player.id}"></li>
     <li th:text="'Name:  '+${player.firstName}"></li>
     <li style="color: darkblue; font-size: 22px" th:text="'LastName:  '+${player.lastName}"></li>
 
 </ul>
+</div></div>
+
 </body>
 </html>
