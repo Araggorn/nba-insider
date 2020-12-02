@@ -35,7 +35,7 @@ public class MainPageController {
 
     @PostMapping("/login")
     public String add(User user, Model model) {
-        userService.add(user);
+     //   userService.save(user);
         return "redirect:/users";
     }
 

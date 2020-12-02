@@ -26,6 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
+                .antMatchers("/js/**", "/css/**", "/fonts/**", "/images/**", "/favicon.ico").permitAll()
                 .antMatchers("/login").permitAll()
 //               .antMatchers("/admin/**").hasRole("USER")
               .anyRequest().authenticated()
@@ -34,11 +35,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .loginPage("/login")
 //                .usernameParameter("login") // username
 //                .passwordParameter("password") // password
-               .defaultSuccessUrl("/userlist");
-//                .and()
-//                .logout()
-//                .logoutUrl("/logout")
-//                .logoutSuccessUrl("/userlist")
+               .defaultSuccessUrl("/userlist")
+                .and()
+                .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/userlist");
 //                .and()
 //                .csrf()
 //                .disable();

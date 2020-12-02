@@ -1,6 +1,7 @@
 package pl.coderslab.nbainsider.service;
 
 
+import pl.coderslab.nbainsider.dto.UserDto;
 import pl.coderslab.nbainsider.entity.User;
 
 
@@ -13,11 +14,11 @@ public interface UserService {
 
     List<User> findAllUsers();
 
-    void add(User user);
+    void add(UserDto userDto);
 
     void delete(Long id);
 
-    void update(User user);
+    void update(UserDto userDto);
 
     User findById(Long id);
 

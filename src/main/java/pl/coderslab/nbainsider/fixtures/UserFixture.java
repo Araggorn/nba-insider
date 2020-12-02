@@ -47,7 +47,7 @@ public class UserFixture {
         for (User user : userList) {
             user.setTeam(teams.get(rand.nextInt(teams.size())));
             user.setPlayer(players.get(rand.nextInt(players.size())));
-            userService.add(user);
+            userService.save(user);
         }
     }
 }

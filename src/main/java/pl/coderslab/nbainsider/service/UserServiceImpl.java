@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.coderslab.nbainsider.dto.UserDto;
 import pl.coderslab.nbainsider.entity.User;
 import pl.coderslab.nbainsider.repository.UserRepository;
 
@@ -26,6 +27,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void save(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
     }
 
@@ -40,10 +42,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void add(User user) {
+    public void add(UserDto userDto) {
+        User user = new User();
+        user.setLogin(userDto.getLogin());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setEmail(userDto.getEmail());
         userRepository.save(user);
     }
+
 
     @Override
     public void delete(Long id) {
@@ -53,7 +59,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void update(User user) {
+    public void update(UserDto userDto)
+    {
+        User user = userRepository.getOne(userDto.getId());
+        user.setLogin(userDto.getLogin());
+        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+        user.setEmail(userDto.getEmail());
          userRepository.save(user);
     }
 
