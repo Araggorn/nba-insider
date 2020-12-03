@@ -1,5 +1,6 @@
 package pl.coderslab.nbainsider.service;
 
+import pl.coderslab.nbainsider.dto.TeamLikeDto;
 import pl.coderslab.nbainsider.entity.Team;
 import pl.coderslab.nbainsider.entity.User;
 
@@ -13,8 +14,7 @@ public interface TeamService {
 
     void add(Team team);
 
-    List<Team> find3mostlikedteams();
-    List<Team> find7mostlikedteam();
+    List<TeamLikeDto> find4mostlikedteams();
 
 
 }

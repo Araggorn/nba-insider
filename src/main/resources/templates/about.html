@@ -5,7 +5,7 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE HTML>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Basketball a Sports Category Flat Bootstrap Responsive Website Template | About :: w3layouts</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,13 +13,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta name="keywords" content="Basketball Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href="../static/css/bootstrap-3.1.1.min.css" rel="stylesheet" type="text/css">
+	<link th:href="@{/css/bootstrap-3.1.1.min.css}" type="text/css">
 <!-- Custom Theme files -->
-<link href="../static/css/owl.carousel.css" rel="stylesheet" type="text/css" media="all" />
-<link href="../static/css/style.css" rel='stylesheet' type='text/css' />
-<script src="../static/js/jquery.min.js"> </script>
-<script type="text/javascript" src="../static/js/move-top.js"></script>
-<script type="text/javascript" src="../static/js/easing.js"></script>
+<link href="@{/css/owl.carousel.css}" rel="stylesheet" type="text/css" media="all" />
+<link href="@{/css/style.css}" rel='stylesheet' type='text/css' />
+<script src="@{/js/jquery.min.js}"> </script>
+<script type="text/javascript" src="@{/js/move-top.js}"></script>
+<script type="text/javascript" src="@{/js/easing.js}"></script>
 <!--/script-->
 <script type="text/javascript">
 			jQuery(document).ready(function($) {
@@ -47,59 +47,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!--/.navbar-header-->
 		
 		<div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					 <li><a class="active" href="about.html">About</a></li>
-				    <li class="dropdown">
-						<a href="schedule.html" class="dropdown-toggle" data-toggle="dropdown">Schedule<b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="schedule.html">Videos</a></li>
-							<li class="divider"></li>
-							<li><a href="blog.html">Blogs</a></li>
-							<li class="divider"></li>
-							<li><a href="schedule.html">Articles</a></li>
-							<li class="divider"></li>
-							<li><a href="schedule.html">Celebrity</a></li>
-							<li class="divider"></li>
-							<li><a href="schedule.html">One more separated link</a></li>
-						</ul>
-					  </li>
-					<li><a href="blog.html">Blogs</a></li>
-					  <li class="dropdown">
-						<a href="typo.html" class="dropdown-toggle" data-toggle="dropdown">Typo<b class="caret"></b></a>
-						<ul class="dropdown-menu multi-column columns-2">
-							<div class="row">
-								<div class="col-sm-6">
-									<ul class="multi-column-dropdown">
-										<li><a href="typo.html">Action</a></li>
-										<li class="divider"></li>
-										<li><a href="index.html">News</a></li>
-									    <li class="divider"></li>
-										<li><a href="blog.html">Blog</a></li>
-										<li class="divider"></li>
-										<li><a href="typo.html">Reviews</a></li>
-										<li class="divider"></li>
-										<li><a href="typo.html">Short codes</a></li>
-									</ul>
-								</div>
-								<div class="col-sm-6">
-									<ul class="multi-column-dropdown">
-									   <li><a href="#">Features</a></li>	
-										<li class="divider"></li>
-										<li><a href="#"> Movies</a></li>
-									    <li class="divider"></li>
-										<li><a href="#">Sports</a></li>
-										<li class="divider"></li>
-										<li><a href="#">Reviews</a></li>
-										<li class="divider"></li>
-										<li><a href="#">Account</a></li>
-									</ul>
-								</div>
-							</div>
-						</ul>
-					</li>
-					<li><a href="gallery.html">Gallery</a></li>
-					<li><a href="contact.html">Contact</a></li>
-				</ul>
+			<ul class="nav navbar-nav">
+				<li><a th:href="@{login}">Login</a></li>
+				<li><a th:href="@{registration}">Registration</a></li>
+				<li><a th:href="@{topteams}">Top Teams</a></li>
+				<li><a th:href="@{topplayers}">Top players</a></li>
+				<li><a th:href="@{about}">Contact and about</a></li>
+			</ul>
 			</div>
 			<!--/.navbar-collapse-->
 	 <!--/.navbar-->
@@ -136,12 +90,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						      <h3 class="tittle">Our Coach</h3>
 						        <div class="coach-sec">	
 								     <div class="col-md-6 coach-inner">
-									   	<a href="single.html"><img src="../static/images/c1.jpg" alt=""/></a>
+									   	<a href="single.html"><img th:src="@{/images/c1.jpg}" alt=""/></a>
 										<a href="single" class="news">RAMBO DOEL</a>
                                          <p>Lorem dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
 									 </div>
 									 <div class="col-md-6 coach-inner">
-									  	<a href="single.html"><img src="../static/images/c2.jpg" alt=""/></a>
+									  	<a href="single.html"><img th:src="@{/static/images/c2.jpg}" alt=""/></a>
 										<a href="single.html" class="news">JOHN DOEL</a>
                                       <p>Lorem dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
 									 </div>
@@ -742,7 +696,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 <!--JS-->
-<script type="text/javascript" src="../static/js/bootstrap-3.1.1.min.js"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap-3.1.1.min.js}"></script>
 
 <!--//JS-->
 

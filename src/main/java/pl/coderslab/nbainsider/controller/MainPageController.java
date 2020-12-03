@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.coderslab.nbainsider.dto.TeamLikeDto;
 import pl.coderslab.nbainsider.entity.Team;
 import pl.coderslab.nbainsider.entity.User;
 import pl.coderslab.nbainsider.service.TeamService;
@@ -25,8 +26,8 @@ public class MainPageController {
     }
     @GetMapping("/main")
     public String list(Model model) {
-//        List<Team> teams = teamService.find3mostlikedteams();
-//        model.addAttribute("teams", teams);
+        List<TeamLikeDto> teams = teamService.find4mostlikedteams();
+        model.addAttribute("teams", teams);
         return "main";
     }
 

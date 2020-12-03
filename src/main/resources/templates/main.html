@@ -6,11 +6,12 @@
 </head>
 <body>
 <div style="color: black;font-size: 32px;text-align: center;align-items: center; justify-content: center">Currently most liked teams:</div>
-<!--<div>-->
-<!--<ul th:each="team: ${teams}" style="list-style-type: none">-->
-<!--    <li th:text="'Number of users:   '+ ${team.id}"></li>-->
-<!--    <li style="color: darkblue;font-size: 20px" th:text="'Name ' + ${team.name}"></li>-->
-<!--</ul></div>-->
+<div>
+<ul th:each="team: ${teams}" style="list-style-type: none">
+    <li th:text="'Number of users:   '+ ${team.counter}"></li>
+    <li style="color: darkblue;font-size: 20px" th:text="'Name ' + ${team.name}"></li>
+    <li th:text="'Id  " + ${team.id}></li>
+</ul></div>
 
 <div>
    <div th:text="${#request.remoteUser}"></div>
