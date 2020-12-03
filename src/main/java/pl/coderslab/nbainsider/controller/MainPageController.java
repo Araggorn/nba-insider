@@ -14,7 +14,6 @@ import pl.coderslab.nbainsider.service.UserService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/main")
 public class MainPageController {
     TeamService teamService;
     UserService userService;
@@ -24,20 +23,18 @@ public class MainPageController {
         this.teamService = teamService;
         this.userService = userService;
     }
-    @GetMapping("/login")
+    @GetMapping("/main")
     public String list(Model model) {
-        List<Team> teams3 = teamService.find3mostlikedteams();
-        model.addAttribute("teams", teams3);
-        User user = new User();
-        model.addAttribute("user", user);
+//        List<Team> teams = teamService.find3mostlikedteams();
+//        model.addAttribute("teams", teams);
         return "main";
     }
 
-    @PostMapping("/login")
-    public String add(User user, Model model) {
-     //   userService.save(user);
-        return "redirect:/users";
-    }
+//    @PostMapping("/main")
+//    public String add(User user, Model model) {
+//     //   userService.save(user);
+//        return "redirect:/users";
+//    }
 
 
 }

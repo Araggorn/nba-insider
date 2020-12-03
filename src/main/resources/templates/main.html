@@ -6,23 +6,14 @@
 </head>
 <body>
 <div style="color: black;font-size: 32px;text-align: center;align-items: center; justify-content: center">Currently most liked teams:</div>
-<div>
-<ul th:each="team: ${teams}" style="list-style-type: none">
-    <li th:text="'Number of users:        ' +${team.users.size}"></li>
-    <li style="color: darkblue;font-size: 20px" th:text="'Name ' + ${team.name}"></li>
-</ul></div>
+<!--<div>-->
+<!--<ul th:each="team: ${teams}" style="list-style-type: none">-->
+<!--    <li th:text="'Number of users:   '+ ${team.id}"></li>-->
+<!--    <li style="color: darkblue;font-size: 20px" th:text="'Name ' + ${team.name}"></li>-->
+<!--</ul></div>-->
 
 <div>
-    <form th:object="${user}" method="post" th:action="@{main/login}">
-        <section>
-            <label>Login</label>
-            <input type="text" th:field="*{login}"/>
-        </section>
-        <section>
-            <label>Password</label>
-            <input type="password" th:field="*{password}"/>
-        </section>
-    </form>
+   <div th:text="${#request.remoteUser}"></div>
 </div>
 </body>
 </html>

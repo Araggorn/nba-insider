@@ -14,6 +14,7 @@ public interface TeamService {
     void add(Team team);
 
     List<Team> find3mostlikedteams();
+    List<Team> find7mostlikedteam();
 
 
 }

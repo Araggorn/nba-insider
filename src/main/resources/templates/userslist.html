@@ -80,8 +80,8 @@
         <td class="tables" th:text="${user.id}"></td>
         <td class="tables" th:text="${user.login}"></td>
         <td class="tables" th:text="${user.email}"></td>
-        <td class="tables" th:text="${user.team != null} ? ${user.team.name} : 'You forgot to choose favourite team'"></td>
-        <td class="tables" th:text="${user.player != null} ? ${user.player.firstName} + ' '+ ${user.player.lastName} : 'You forgot to choose favourite player'"></td>
+        <td class="tables" th:text="${user.team != null} ? ${user.team} : 'You forgot to choose favourite team'"></td>
+        <td class="tables" th:text="${user.player != null} ? ${user.player}: 'You forgot to choose favourite player'"></td>
 
         <td><a class="button" th:href="@{/user/delete/{id}(id=${user.id})}"><button class="buttondelete" style="min-width: 50px">Delete</button></a>
              <a class="button" th:href="@{/edit/{id}(id=${user.id})}"><button class="buttondelete" style="min-width: 50px">Edit</button></a></td>

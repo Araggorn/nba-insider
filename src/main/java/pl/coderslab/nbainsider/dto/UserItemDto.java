@@ -3,19 +3,15 @@ package pl.coderslab.nbainsider.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDto {
+public class UserItemDto {
 
     private Long id;
     private String login;
-    private String password;
     private String email;
-
-
-
-
+    private String team;
+    private String player;
 }

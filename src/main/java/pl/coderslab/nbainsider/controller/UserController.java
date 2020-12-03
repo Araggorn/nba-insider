@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.coderslab.nbainsider.dto.UserDto;
+import pl.coderslab.nbainsider.dto.UserItemDto;
 import pl.coderslab.nbainsider.entity.User;
 import pl.coderslab.nbainsider.service.UserService;
 
@@ -23,7 +24,7 @@ public class UserController {
 
     @GetMapping("/userlist")
     public String list(Model model) {
-        List<User> users = userService.findAllByActiveTrue();
+        List<UserItemDto> users = userService.find2all();
         model.addAttribute("users", users);
         return "userslist";
     }

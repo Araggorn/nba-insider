@@ -6,10 +6,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.coderslab.nbainsider.dto.UserDto;
+import pl.coderslab.nbainsider.dto.UserItemDto;
 import pl.coderslab.nbainsider.entity.User;
 import pl.coderslab.nbainsider.repository.UserRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -41,11 +43,12 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAllByActiveTrue();
     }
 
+
     @Override
     public void add(UserDto userDto) {
         User user = new User();
         user.setLogin(userDto.getLogin());
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
         user.setEmail(userDto.getEmail());
         userRepository.save(user);
     }
@@ -75,5 +78,18 @@ public class UserServiceImpl implements UserService {
 
     public String hashPassword(String password) {
         return BCrypt.hashpw(password, BCrypt.gensalt());
+    }
+
+    @Override
+    public List<UserItemDto> find2all() {
+       return  userRepository.findAllByActiveTrue().stream()
+               .map(u -> new UserItemDto(
+                       u.getId(),
+                       u.getLogin(),
+                       u.getEmail(),
+                       u.getTeam() != null ? u.getTeam().getName(): null,
+                       u.getPlayer() != null ? u.getPlayer().getFirstName() + "  " + u.getPlayer().getLastName() : null))
+               .collect(Collectors.toList());
+
     }
 }

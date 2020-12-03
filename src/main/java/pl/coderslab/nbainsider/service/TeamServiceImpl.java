@@ -36,7 +36,10 @@ public class TeamServiceImpl implements TeamService {
 
     @Override
     public List<Team> find3mostlikedteams() {
-        return teamRepository.findmostlikedteams(3);
+        return teamRepository.findmostlikedteams();
     }
+
+    @Override
+    public List<Team> find7mostlikedteam() { return teamRepository.findmostlikedteams();}
 
 }
