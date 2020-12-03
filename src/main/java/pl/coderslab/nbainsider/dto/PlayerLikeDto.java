@@ -5,8 +5,9 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class TeamLikeDto {
+public class PlayerLikeDto {
     private int counter;
     private Long id;
-    private String team;
+    private String firstName;
+    private String lastName;
 }

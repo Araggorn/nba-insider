@@ -13,10 +13,12 @@ import java.util.List;
 public interface TeamRepository extends JpaRepository <Team, Long>{
 
     @Query(value = "select count(u.id) as counter, t.name, t.id from users u inner join teams t on t.id = u.team_id group by t.name, t.id  order by 1 desc limit 5", nativeQuery = true)
-    List<TeamLikeDto> findmostlikedteams();
+    List<MostLikedTeam> findmostlikedteams();
 
+    public static interface MostLikedTeam {
+        Long getId();
+        String getName();
+        int getCounter();
+    }
 
-
-//@Query("select u from users u group by u.team")
-//    List <Team> findmostlikedteams
 }

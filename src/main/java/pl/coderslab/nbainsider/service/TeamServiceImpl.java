@@ -39,7 +39,10 @@ public class TeamServiceImpl implements TeamService {
 
     @Override
     public List<TeamLikeDto> find4mostlikedteams() {
-        return  teamRepository.findmostlikedteams();
+        return  teamRepository.findmostlikedteams()
+                .stream()
+                .map(team -> new TeamLikeDto(team.getCounter(), team.getId(), team.getName()))
+                .collect(Collectors.toList());
     }
 
 }

@@ -1,5 +1,7 @@
 package pl.coderslab.nbainsider.service;
 
+import pl.coderslab.nbainsider.dto.PlayerLikeDto;
+import pl.coderslab.nbainsider.dto.TeamLikeDto;
 import pl.coderslab.nbainsider.entity.Player;
 import pl.coderslab.nbainsider.entity.Team;
 
@@ -10,4 +12,6 @@ public interface PlayerService {
 
     Player findById(Long id);
     void add(Player player);
+
+    List<PlayerLikeDto> find4mostlikedplayers();
 }
