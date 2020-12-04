@@ -14,4 +14,6 @@ public interface PlayerService {
     void add(Player player);
 
     List<PlayerLikeDto> find4mostlikedplayers();
+
+    String getPlayerByUser();
 }

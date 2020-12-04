@@ -73,7 +73,10 @@
 <div class="contener">
     <div class="left">
 <a class="button" th:href="@{/teamlist}"><button class="button" style="min-width: 50px">Teams</button> </a>
-        <a class="button" th:href="@{/logout}"><button class="button" style="min-width: 50px">Logout</button> </a>
+        <a class="button" th:href="@{/logout}">
+            <button class="button" style="min-width: 50px; color: darkred; cursor:crosshair">Logout
+            </button>
+        </a>
 <div class="form">
     <h3>Add player to database</h3>
     <form th:object="${player}" method="post" th:action="@{/playerlist}">

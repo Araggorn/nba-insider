@@ -2,6 +2,7 @@ package pl.coderslab.nbainsider.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import pl.coderslab.nbainsider.entity.Player;
 import pl.coderslab.nbainsider.entity.Team;
@@ -19,6 +20,8 @@ public interface PlayerRepository extends JpaRepository<Player, Long> {
         Long getId();
         String getFirstName();
         String getLastName();
-
     }
+    @Query(value = "SELECT CONCAT(p.first_name,' ' ,p.last_name) fullname FROM users u\n" +
+            "    LEFT JOIN players p on p.id = u.player_id WHERE u.login = ?1", nativeQuery = true)
+    String getPlayerByUser(@Param("login") String login);
 }

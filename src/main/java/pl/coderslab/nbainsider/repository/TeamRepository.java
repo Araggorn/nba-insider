@@ -25,8 +25,9 @@ public interface TeamRepository extends JpaRepository <Team, Long>{
     @Query(value = "SELECT * from Teams t Where t.users.login = :user ORDER BY t.name DESC LIMIT 1", nativeQuery = true)
    Team findTeamByUser(@Param("user") String user);
 
-    // TODO nie działa
-  List<Team> getTeamByUsers(String login);
+
+  @Query(value = "SELECT t.name FROM users u LEFT JOIN teams t on t.id = u.team_id WHERE u.login = ?1", nativeQuery = true)
+  String getTeamByUser(@Param("login") String login);
 
 
 }

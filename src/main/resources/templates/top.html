@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.tymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Basketball a Sports Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+    <title>Basketball a Sports Category Flat Bootstrap Responsive Website Template | About :: w3layouts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Basketball Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-
     <link th:href="@{/css/bootstrap-3.1.1.min.css}" rel="stylesheet" type="text/css">
     <!-- Custom Theme files -->
     <link th:href="@{/css/owl.carousel.css}" rel="stylesheet" type="text/css" media="all" />
@@ -25,27 +24,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         });
     </script>
 </head>
-<body>
+
+<body style="display: inline-block; justify-content: center; width: 100%">
 <div th:include="fragments/header :: header"></div>
-<h1>User editor</h1>
-<form th:object="${user}" method="post" th:action="@{/edit}">
-    <section>
-        <label>Login</label>
-        <input type="text" th:field="*{login}"/>
-        <input type="hidden" th:field="*{id}"/>
-    </section>
-    <section>
-        <label>Email</label>
-        <input type="text" th:field="*{email}"/>
-    </section>
-    <section>
-        <label>Password</label>
-        <input type="password" th:field="*{password}"/>
-    </section>
-    <section>
-        <button type="submit">Save</button>
-    </section>
-</form>
-<a class="button" th:href="@{/logout}"><button class="button" style="min-width: 50px">Logout</button> </a>
+<table  style="color: black; width: 40%; display: inline-block; justify-content: center; text-align: center;border: solid 2px">
+    <tr style="border: solid 1px">
+        <th class="tables">Likes</th>
+        <th class="tables">Team</th>
+        <th class="tables">Status</th>
+    </tr>
+    <tr style="border: solid 1px" th:each="team: ${teams}">
+        <td class="tables" th:text="${team.counter}"></td>
+        <td class="tables" th:text="${team.team}"></td>
+        <td class="tables" th:hidden="${team.id}"></td>
+          </tr>
+</table>
+<table  style="color: black; width: 40%; display:inline-block; justify-content: center;text-align: center;border: solid 2px">
+    <tr style="border: solid 1px">
+        <th class="tables">Likes</th>
+        <th class="tables">Player firstname</th>
+        <th class="tables">Player lastname</th>
+        <th class="tables">Status</th>
+    </tr>
+    <tr style="border: solid 1px" th:each="player: ${players}">
+        <td class="tables" th:text="${player.counter}"></td>
+        <td class="tables" th:text="${player.firstName}"></td>
+        <td class="tables" th:text="${player.lastName}"></td>
+        <td class="tables" th:hidden="${player.id}"></td>
+    </tr>
+</table>
 </body>
 </html>

@@ -48,9 +48,7 @@ public class TeamServiceImpl implements TeamService {
     }
 
     @Override
-    public Team getTeamByUsers() {
-       List<Team> list = teamRepository.getTeamByUsers(SecurityUtils.username());
-       return list.get(0);
+    public String getTeamByUsers() {
+       return teamRepository.getTeamByUser(SecurityUtils.username());
     }
-
 }

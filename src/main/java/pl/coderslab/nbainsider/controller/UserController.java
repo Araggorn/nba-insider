@@ -47,7 +47,6 @@ public class UserController {
         model.addAttribute("user", user);
         return "edit";
     }
-// TODO edycja sie nie zapisuje
 
     @PostMapping("/edit")
     public String addedit(UserDto user) {

@@ -3,23 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Rejestracja</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="keywords" content="Basketball Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+        <link th:href="@{/css/bootstrap-3.1.1.min.css}" rel="stylesheet" type="text/css">
+        <!-- Custom Theme files -->
+        <link th:href="@{/css/owl.carousel.css}" rel="stylesheet" type="text/css" media="all" />
+        <link th:href="@{/css/style.css}" rel='stylesheet' type='text/css' />
+        <script th:src="@{/js/jquery.min.js}"> </script>
+        <script type="text/javascript" th:src="@{/js/move-top.js}"></script>
+        <script type="text/javascript" th:src="@{/js/easing.js}"></script>
+        <!--/script-->
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                $(".scroll").click(function(event){
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+                });
+            });
+        </script>
     <style>
-        body
+        .downtown
         {
             background-color: whitesmoke;
             color: black;
             cursor: pointer;
             display: flex;
-            padding: 140px;
-            border: 100px;
+            padding: 80px;
+            border: 80px;
             justify-content: space-around;
             align-items: normal;
+            text-align: center;
         }
-
-
     </style>
 </head>
 <body>
+<div th:include="fragments/header :: header"></div>
+<div class="downtown">
 <h1>User registration</h1>
     <form th:object="${user}" method="post" th:action="@{/registration}">
         <section>
@@ -39,5 +62,6 @@
             <button type="submit">Save</button>
         </section>
     </form>
+</div>
 </body>
 </html>

@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.coderslab.nbainsider.app.SecurityUtils;
 import pl.coderslab.nbainsider.dto.PlayerLikeDto;
 import pl.coderslab.nbainsider.dto.TeamLikeDto;
 import pl.coderslab.nbainsider.entity.Player;
@@ -35,8 +36,10 @@ public class MainPageController {
         model.addAttribute("teams", teams);
         List<PlayerLikeDto> players = playerService.find4mostlikedplayers();
         model.addAttribute("players", players);
-        Team favteam = teamService.getTeamByUsers();
+        String favteam = teamService.getTeamByUsers();
         model.addAttribute("favteam", favteam);
+        String favplaya = playerService.getPlayerByUser();
+        model.addAttribute("favplaya", favplaya);
         return "main";
     }
 

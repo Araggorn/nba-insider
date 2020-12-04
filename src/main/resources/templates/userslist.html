@@ -1,8 +1,28 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Users!</title>
+    <title>Basketball a Sports Category Flat Bootstrap Responsive Website Template | About :: w3layouts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Basketball Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link th:href="@{/css/bootstrap-3.1.1.min.css}" rel="stylesheet" type="text/css">
+    <!-- Custom Theme files -->
+    <link th:href="@{/css/owl.carousel.css}" rel="stylesheet" type="text/css" media="all" />
+    <link th:href="@{/css/style.css}" rel='stylesheet' type='text/css' />
+    <script th:src="@{/js/jquery.min.js}"> </script>
+    <script type="text/javascript" th:src="@{/js/move-top.js}"></script>
+    <script type="text/javascript" th:src="@{/js/easing.js}"></script>
+    <!--/script-->
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event){
+                event.preventDefault();
+                $('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+            });
+        });
+    </script>
     <style>
         body
         {
@@ -53,7 +73,8 @@
     </style>
 </head>
 <body>
-<div style="color: black;font-size: 20px;text-align: center">These users registered to your site!</div>
+<div th:include="fragments/header :: header"></div>
+<div style="background: black; color: white;font-size: 20px;text-align: center">These users registered to your site!</div>
 
 <!--<ul th:each="user: ${users}" style="list-style-type: inherit" th:cellpadding="10px">-->
 <!--    <li th:text="'Id:        ' +${user.id}"></li>-->
@@ -65,9 +86,10 @@
 
 <!--    <a th:href="@{/user/delete/{id}(id=${user.id})}"><button class="buttondelete" style="min-width: 120px">Delete</button></a>-->
 <!--    <a th:href="@{/user/form/{id}(id=${user.id)}"><button class="button" style="min-width: 120px">Edit</button></a>-->
-</ul>
+<!--</ul>-->
 
 <table  style="color: black; justify-content:center; text-align: left;width:100%;border: solid 2px">
+
     <tr style="border: solid 1px">
         <th class="tables">Id</th>
         <th class="tables">Login</th>
@@ -90,7 +112,7 @@
 <div style="display:flex; justify-content: space-evenly">
     <a class="button" th:href="@{/playerlist}"><button class="button" style="min-width: 50px">Players</button> </a>
     <a class="button" th:href="@{/teamlist}"><button class="button" style="min-width: 50px">Teams</button> </a>
-    <a class="button" th:href="@{/logout}"><button class="button" style="min-width: 50px">Logout</button> </a>
+    <a class="button" th:href="@{/logout}"><button class="button" style="min-width: 50px; color: darkred">Logout</button> </a>
 </div>
 
 </body>

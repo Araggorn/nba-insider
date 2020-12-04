@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.tymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:object="${teams}" method="post" th:action="@{/change}">
+    <div class="form-group">
+        <label>Team</label>
+        <div th:each="team: ${teams}">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" th:field="*{team.name}" th:value="${team.name}" class="custom-control-input">
+<!--                <label class="custom-control-label" th:for="${#ids.prev('carModel')}" th:text="${model}">model</label>-->
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit form</button>
+</form>
+
+</body>
+</html>

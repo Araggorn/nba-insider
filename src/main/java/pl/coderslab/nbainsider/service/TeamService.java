@@ -16,7 +16,7 @@ public interface TeamService {
 
     List<TeamLikeDto> find4mostlikedteams();
 
-    Team getTeamByUsers();
+    String getTeamByUsers();
 
 
 }
