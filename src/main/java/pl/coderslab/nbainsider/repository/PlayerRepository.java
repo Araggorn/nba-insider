@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface PlayerRepository extends JpaRepository<Player, Long> {
 
-    @Query (value= "select count(u.id) as counter, p.last_name, p.first_name fullname from users u inner join players p on p.id = u.player_id group by p.last_name, p.first_name  order by 1 desc limit 5", nativeQuery = true)
+    @Query (value= "select count(u.id) as counter, p.last_name as lastName, p.first_name as firstName from users u inner join players p on p.id = u.player_id group by p.last_name, p.first_name  order by 1 desc limit 5", nativeQuery = true)
     List<MostLikedPlayer> findmostlikedplayers();
 
     public static interface MostLikedPlayer {

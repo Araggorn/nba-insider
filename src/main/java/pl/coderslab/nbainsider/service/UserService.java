@@ -3,6 +3,7 @@ package pl.coderslab.nbainsider.service;
 
 import pl.coderslab.nbainsider.dto.UserDto;
 import pl.coderslab.nbainsider.dto.UserItemDto;
+import pl.coderslab.nbainsider.entity.Team;
 import pl.coderslab.nbainsider.entity.User;
 
 
@@ -26,5 +27,6 @@ public interface UserService {
     List<User> findAllByActiveTrue();
 
     List<UserItemDto> find2all();
+
 
 }

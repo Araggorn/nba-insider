@@ -5,8 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.coderslab.nbainsider.app.SecurityUtils;
 import pl.coderslab.nbainsider.dto.UserDto;
 import pl.coderslab.nbainsider.dto.UserItemDto;
+import pl.coderslab.nbainsider.entity.Team;
 import pl.coderslab.nbainsider.entity.User;
 import pl.coderslab.nbainsider.repository.UserRepository;
 
@@ -92,4 +94,7 @@ public class UserServiceImpl implements UserService {
                .collect(Collectors.toList());
 
     }
+
+
+
 }

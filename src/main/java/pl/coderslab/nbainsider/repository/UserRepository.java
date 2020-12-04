@@ -2,6 +2,7 @@ package pl.coderslab.nbainsider.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import pl.coderslab.nbainsider.entity.Team;
 import pl.coderslab.nbainsider.entity.User;
 
 import java.util.List;
@@ -16,5 +17,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     boolean existsByLogin(String login);
 
     User getByLogin(String login);
+
 
 }

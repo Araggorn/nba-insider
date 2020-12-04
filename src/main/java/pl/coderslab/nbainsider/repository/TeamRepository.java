@@ -4,7 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import pl.coderslab.nbainsider.dto.TeamLikeDto;
 import pl.coderslab.nbainsider.entity.Team;
 
 import java.util.List;
@@ -20,5 +19,14 @@ public interface TeamRepository extends JpaRepository <Team, Long>{
         String getName();
         int getCounter();
     }
+
+    //Team findTeamByUser (String login);
+
+    @Query(value = "SELECT * from Teams t Where t.users.login = :user ORDER BY t.name DESC LIMIT 1", nativeQuery = true)
+   Team findTeamByUser(@Param("user") String user);
+
+    // TODO nie działa
+  List<Team> getTeamByUsers(String login);
+
 
 }

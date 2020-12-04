@@ -5,23 +5,34 @@
     <title>Main Page</title>
 </head>
 <body>
-<div style="color: black;font-size: 32px;text-align: center;align-items: center; justify-content: center">Currently most liked teams:</div>
-<div class="table-bordered">
+<h2 class="center" style="display: flex; justify-content: center; padding: 50px"><div th:text="'Hallo ' + ${#request.remoteUser}"></div></h2>
+<h3 class="center" style="display: flex; justify-content: center; padding: 20px"><div th:text="'Your favourite team: ' + ${favteam.name}"></div></h3>
+<div class="container" style="display: flex; font-family: Lato; justify-content: space-evenly; align-items: center; text-align: center; width: 100%"></div>
+<div class="button" style="display:flex; justify-content: space-evenly; padding: 40px">
+    <a class="button" th:href="@{/playerlist}"><button class="button" style="min-width: 50px">Players</button> </a>
+    <a class="button" th:href="@{/teamlist}"><button class="button" style="min-width: 50px">Teams</button> </a>
+</div>
+<div class="table-bordered" style=" display: flex; text-align: center; animation-delay: initial; justify-content: space-evenly; width: 45%; position: initial;
+            vertical-align:top;
+            top: 2px;">
+    <div style="color: black;font-size: 22px;text-align: center;align-items: center; justify-content: center">Currently most liked teams:</div>
 <ul th:each="team: ${teams}" style="list-style-type: none">
-    <li th:text="'Number of users:   '+ ${team.counter}"></li>
-    <li style="color: darkblue;font-size: 20px" th:text="'Name ' + ${team.team}"></li>
+    <li style="font-family: Lato" th:text="'Number of likes:   '+ ${team.counter}"></li>
+    <li style="color: darkblue;font-size: 16px; font-family: Lato" th:text="'Name ' + ${team.team}"></li>
     <li th:hidden="'Id   '+ ${team.id}"></li>
 </ul></div>
-<div class="table-bordered">
+<div class="table-bordered" style=" display: flex; text-align: center; animation-delay: initial; justify-content: space-evenly; width: 45%" th:frameborder="2px">
+    <div style="color: black;font-size: 22px;text-align: center;align-items: center; justify-content: center">Currently most liked players:</div>
     <ul th:each="player: ${players}" style="list-style-type: none">
-        <li th:text="'Number of users:   '+ ${player.counter}"></li>
-        <li style="color: darkblue;font-size: 15px" th:text="'First Name ' + ${player.firstName}"></li>
-        <li style="color: darkblue;font-size: 15px" th:text="'Last Name ' + ${player.lastName}"></li>
+        <li style="font-family: Lato" th:text="'Number of likes:   '+ ${player.counter}"></li>
+        <li style="color: darkblue;font-size: 15px; font-family: Lato" th:text=" ${player.firstName} + ' ' + ${player.lastName}"></li>
+
         <li th:hidden="'Id   '+ ${player.id}"></li>
     </ul>
 </div>
 <div>
-   <div th:text="${#request.remoteUser}"></div>
+   <div th:hidden="${#request.remoteUser}"></div>
+</div>
 </div>
 </body>
 </html>

@@ -21,11 +21,13 @@ import java.util.List;
 public class MainPageController {
     TeamService teamService;
     PlayerService playerService;
+    UserService userService;
 
     @Autowired
-    public MainPageController(TeamService teamService, PlayerService playerService) {
+    public MainPageController(UserService userService, TeamService teamService, PlayerService playerService) {
         this.teamService = teamService;
         this.playerService = playerService;
+        this.userService = userService;
     }
     @GetMapping("/main")
     public String list(Model model) {
@@ -33,6 +35,8 @@ public class MainPageController {
         model.addAttribute("teams", teams);
         List<PlayerLikeDto> players = playerService.find4mostlikedplayers();
         model.addAttribute("players", players);
+        Team favteam = teamService.getTeamByUsers();
+        model.addAttribute("favteam", favteam);
         return "main";
     }
 
