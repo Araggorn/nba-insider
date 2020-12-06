@@ -8,8 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 import pl.coderslab.nbainsider.app.SecurityUtils;
 import pl.coderslab.nbainsider.dto.UserDto;
 import pl.coderslab.nbainsider.dto.UserItemDto;
-import pl.coderslab.nbainsider.entity.Team;
 import pl.coderslab.nbainsider.entity.User;
+import pl.coderslab.nbainsider.repository.TeamRepository;
 import pl.coderslab.nbainsider.repository.UserRepository;
 
 import java.util.List;
@@ -21,12 +21,13 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final TeamRepository teamRepository;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder)
-    {
+    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder, TeamRepository teamRepository) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.teamRepository = teamRepository;
     }
 
     @Override
@@ -58,19 +59,18 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void delete(Long id) {
-       User user = userRepository.getOne(id);
+        User user = userRepository.getOne(id);
         user.setActive(false);
         userRepository.save(user);
     }
 
     @Override
-    public void update(UserDto userDto)
-    {
+    public void update(UserDto userDto) {
         User user = userRepository.getOne(userDto.getId());
         user.setLogin(userDto.getLogin());
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
         user.setEmail(userDto.getEmail());
-         userRepository.save(user);
+        userRepository.save(user);
     }
 
 
@@ -85,17 +85,28 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserItemDto> find2all() {
-       return  userRepository.findAllByActiveTrue().stream()
-               .map(u -> new UserItemDto(
-                       u.getId(),
-                       u.getLogin(),
-                       u.getEmail(),
-                       u.getTeam() != null ? u.getTeam().getName(): null,
-                       u.getPlayer() != null ? u.getPlayer().getFirstName() + "  " + u.getPlayer().getLastName() : null))
-               .collect(Collectors.toList());
+        return userRepository.findAllByActiveTrue().stream()
+                .map(u -> new UserItemDto(
+                        u.getId(),
+                        u.getLogin(),
+                        u.getEmail(),
+                        u.getTeam() != null ? u.getTeam().getName() : null,
+                        u.getPlayer() != null ? u.getPlayer().getFirstName() + "  " + u.getPlayer().getLastName() : null))
+                .collect(Collectors.toList());
 
     }
 
+    @Override
+    public void updateTeam(Long favTeamId) {
+        User user = userRepository.getByLogin(SecurityUtils.username());
+        user.setTeam(teamRepository.getOne(favTeamId));
+        userRepository.save(user);
+    }
+
+    @Override
+    public User getByLogin(String login) {
+        return userRepository.getByLogin(login);
+    }
 
 
 }

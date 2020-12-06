@@ -36,7 +36,7 @@ public class MainPageController {
         model.addAttribute("teams", teams);
         List<PlayerLikeDto> players = playerService.find4mostlikedplayers();
         model.addAttribute("players", players);
-        String favteam = teamService.getTeamByUsers();
+        Team favteam = teamService.getTeamByUsers();
         model.addAttribute("favteam", favteam);
         String favplaya = playerService.getPlayerByUser();
         model.addAttribute("favplaya", favplaya);

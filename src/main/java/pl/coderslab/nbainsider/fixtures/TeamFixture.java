@@ -15,13 +15,13 @@ public class TeamFixture {
     private TeamService teamService;
 
     private List<Team> teamList = Arrays.asList(
-            new Team(null, "Golden State Warriors", "https://twitter.com/warriors"),
-            new Team(null, "Los Angeles Lakers", "https://twitter.com/lakers"),
-            new Team(null, "Miami Heat", "https://twitter.com/MiamiHEAT"),
-            new Team(null, "Houston Rockets", "https://twitter.com/HoustonRockets"),
-            new Team(null, "Chicago Bulls", "https://twitter.com/chicagobulls"),
-            new Team(null, "New York Knicks", "https://twitter.com/nyknicks"),
-            new Team(null, "Los Angeles Clippers", "https://twitter.com/LAClippers")
+            new Team(null, "Golden State Warriors", "warriors"),
+            new Team(null, "Los Angeles Lakers", "lakers"),
+            new Team(null, "Miami Heat", "MiamiHEAT"),
+            new Team(null, "Houston Rockets", "HoustonRockets"),
+            new Team(null, "Chicago Bulls", "chicagobulls"),
+            new Team(null, "New York Knicks", "nyknicks"),
+            new Team(null, "Los Angeles Clippers", "LAClippers")
     );
 
     @Autowired

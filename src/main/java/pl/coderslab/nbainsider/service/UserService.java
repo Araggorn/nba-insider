@@ -28,5 +28,7 @@ public interface UserService {
 
     List<UserItemDto> find2all();
 
+    void updateTeam(Long favTeamId);
 
+    User getByLogin(String login);
 }

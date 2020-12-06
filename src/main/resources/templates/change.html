@@ -1,17 +1,38 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.tymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Basketball a Sports Category Flat Bootstrap Responsive Website Template | About :: w3layouts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Basketball Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link th:href="@{/css/bootstrap-3.1.1.min.css}" rel="stylesheet" type="text/css">
+    <!-- Custom Theme files -->
+    <link th:href="@{/css/owl.carousel.css}" rel="stylesheet" type="text/css" media="all" />
+    <link th:href="@{/css/style.css}" rel='stylesheet' type='text/css' />
+    <script th:src="@{/js/jquery.min.js}"> </script>
+    <script type="text/javascript" th:src="@{/js/move-top.js}"></script>
+    <script type="text/javascript" th:src="@{/js/easing.js}"></script>
+    <!--/script-->
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event){
+                event.preventDefault();
+                $('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+            });
+        });
+    </script>
 </head>
 <body>
-<form th:object="${teams}" method="post" th:action="@{/change}">
+<div th:include="fragments/headerafterlogin :: header"></div>
+<form th:object="${userPref}" method="post" th:action="@{/change}" style="background: black; color: white">
     <div class="form-group">
         <label>Team</label>
         <div th:each="team: ${teams}">
             <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" th:field="*{team.name}" th:value="${team.name}" class="custom-control-input">
-<!--                <label class="custom-control-label" th:for="${#ids.prev('carModel')}" th:text="${model}">model</label>-->
+                <input type="radio" th:field="*{favTeamId}" th:value="${team.id}" class="custom-control-input">
+                <label class="custom-control-label" th:for="${#ids.prev('favTeamId')}" th:text="${team.name}">model</label>
             </div>
         </div>
     </div>

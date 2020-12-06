@@ -1,29 +1,57 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Main Page</title>
-
+    <title>Basketball a Sports Category Flat Bootstrap Responsive Website Template | About :: w3layouts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Basketball Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link th:href="@{/css/bootstrap-3.1.1.min.css}" rel="stylesheet" type="text/css">
+    <!-- Custom Theme files -->
+    <link th:href="@{/css/owl.carousel.css}" rel="stylesheet" type="text/css" media="all" />
+    <link th:href="@{/css/style.css}" rel='stylesheet' type='text/css' />
+    <script th:src="@{/js/jquery.min.js}"> </script>
+    <script type="text/javascript" th:src="@{/js/move-top.js}"></script>
+    <script type="text/javascript" th:src="@{/js/easing.js}"></script>
+    <!--/script-->
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event){
+                event.preventDefault();
+                $('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+            });
+        });
+    </script>
 </head>
 <body>
-<a class="button" th:href="@{/logout}">
-    <button class="button"
-            style="min-width: 50px; color: darkred; cursor: zoom-in; display: flex; justify-content: right">Logout
-    </button>
-    <h2 class="center" style="display: flex; justify-content: center; padding: 20px">
+<div th:include="fragments/headerafterlogin :: header"></div>
+    <h2 class="center" style="display: flex; justify-content: center; padding: 20px; background: black">
         <div th:text="'Hallo ' + ${#request.remoteUser}"></div>
     </h2>
     <h3 class="center" style="display: flex; justify-content: center; padding: 10px">
-        <ul>
-            <li>
-                <div style="color: red;text-align: center;font-size: 20px;font-weight: bold;"
-                     th:text="'Your favourite team is :'+ ${favteam}"></div>
-            </li>
-            <li>
-                <div style="color: red;text-align: center;font-size: 20px;font-weight: bold;"
-                     th:text="'Your favourite player is :'+ ${favplaya}"></div>
-            </li>
-        </ul>
+        <table  style="color: black; width: 40%; display: inline-block; justify-content: center; text-align: center;border: solid 2px">
+            <tr style="border: solid 1px">
+                <th class="tables">Your login: </th>
+                <th class="tables">Favourite Team: </th>
+                <th class="tables">Favourite Player: </th>
+            </tr>
+            <tr style="border: solid 1px">
+                <td class="tables" th:text="${#request.remoteUser}"></td>
+                <td class="tables" th:text="${favteam.name}"></td>
+                <td class="tables" th:text="${favplaya}"></td>
+            </tr>
+        </table>
+<!--        <ul>-->
+<!--            <li>-->
+<!--                <div style="color: red;text-align: center;font-size: 20px;font-weight: bold;"-->
+<!--                     th:text="'Your favourite team is :'+ ${favteam.name}"></div>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <div style="color: red;text-align: center;font-size: 20px;font-weight: bold;"-->
+<!--                     th:text="'Your favourite player is :'+ ${favplaya}"></div>-->
+<!--            </li>-->
+<!--        </ul>-->
     </h3>
 
 </a>
@@ -64,6 +92,7 @@
     </ul>
 </div>
 <div>
+    <a class="twitter-timeline" data-width="300" data-height="500" th:href="'https://twitter.com/' + ${favteam.twitterAddress}">Tweets by Your favourite team:</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <div th:hidden="${#request.remoteUser}"></div>
 </div>
 </div>

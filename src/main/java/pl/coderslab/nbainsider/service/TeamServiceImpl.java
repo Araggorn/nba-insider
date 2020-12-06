@@ -1,14 +1,11 @@
 package pl.coderslab.nbainsider.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.coderslab.nbainsider.app.SecurityUtils;
 import pl.coderslab.nbainsider.dto.TeamLikeDto;
-import pl.coderslab.nbainsider.dto.UserItemDto;
 import pl.coderslab.nbainsider.entity.Team;
-import pl.coderslab.nbainsider.entity.User;
 import pl.coderslab.nbainsider.repository.TeamRepository;
 
 import java.util.List;
@@ -48,7 +45,7 @@ public class TeamServiceImpl implements TeamService {
     }
 
     @Override
-    public String getTeamByUsers() {
+    public Team getTeamByUsers() {
        return teamRepository.getTeamByUser(SecurityUtils.username());
     }
 }
