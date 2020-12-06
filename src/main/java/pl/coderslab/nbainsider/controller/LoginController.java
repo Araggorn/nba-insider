@@ -25,6 +25,6 @@ public class LoginController {
     }
     @PostMapping("/login")
     public String formx(Model model) {
-        return "redirect:/teamlist";
+        return "redirect:/main";
     }
 }

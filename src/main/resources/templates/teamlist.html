@@ -1,39 +1,46 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Basketball a Sports Category Flat Bootstrap Responsive Website Template | About :: w3layouts</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Basketball Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link th:href="@{/css/bootstrap-3.1.1.min.css}" rel="stylesheet" type="text/css">
-<!-- Custom Theme files -->
-<link th:href="@{/css/owl.carousel.css}" rel="stylesheet" type="text/css" media="all" />
-<link th:href="@{/css/style.css}" rel='stylesheet' type='text/css' />
-<script th:src="@{/js/jquery.min.js}"> </script>
-<script type="text/javascript" th:src="@{/js/move-top.js}"></script>
-<script type="text/javascript" th:src="@{/js/easing.js}"></script>
-<!--/script-->
-<script type="text/javascript">
-    jQuery(document).ready(function($) {
-        $(".scroll").click(function(event){
-            event.preventDefault();
-            $('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+    <title>Basketball a Sports Category Flat Bootstrap Responsive Website Template | About :: w3layouts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="Basketball Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <link th:href="@{/css/bootstrap-3.1.1.min.css}" rel="stylesheet" type="text/css">
+    <!-- Custom Theme files -->
+    <link th:href="@{/css/owl.carousel.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{/css/style.css}" rel='stylesheet' type='text/css'/>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/move-top.js}"></script>
+    <script type="text/javascript" th:src="@{/js/easing.js}"></script>
+    <!--/script-->
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 900);
+            });
         });
-    });
-</script>
+    </script>
     <meta charset="UTF-8">
     <title>Users!</title>
     <style>
-        body
-        {
+        body {
             background-color: whitesmoke;
             color: orange;
         }
+
         a {
             text-decoration: none;
         }
+
         .button {
             padding: 10px 20px;
             border-radius: 3px;
@@ -43,6 +50,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             filter: brightness(95%);
             transition: all .3s ease-in-out;
         }
+
         .buttondelete {
             color: white;
             -webkit-text-fill-color: black;
@@ -53,6 +61,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             cursor: pointer;
             transition: all .3s ease-in-out;
         }
+
         .buttonadd {
             background-color: blue;
             border: none;
@@ -63,30 +72,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             text-decoration: none;
             cursor: pointer;
             filter: brightness(80%);
-            transition: all .3s ease-in-out;}
-        .button:hover{
+            transition: all .3s ease-in-out;
+        }
+
+        .button:hover {
             background-color: gray;
         }
-        .buttondelete:hover{
+
+        .buttondelete:hover {
             background-color: darkred;
+        }
+
+        .downtown {
+            background-color: whitesmoke;
+            color: black;
+            margin: auto;
+            width: 60%;
+            border: 5px solid;
+            border-color: black;
+            padding: 10px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 <div th:include="fragments/headerafterlogin :: header"></div>
-<div style="color: darkgreen;font-size: 32px;text-align: center;align-items: center; justify-content: center">Teams</div>
-<a class="button" th:href="@{/playerlist}"><button class="button" style="min-width: 50px">Players</button> </a>
-<a class="button" th:href="@{/logout}"><button class="button" style="min-width: 50px; color: darkred">Logout</button> </a>
-<table  style="color: black; justify-content:center; text-align: left;width:100%;border: solid 2px">
+<div class="downtown"
+     style="background: black color: whitesmoke;font-size: 32px;text-align: center;align-items: center; justify-content: center">Teams
+</div>
+<table class="downtown" style="color: black; justify-content:center; text-align: left;border: solid 2px">
     <tr style="border: solid 1px">
         <th class="tables">Id</th>
         <th class="tables">Name</th>
         <th class="tables">Twitter</th>
-        <th class="tables">Other</th>
+
     </tr>
     <tr style="border: solid 1px" th:each="team: ${teams}">
         <td class="tables" th:text="${team.id}"></td>
         <td class="tables" th:text="${team.name}"></td>
-        <td class="tables" th:text="${team.twitterAddress}"></td></tr></table>
+        <td class="tables" th:text="${team.twitterAddress}"></td>
+    </tr>
+</table>
 </body>
 </html>

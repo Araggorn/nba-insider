@@ -3100,5 +3100,16 @@ p.sign {
         width: 100%;
         padding: 0.6em;
 	}
+	.downtown
+	{
+		background-color: whitesmoke;
+		color: black;
+		margin: auto;
+		width: 60%;
+		border: 5px solid ;
+		border-color: black;
+		padding: 10px;
+		text-align: center;
+	}
 	
 }

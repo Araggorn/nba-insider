@@ -32,17 +32,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
               .anyRequest().authenticated()
                 .and()
                 .formLogin()
-//                .loginPage("/login")
-//                .usernameParameter("login") // username
-//                .passwordParameter("password") // password
-               .defaultSuccessUrl("/userlist")
+                .loginPage("/login")
+                .usernameParameter("login") // username
+                .passwordParameter("password") // password
+               .defaultSuccessUrl("/main")
                 .and()
                 .logout()
                 .logoutUrl("/logout")
-                .logoutSuccessUrl("/main");
-//                .and()
-//                .csrf()
-//                .disable();
+                .logoutSuccessUrl("/")
+                .and()
+                .csrf()
+                .disable();
     }
 
     @Override

@@ -23,11 +23,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             });
         });
     </script>
+   <style> .center {
+
+       margin: auto;
+
+       width: 60%;
+
+       border: 5px solid #FFFF00;
+
+       padding: 10px;
+
+   }</style>
 </head>
 <body style="width: 98%; display: inline-block">
 <div th:include="fragments/headerafterlogin :: header"></div>
-<form th:object="${userPref}" method="post" th:action="@{/change}" >
-    <div class="form-group" style="background: black; color: white; padding: 5%; columns: 2; display: inline-block; width: 40%">
+<form th:object="${userPref}" method="post" th:action="@{/change}" class="center">
+    <div class="form-group" style="background: black; color: white; padding: 5%; columns: 2">
         <label>Team</label>
         <div th:each="team: ${teams}">
             <div class="custom-control custom-radio custom-control-inline" style="background: black">
@@ -38,7 +49,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
     <button class="btn btn-primary" type="submit">Submit form</button>
 </form>
-<form th:object="${userPrefPlayer}" method="post" th:action="@{/change}" style="display: inline-block; width: 40%">
+<form th:object="${userPrefPlayer}" method="post" th:action="@{/change}" class="center">
     <div class="form-group" style="background: black; color: white; padding: 5%; columns: 2; display: inline-block; text-align: center;">
         <label>Players</label>
         <div th:each="player: ${players}">

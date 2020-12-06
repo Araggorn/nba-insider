@@ -20,9 +20,8 @@ public class LogoutController {
 
 
     @GetMapping("/logout")
-    @ResponseBody
     public String form(Model model) {
         model.addAttribute("user", new User());
-        return "Stoki otwarte!";
+        return "redirect:/";
     }
 }

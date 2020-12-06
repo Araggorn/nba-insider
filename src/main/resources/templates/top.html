@@ -3,54 +3,73 @@
 <head>
     <title>Basketball a Sports Category Flat Bootstrap Responsive Website Template | About :: w3layouts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="keywords" content="Basketball Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
     <link th:href="@{/css/bootstrap-3.1.1.min.css}" rel="stylesheet" type="text/css">
     <!-- Custom Theme files -->
-    <link th:href="@{/css/owl.carousel.css}" rel="stylesheet" type="text/css" media="all" />
-    <link th:href="@{/css/style.css}" rel='stylesheet' type='text/css' />
-    <script th:src="@{/js/jquery.min.js}"> </script>
+    <link th:href="@{/css/owl.carousel.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{/css/style.css}" rel='stylesheet' type='text/css'/>
+    <script th:src="@{/js/jquery.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/move-top.js}"></script>
     <script type="text/javascript" th:src="@{/js/easing.js}"></script>
     <!--/script-->
     <script type="text/javascript">
-        jQuery(document).ready(function($) {
-            $(".scroll").click(function(event){
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
                 event.preventDefault();
-                $('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 900);
             });
         });
     </script>
+    <style>
+        .downtown {
+            background: whitesmoke;
+            color: black;
+            margin: auto;
+            width: 60%;
+            border: 5px solid ;
+            border-color: black;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body style="display: inline-block; justify-content: center; width: 100%">
 <div th:include="fragments/header :: header"></div>
-<table  style="color: black; width: 40%; display: inline-block; justify-content: center; text-align: center;border: solid 2px">
+<h3 class="downtown">Favourite Team: </h3>
+<table class="downtown">
     <tr style="border: solid 1px">
         <th class="tables">Likes</th>
         <th class="tables">Team</th>
-        <th class="tables">Status</th>
     </tr>
     <tr style="border: solid 1px" th:each="team: ${teams}">
         <td class="tables" th:text="${team.counter}"></td>
         <td class="tables" th:text="${team.team}"></td>
-        <td class="tables" th:hidden="${team.id}"></td>
-          </tr>
+
+    </tr>
 </table>
-<table  style="color: black; width: 40%; display:inline-block; justify-content: center;text-align: center;border: solid 2px">
+<h3 class="downtown">Favourite Player:</h3>
+<table class="downtown">
     <tr style="border: solid 1px">
         <th class="tables">Likes</th>
         <th class="tables">Player firstname</th>
         <th class="tables">Player lastname</th>
-        <th class="tables">Status</th>
+
     </tr>
     <tr style="border: solid 1px" th:each="player: ${players}">
         <td class="tables" th:text="${player.counter}"></td>
         <td class="tables" th:text="${player.firstName}"></td>
         <td class="tables" th:text="${player.lastName}"></td>
-        <td class="tables" th:hidden="${player.id}"></td>
+
     </tr>
 </table>
 </body>

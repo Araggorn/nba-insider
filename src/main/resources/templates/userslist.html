@@ -102,14 +102,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <td class="tables" th:text="${user.id}"></td>
         <td class="tables" th:text="${user.login}"></td>
         <td class="tables" th:text="${user.email}"></td>
-        <td class="tables" th:text="${user.team != null} ? ${user.team} : 'You forgot to choose favourite team'"></td>
-        <td class="tables" th:text="${user.player != null} ? ${user.player}: 'You forgot to choose favourite player'"></td>
+        <td class="tables" th:text="${user.team != null} ? ${user.team} : 'You forgot to choose favourite team'" > </a></td>
+        <td class="tables" th:text="${user.player != null} ? ${user.player}: 'You forgot to choose favourite player'" ></a></td>
 
         <td><a class="button" th:href="@{/user/delete/{id}(id=${user.id})}"><button class="buttondelete" style="min-width: 50px">Delete</button></a>
              <a class="button" th:href="@{/edit/{id}(id=${user.id})}"><button class="buttondelete" style="min-width: 50px">Edit</button></a></td>
     </tr>
 </table>
 <div style="display:flex; justify-content: space-evenly">
+    <a class="button" th:href="@{/change}"><button class="button" style="min-width: 50px">Choose</button></a>
     <a class="button" th:href="@{/playerlist}"><button class="button" style="min-width: 50px">Players</button> </a>
     <a class="button" th:href="@{/teamlist}"><button class="button" style="min-width: 50px">Teams</button> </a>
     <a class="button" th:href="@{/logout}"><button class="button" style="min-width: 50px; color: darkred">Logout</button> </a>
