@@ -9,6 +9,7 @@ import pl.coderslab.nbainsider.app.SecurityUtils;
 import pl.coderslab.nbainsider.dto.UserDto;
 import pl.coderslab.nbainsider.dto.UserItemDto;
 import pl.coderslab.nbainsider.entity.User;
+import pl.coderslab.nbainsider.repository.PlayerRepository;
 import pl.coderslab.nbainsider.repository.TeamRepository;
 import pl.coderslab.nbainsider.repository.UserRepository;
 
@@ -22,12 +23,14 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final TeamRepository teamRepository;
+    private final PlayerRepository playerRepository;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder, TeamRepository teamRepository) {
+    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder, TeamRepository teamRepository, PlayerRepository playerRepository) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.teamRepository = teamRepository;
+        this.playerRepository = playerRepository;
     }
 
     @Override
@@ -79,6 +82,8 @@ public class UserServiceImpl implements UserService {
         return userRepository.getOne(id);
     }
 
+    public User findByLogin (String login) { return userRepository.getByLogin(login); }
+
     public String hashPassword(String password) {
         return BCrypt.hashpw(password, BCrypt.gensalt());
     }
@@ -100,6 +105,13 @@ public class UserServiceImpl implements UserService {
     public void updateTeam(Long favTeamId) {
         User user = userRepository.getByLogin(SecurityUtils.username());
         user.setTeam(teamRepository.getOne(favTeamId));
+        userRepository.save(user);
+    }
+
+    @Override
+    public void updatePlayer(Long favPlayerId) {
+        User user = userRepository.getByLogin(SecurityUtils.username());
+        user.setPlayer(playerRepository.getOne(favPlayerId));
         userRepository.save(user);
     }
 

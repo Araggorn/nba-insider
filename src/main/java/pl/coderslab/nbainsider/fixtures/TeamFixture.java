@@ -21,7 +21,10 @@ public class TeamFixture {
             new Team(null, "Houston Rockets", "HoustonRockets"),
             new Team(null, "Chicago Bulls", "chicagobulls"),
             new Team(null, "New York Knicks", "nyknicks"),
-            new Team(null, "Los Angeles Clippers", "LAClippers")
+            new Team(null, "Los Angeles Clippers", "LAClippers"),
+            new Team(null, "Atlanta Hawks", "ATLHawks"),
+            new Team(null, "Boston Celtics", "celtics"),
+            new Team(null, "Portland Trail Blazers", "trailblazers")
     );
 
     @Autowired

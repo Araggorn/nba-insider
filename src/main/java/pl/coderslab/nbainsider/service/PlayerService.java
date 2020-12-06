@@ -16,4 +16,6 @@ public interface PlayerService {
     List<PlayerLikeDto> find4mostlikedplayers();
 
     String getPlayerByUser();
+    Player getPlayerFullInfoByUser();
+
 }

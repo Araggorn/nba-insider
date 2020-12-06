@@ -24,7 +24,12 @@ public class PlayerFixture {
             new Player(null, "Lebron", "James"),
             new Player(null, "Steph", "Curry"),
             new Player(null, "Kobe", "Bryant"),
-            new Player(null, "Shaquille", "O'Neal")
+            new Player(null, "Shaquille", "O'Neal"),
+            new Player(null, "Baron", "Davis"),
+            new Player(null, "Giannis", "Antetokounmpo"),
+            new Player(null, "Klay", "Thompson"),
+            new Player(null, "Scottie", "Pippen"),
+            new Player(null, "John", "Stockton")
     );
 
     public void loadIntoDB() {

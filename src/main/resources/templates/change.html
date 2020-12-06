@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.tymeleaf.org">
 <head>
-    <title>Basketball a Sports Category Flat Bootstrap Responsive Website Template | About :: w3layouts</title>
+    <title>Change preferences</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Basketball Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
@@ -24,19 +24,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         });
     </script>
 </head>
-<body>
+<body style="width: 98%; display: inline-block">
 <div th:include="fragments/headerafterlogin :: header"></div>
-<form th:object="${userPref}" method="post" th:action="@{/change}" style="background: black; color: white">
-    <div class="form-group">
+<form th:object="${userPref}" method="post" th:action="@{/change}" >
+    <div class="form-group" style="background: black; color: white; padding: 5%; columns: 2; display: inline-block; width: 40%">
         <label>Team</label>
         <div th:each="team: ${teams}">
-            <div class="custom-control custom-radio custom-control-inline">
+            <div class="custom-control custom-radio custom-control-inline" style="background: black">
                 <input type="radio" th:field="*{favTeamId}" th:value="${team.id}" class="custom-control-input">
                 <label class="custom-control-label" th:for="${#ids.prev('favTeamId')}" th:text="${team.name}">model</label>
             </div>
         </div>
     </div>
     <button class="btn btn-primary" type="submit">Submit form</button>
+</form>
+<form th:object="${userPrefPlayer}" method="post" th:action="@{/change}" style="display: inline-block; width: 40%">
+    <div class="form-group" style="background: black; color: white; padding: 5%; columns: 2; display: inline-block; text-align: center;">
+        <label>Players</label>
+        <div th:each="player: ${players}">
+            <div class="custom-control custom-radio custom-control-inline" style="columns: auto">
+                <input type="radio" th:field="*{favPlayerId}" th:value="${player.id}" class="custom-control-input">
+                <label class="custom-control-label" th:for="${#ids.prev('favPlayerId')}" th:text="${player.firstName} + ' ' + ${player.lastName}">model</label>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit" style="padding-bottom: 15px">Submit form</button>
 </form>
 
 </body>

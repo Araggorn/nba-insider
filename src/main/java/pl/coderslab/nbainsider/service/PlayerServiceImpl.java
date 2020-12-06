@@ -48,4 +48,9 @@ public class PlayerServiceImpl implements PlayerService {
     }
 public String getPlayerByUser() {return playerRepository.getPlayerByUser(SecurityUtils.username());}
 
+    @Override
+    public Player getPlayerFullInfoByUser() {
+        return playerRepository.getPlayerFullInfoByUser(SecurityUtils.username());
+    }
+
 }

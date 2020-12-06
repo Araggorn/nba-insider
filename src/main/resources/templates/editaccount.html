@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.tymeleaf.org">
+<head>
+    <title>Edit account - NBA Insider</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Basketball Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link th:href="@{/css/bootstrap-3.1.1.min.css}" rel="stylesheet" type="text/css">
+    <!-- Custom Theme files -->
+    <link th:href="@{/css/owl.carousel.css}" rel="stylesheet" type="text/css" media="all" />
+    <link th:href="@{/css/style.css}" rel='stylesheet' type='text/css' />
+    <script th:src="@{/js/jquery.min.js}"> </script>
+    <script type="text/javascript" th:src="@{/js/move-top.js}"></script>
+    <script type="text/javascript" th:src="@{/js/easing.js}"></script>
+    <!--/script-->
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event){
+                event.preventDefault();
+                $('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+            });
+        });
+    </script>
+</head>
+<body>
+<div th:include="fragments/headerafterlogin :: header"></div>
+<h3 style="background: black; display: flex; justify-content: center; color: whitesmoke">User editor</h3>
+<form th:object="${user}" method="post" th:action="@{/editaccount}" style="background: black; color: white; text-align: center; display: flex; justify-content: center" >
+    <section>
+        <label>Login</label>
+        <input type="text" th:field="*{login}"/>
+        <input type="hidden" th:field="*{id}"/>
+    </section>
+    <section>
+        <label>Email</label>
+        <input type="text" th:field="*{email}"/>
+    </section>
+    <section>
+        <label>Password</label>
+        <input type="password" th:field="*{password}"/>
+    </section>
+    <section>
+        <button type="submit" style="color: darkgrey">Save</button>
+    </section>
+</form>
+</body>
+
+</html>
