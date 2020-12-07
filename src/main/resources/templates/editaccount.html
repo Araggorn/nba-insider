@@ -27,7 +27,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <div th:include="fragments/headerafterlogin :: header"></div>
 <h3 style="background: black; display: flex; justify-content: center; color: whitesmoke">User editor</h3>
-<form th:object="${user}" method="post" th:action="@{/editaccount}" style="background: black; color: white; text-align: center; display: flex; justify-content: center" >
+<form th:object="${user}" method="post" th:action="@{/editaccount}" style="background: black; color: darkslateblue; text-align: center; display: flex; justify-content: center" >
     <section>
         <label>Login</label>
         <input type="text" th:field="*{login}"/>

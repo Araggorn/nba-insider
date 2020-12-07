@@ -39,13 +39,17 @@ public class ChangeController {
         List<Team> teams = teamService.findAllTeams();
         model.addAttribute("teams", teams);
         UserPrefDto userPref = new UserPrefDto();
-        userPref.setFavTeamId(userService.getByLogin(SecurityUtils.username()).getTeam().getId());
+        if (userService.getByLogin(SecurityUtils.username()).getTeam() != null){
+        userPref.setFavTeamId(userService.getByLogin(SecurityUtils.username()).getTeam().getId());}
+        else userPref.setFavTeamId(null);
         model.addAttribute("userPref", userPref);
 
         List<Player> players = playerService.findAllPlayers();
         model.addAttribute("players", players);
         UserPrefPlayerDto userPrefPlayerDto = new UserPrefPlayerDto();
-        userPrefPlayerDto.setFavPlayerId(userService.getByLogin(SecurityUtils.username()).getPlayer().getId());
+        if (userService.getByLogin(SecurityUtils.username()).getPlayer() != null){
+        userPrefPlayerDto.setFavPlayerId(userService.getByLogin(SecurityUtils.username()).getPlayer().getId());}
+        else userPrefPlayerDto.setFavPlayerId(null);
         model.addAttribute("userPrefPlayer", userPrefPlayerDto);
         return "change";
     }

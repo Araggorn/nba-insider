@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Basketball a Sports Category Flat Bootstrap Responsive Website Template | About :: w3layouts</title>
+    <title>NBA Insider</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Basketball Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
@@ -23,14 +23,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             });
         });
     </script>
+    <style>
+        .downtown
+        {
+            background: whitesmoke;
+            color: black;
+            margin: auto;
+
+            width: 60%;
+
+            border: 5px solid ;
+            border-color: black;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 <div th:include="fragments/headerafterlogin :: header"></div>
-    <h2 class="center" style="display: flex; justify-content: center; padding: 20px; background: black">
+    <h2 class="center" style="display: flex; margin-left: auto; margin-right: auto; justify-content: center; padding: 20px; background: black; color: whitesmoke; width: 84%">
         <div th:text="'Hallo ' + ${#request.remoteUser}"></div>
     </h2>
-    <h3 class="center" style="display: flex; justify-content: center; padding: 10px">
-        <table  style="color: black; width: 40%; display: inline-block; justify-content: center; text-align: center;border: solid 2px">
+    <h3 class="center" style="display: flex; justify-content: center; padding: 10px;">
+        <table  style="color: black; width: 40%; display: inline-block; justify-content: center; text-align: center;border: solid 2px;">
             <tr style="border: solid 1px">
                 <th class="tables">Your login: </th>
                 <th class="tables">Favourite Team: </th>
@@ -38,8 +53,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </tr>
             <tr style="border: solid 1px">
                 <td class="tables" th:text="${#request.remoteUser}"></td>
-                <td class="tables" th:text="${favteam.name}"></td>
-                <td class="tables" th:text="${favplaya}"></td>
+                <div th:if="${favteam.name}" != null>
+                    <td class="tables" th:text="${favteam.name}"></td></div>
+                <div th:unless="${favteam.name}" != null">
+                    <td class="tables" th:text='Choose Your team!'></td>
+<!--                    <a class="button" th:href="@{/change}"><button class="button" style="min-width: 50px">Choose</button></a>-->
+                </div>
+                <div th:if="${favplaya}" != null>
+                <td class="tables" th:text="${favplaya}"></td></div>
+                <div th:unless="${favplaya}" != null>
+                    <td class="tables" th:text='Choose Your favoute player'></td>
+<!--                    <a class="button" th:href="@{/change}"><button class="button" style="min-width: 50px">Choose</button></a></div>-->
             </tr>
         </table>
 <!--        <ul>-->
@@ -57,42 +81,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </a>
 <div class="container"
      style="display: flex; font-family: Lato; justify-content: space-evenly; align-items: center; text-align: center; width: 100%"></div>
-<div class="button" style="display:flex; justify-content: space-evenly; padding: 40px">
-    <a class="button" th:href="@{/playerlist}">
-        <button class="button" style="min-width: 50px">Players</button>
-    </a>
-    <a class="button" th:href="@{/teamlist}">
-        <button class="button" style="min-width: 50px">Teams</button>
-    </a>
-</div>
-<div class="table-bordered" style=" display: flex; text-align: center; animation-delay: initial; justify-content: space-evenly; width: 45%; position: initial;
-            vertical-align:top;
-            top: 2px;">
-    <div style="color: black;font-size: 22px;text-align: center;align-items: center; justify-content: center">Currently
-        most liked teams:
-    </div>
-    <ul th:each="team: ${teams}" style="list-style-type: none">
-        <li style="font-family: Lato" th:text="'Number of likes:   '+ ${team.counter}"></li>
-        <li style="color: darkblue;font-size: 16px; font-family: Lato" th:text="'Name ' + ${team.team}"></li>
-        <li th:hidden="'Id   '+ ${team.id}"></li>
-    </ul>
-</div>
-<div class="table-bordered"
-     style=" display: flex; text-align: center; animation-delay: initial; justify-content: space-evenly; width: 45%"
-     th:frameborder="2px">
-    <div style="color: black;font-size: 22px;text-align: center;align-items: center; justify-content: center">Currently
-        most liked players:
-    </div>
-    <ul th:each="player: ${players}" style="list-style-type: none">
-        <li style="font-family: Lato" th:text="'Number of likes:   '+ ${player.counter}"></li>
-        <li style="color: darkblue;font-size: 15px; font-family: Lato"
-            th:text=" ${player.firstName} + ' ' + ${player.lastName}"></li>
+<!--<div class="table-bordered" style=" display: flex; text-align: center; animation-delay: initial; justify-content: space-evenly; width: 45%; position: initial;-->
+<!--            vertical-align:top;-->
+<!--            top: 2px;">-->
+<!--    <div style="color: black;font-size: 22px;text-align: center;align-items: center; justify-content: center">Currently-->
+<!--        most liked teams:-->
+<!--    </div>-->
+<!--    <ul th:each="team: ${teams}" style="list-style-type: none">-->
+<!--        <li style="font-family: Lato" th:text="'Number of likes:   '+ ${team.counter}"></li>-->
+<!--        <li style="color: darkblue;font-size: 16px; font-family: Lato" th:text="'Name ' + ${team.team}"></li>-->
+<!--        <li th:hidden="'Id   '+ ${team.id}"></li>-->
+<!--    </ul>-->
+<!--</div>-->
+<!--<div class="table-bordered"-->
+<!--     style=" display: flex; text-align: center; animation-delay: initial; justify-content: space-evenly; width: 45%"-->
+<!--     th:frameborder="2px">-->
+<!--    <div style="color: black;font-size: 22px;text-align: center;align-items: center; justify-content: center">Currently-->
+<!--        most liked players:-->
+<!--    </div>-->
+<!--    <ul th:each="player: ${players}" style="list-style-type: none">-->
+<!--        <li style="font-family: Lato" th:text="'Number of likes:   '+ ${player.counter}"></li>-->
+<!--        <li style="color: darkblue;font-size: 15px; font-family: Lato"-->
+<!--            th:text=" ${player.firstName} + ' ' + ${player.lastName}"></li>-->
 
-        <li th:hidden="'Id   '+ ${player.id}"></li>
-    </ul>
-</div>
-<div>
-    <a class="twitter-timeline" data-width="300" data-height="500" th:href="'https://twitter.com/' + ${favteam.twitterAddress}">Tweets by Your favourite team:</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<!--        <li th:hidden="'Id   '+ ${player.id}"></li>-->
+<!--    </ul>-->
+<!--</div>-->
+<div class="downtown" style="width: 302px">
+    <div th:if="${favteam.name}" != null>
+        <a class="twitter-timeline" data-width="300" data-height="500" th:href="'https://twitter.com/' + ${favteam.twitterAddress}">Tweets by Your favourite team:</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8" ></script></div>
+    <div th:unless="${favteam.name}" != null">
+        <a class="twitter-timeline" data-width="300" data-height="500" th:href="'https://twitter.com/nba">Tweets by Your favourite team:</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8" ></script></div>
     <div th:hidden="${#request.remoteUser}"></div>
 </div>
 </div>

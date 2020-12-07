@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.tymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Rejestracja</title>
+    <title>Log in</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Basketball Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
@@ -43,8 +43,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 <div th:include="fragments/header :: header"></div>
-<h1>Login page</h1>
+
 <form th:action="@{/login}" method="post" th:object="${user}" class="downtown">
+    <h1 style="padding: 8px">Login page</h1>
     <div><label> Login: <input type="text" th:field="*{login}"/> </label></div>
     <div><label> Password:<input type="password" th:field="*{password}"/></label></div>
     <div><input type="submit" value="Sign In"/></div>

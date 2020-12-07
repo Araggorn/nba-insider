@@ -1,35 +1,77 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Users!</title>
+    <title>Players list</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="Basketball Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <link th:href="@{/css/bootstrap-3.1.1.min.css}" rel="stylesheet" type="text/css">
+    <!-- Custom Theme files -->
+    <link th:href="@{/css/owl.carousel.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{/css/style.css}" rel='stylesheet' type='text/css'/>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/move-top.js}"></script>
+    <script type="text/javascript" th:src="@{/js/easing.js}"></script>
+    <!--/script-->
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 900);
+            });
+        });
+    </script>
     <style>
-        body
-        {
+        .downtown {
+            background: whitesmoke;
+            color: black;
+            margin: auto;
+
+            border: 5px solid;
+            border-color: black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        body {
             background-color: whitesmoke;
             color: orange;
         }
+
         a {
             text-decoration: none;
         }
-        .contener
-        {
-            width: 100%;
-            display: inline-block;
+
+        .contener {
+
+            margin-right: auto;
+            margin-left: auto;
+            padding-left: 15px;
+            padding-right: 15px;
         }
-        .left
-        {
+
+        .left {
             display: inline-block;
             width: 40%;
-            position: initial;
-            vertical-align:top;
+            vertical-align: top;
             top: 2px;
         }
-        .right
-        {
+
+        .right {
             display: inline-block;
-            width: 59%;
+            width: 40%;
+            vertical-align: top;
+            top: 2px;
         }
+
         .button {
             padding: 10px 20px;
             border-radius: 3px;
@@ -39,6 +81,7 @@
             filter: brightness(95%);
             transition: all .3s ease-in-out;
         }
+
         .buttondelete {
             color: white;
             -webkit-text-fill-color: black;
@@ -49,6 +92,7 @@
             cursor: pointer;
             transition: all .3s ease-in-out;
         }
+
         .buttonadd {
             background-color: blue;
             border: none;
@@ -59,49 +103,82 @@
             text-decoration: none;
             cursor: pointer;
             filter: brightness(80%);
-            transition: all .3s ease-in-out;}
-        .button:hover{
+            transition: all .3s ease-in-out;
+        }
+
+        .button:hover {
             background-color: gray;
         }
-        .buttondelete:hover{
+
+        .buttondelete:hover {
             background-color: darkred;
         }
     </style>
 </head>
 <body>
-<div style="color: darkgreen;font-size: 32px;text-align: center;align-items: center; justify-content: center">Players</div>
-<div class="contener">
-    <div class="left">
-<a class="button" th:href="@{/teamlist}"><button class="button" style="min-width: 50px">Teams</button> </a>
-        <a class="button" th:href="@{/logout}">
-            <button class="button" style="min-width: 50px; color: darkred; cursor:crosshair">Logout
-            </button>
-        </a>
-<div class="form">
-    <h3>Add player to database</h3>
-    <form th:object="${player}" method="post" th:action="@{/playerlist}">
-        <section>
-            <label>First Name</label>
-            <input type="text" th:field="*{firstName}"/>
-            <input type="hidden" th:field="*{id}"/>
-        </section>
-        <section>
-            <label>Last name:</label>
-            <input type="text" th:field="*{lastName}"/>
-        </section>
-        <section>
-            <button type="submit">Add player!</button>
-        </section>
-    </form>
-</div></div>
-<div class="right">
-<ul th:each="player: ${players}" style="align-items: center; list-style-type: none">
-    <li th:text="'Id:        ' +${player.id}"></li>
-    <li th:text="'Name:  '+${player.firstName}"></li>
-    <li style="color: darkblue; font-size: 22px" th:text="'LastName:  '+${player.lastName}"></li>
+<div th:include="fragments/headerafterlogin :: header"></div>
+<div class="downtown"
+     style="background: black; color: whitesmoke;font-size: 32px;text-align: center;align-items: center; justify-content: center; margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px">Players
+    <div class="contener" ; style="font-size: 15px">
+        <div class="left">
+            <div class="form">
+                <table class="downtown"
+                       style="color: black; justify-content:center; text-align: left;border: solid 2px">
+                    <form th:object="${player}" method="post" th:action="@{/playerlist}">
+                        <tr style="border: solid 1px">
+                            <th class="tables" style="color: #1dcaff" ; height="40px">Add player to database</th>
+                        </tr>
+                        <tr style="border: solid 1px">
+                            <th class="tables">First Name:</th>
+                        </tr>
+                        <tr style="border: solid 1px">
+                            <td class="tables"><input type="text" th:field="*{firstName}"/></td>
+                        </tr>
+                        <tr style="border: solid 1px">
+                            <th class="tables">Last Name:</th>
+                        </tr>
+                        <tr style="border: solid 1px">
+                            <td class="tables"><input type="text" th:field="*{lastName}"/></td>
+                        </tr>
+                        <tr style="border: solid 1px">
+                            <th class="tables">Add player</th>
+                        </tr>
+                        <tr style="border: solid 1px">
+                            <td class="tables">
+                                <button type="submit">Add player!</button>
+                            </td>
+                        </tr>
+                    </form>
+                </table>
+            </div>
+        </div>
+        <div class="right">
+            <table class="downtown" style="color: black; justify-content:center; text-align: left;border: solid 2px">
+                <tr style="border: solid 1px">
+                    <th class="tables">Id</th>
+                    <th class="tables">First Name</th>
+                    <th class="tables">Last Name</th>
 
-</ul>
-</div></div>
+                </tr>
+                <tr style="border: solid 1px" th:each="player: ${players}">
+                    <td class="tables" th:text="${player.id}"></td>
+                    <td class="tables" th:text="${player.firstName}"></td>
+                    <td class="tables" th:text="${player.lastName}"></td>
+                </tr>
+            </table>
+            <!--        <ul th:each="player: ${players}" style="align-items: center; list-style-type: none">-->
+            <!--            <li th:text="'Id:        ' +${player.id}"></li>-->
+            <!--            <li th:text="'Name:  '+${player.firstName}"></li>-->
+            <!--            <li style="color: darkblue; font-size: 22px" th:text="'LastName:  '+${player.lastName}"></li>-->
+
+            <!--        </ul>-->
+        </div>
+    </div>
+</div>
+
 
 </body>
 </html>
