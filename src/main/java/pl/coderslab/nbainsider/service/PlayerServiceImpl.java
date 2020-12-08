@@ -1,5 +1,6 @@
 package pl.coderslab.nbainsider.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,6 +14,7 @@ import java.util.stream.Collectors;
 
 @Service
 @Transactional
+@Slf4j
 public class PlayerServiceImpl implements PlayerService {
 
     private final PlayerRepository playerRepository;
@@ -36,18 +38,24 @@ public class PlayerServiceImpl implements PlayerService {
 
     @Override
     public void add(Player player) {
-        playerDataService.checkIfPlayerExists(player.getFirstName(), player.getLastName());
-        playerRepository.save(player);
+        if (playerDataService.checkIfPlayerExists(player.getFirstName(), player.getLastName())) {
+            playerRepository.save(player);
+        } else {
+            log.info("Player not found");
+        }
     }
 
     @Override
     public List<PlayerLikeDto> find4mostlikedplayers() {
-        return  playerRepository.findmostlikedplayers()
+        return playerRepository.findmostlikedplayers()
                 .stream()
                 .map(player -> new PlayerLikeDto(player.getCounter(), player.getId(), player.getFirstName(), player.getLastName()))
                 .collect(Collectors.toList());
     }
-public String getPlayerByUser() {return playerRepository.getPlayerByUser(SecurityUtils.username());}
+
+    public String getPlayerByUser() {
+        return playerRepository.getPlayerByUser(SecurityUtils.username());
+    }
 
     @Override
     public Player getPlayerFullInfoByUser() {

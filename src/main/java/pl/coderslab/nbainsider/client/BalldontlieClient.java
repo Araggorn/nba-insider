@@ -11,8 +11,11 @@ public class BalldontlieClient {
 
     private final RestTemplate restTemplate = new RestTemplate();
 
-    public Page<Player> getPlayers() {
-        return restTemplate.getForObject("https://www.balldontlie.io/api/v1/players", PlayerPage.class);
+    public Page<Player> getPlayers(String search, int page) {
+        String url = "https://www.balldontlie.io/api/v1/players?search=" + search + "&page=" + page;
+        return restTemplate.getForObject(url, PlayerPage.class);
     }
+
+
 }
 
