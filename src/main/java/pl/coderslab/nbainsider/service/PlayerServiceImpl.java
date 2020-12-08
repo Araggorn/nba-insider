@@ -37,11 +37,13 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     @Override
-    public void add(Player player) {
+    public boolean add(Player player) {
         if (playerDataService.checkIfPlayerExists(player.getFirstName(), player.getLastName())) {
             playerRepository.save(player);
+            return true;
         } else {
             log.info("Player not found");
+            return false;
         }
     }
 

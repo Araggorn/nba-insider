@@ -152,6 +152,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </td>
                         </tr>
                     </form>
+                    <div class="downtown" style="background:black; color: green; font-size: 18px" th:if="${addedGet} == true">Player added</div>
+                    <div class="downtown" style="background:black; color: red; font-size: 18px" th:if="${addedGet} == false">That player doesn't exist in NBA players database
+                        (after 1979)
+                    </div>
+
+<!--                    <div class="downtown" style="color:black" th:text="${addedGet}"></div>-->
                 </table>
             </div>
         </div>

@@ -11,7 +11,7 @@ public interface PlayerService {
     List<Player> findAllPlayers();
 
     Player findById(Long id);
-    void add(Player player);
+    boolean add(Player player);
 
     List<PlayerLikeDto> find4mostlikedplayers();
 
