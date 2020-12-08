@@ -31,6 +31,6 @@ public class EditAccountController {
     @PostMapping("/editaccount")
     public String addedit(UserDto user) {
         userService.update(user);
-        return "redirect:/main";
+        return "redirect:/logout";
     }
 }

@@ -5,9 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.coderslab.nbainsider.app.SecurityUtils;
 import pl.coderslab.nbainsider.dto.PlayerLikeDto;
-import pl.coderslab.nbainsider.dto.TeamLikeDto;
 import pl.coderslab.nbainsider.entity.Player;
-import pl.coderslab.nbainsider.entity.Team;
 import pl.coderslab.nbainsider.repository.PlayerRepository;
 
 import java.util.List;
@@ -17,11 +15,13 @@ import java.util.stream.Collectors;
 @Transactional
 public class PlayerServiceImpl implements PlayerService {
 
-    PlayerRepository playerRepository;
+    private final PlayerRepository playerRepository;
+    private final PlayerDataService playerDataService;
 
     @Autowired
-    public PlayerServiceImpl(PlayerRepository playerRepository) {
+    public PlayerServiceImpl(PlayerRepository playerRepository, PlayerDataService playerDataService) {
         this.playerRepository = playerRepository;
+        this.playerDataService = playerDataService;
     }
 
     @Override
@@ -36,6 +36,7 @@ public class PlayerServiceImpl implements PlayerService {
 
     @Override
     public void add(Player player) {
+        playerDataService.checkIfPlayerExists(player.getFirstName(), player.getLastName());
         playerRepository.save(player);
     }
 

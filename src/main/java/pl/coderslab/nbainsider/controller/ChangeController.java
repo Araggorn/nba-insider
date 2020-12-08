@@ -54,10 +54,14 @@ public class ChangeController {
         return "change";
     }
 
-    @PostMapping("/change")
-    public String changepreferences(UserPrefDto userPrefDto, UserPrefPlayerDto userPrefPlayerDto) {
+    @PostMapping(path = "/change", params = {"favTeamId"})
+    public String changepreferenc(UserPrefDto userPrefDto) {
         userService.updateTeam(userPrefDto.getFavTeamId());
+        return "redirect:/change";
+    }
+    @PostMapping(path = "/change", params = {"favPlayerId"})
+    public String changepreferences(UserPrefPlayerDto userPrefPlayerDto) {
         userService.updatePlayer(userPrefPlayerDto.getFavPlayerId());
-        return "redirect:/main";
+        return "redirect:/change";
     }
 }

@@ -53,18 +53,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </tr>
             <tr style="border: solid 1px">
                 <td class="tables" th:text="${#request.remoteUser}"></td>
-                <div th:if="${favteam.name}" != null>
-                    <td class="tables" th:text="${favteam.name}"></td></div>
-                <div th:unless="${favteam.name}" != null">
-                    <td class="tables" th:text='Choose Your team!'></td>
-<!--                    <a class="button" th:href="@{/change}"><button class="button" style="min-width: 50px">Choose</button></a>-->
-                </div>
-                <div th:if="${favplaya}" != null>
-                <td class="tables" th:text="${favplaya}"></td></div>
-                <div th:unless="${favplaya}" != null>
-                    <td class="tables" th:text='Choose Your favoute player'></td>
-<!--                    <a class="button" th:href="@{/change}"><button class="button" style="min-width: 50px">Choose</button></a></div>-->
-            </tr>
+                <span th:if="${favteam} != null">
+                    <td class="tables" th:text="${favteam.name}"></td></span>
+                <span th:unless="${favteam} != null">
+                    <td class="tables" text="Choose Your team!"></td></span>
+                <span th:if="${favplaya} != null">
+                <td class="tables" th:text="${favplaya}"></td></span>
+                <span th:unless="${favplaya} != null">
+                    <td class="tables" text="Choose Your favoute player"></td>
+                </span></tr>
         </table>
 <!--        <ul>-->
 <!--            <li>-->
@@ -108,10 +105,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--    </ul>-->
 <!--</div>-->
 <div class="downtown" style="width: 302px">
-    <div th:if="${favteam.name}" != null>
+    <div th:if="${favteam} != null">
         <a class="twitter-timeline" data-width="300" data-height="500" th:href="'https://twitter.com/' + ${favteam.twitterAddress}">Tweets by Your favourite team:</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8" ></script></div>
-    <div th:unless="${favteam.name}" != null">
-        <a class="twitter-timeline" data-width="300" data-height="500" th:href="'https://twitter.com/nba">Tweets by Your favourite team:</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8" ></script></div>
+    <div th:unless="${favteam} != null">
+        <a class="twitter-timeline" data-width="300" data-height="500" href="https://twitter.com/nba">Tweets from NBA: </a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8" ></script></div>
     <div th:hidden="${#request.remoteUser}"></div>
 </div>
 </div>
