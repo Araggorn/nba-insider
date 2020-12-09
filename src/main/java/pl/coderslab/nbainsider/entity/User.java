@@ -24,6 +24,7 @@ public class User {
 
     @NotNull
     @Size(min = 3, max = 50)
+    @Column(unique = true)
     private String login;
 
     @NotNull

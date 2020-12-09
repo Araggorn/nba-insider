@@ -48,18 +48,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <section>
             <label>Login</label>
             <input type="text" th:field="*{login}"/>
-            <span th:if="${#fields.hasErrors('login'}" th:errors="*{login}">Login should have at least 3 letters</span>
-            <input type="hidden" th:field="*{id}"/>
+            <span th:if="${#fields.hasErrors('login')}" th:errors="*{login}">Login should have at least 3 letters</span>
         </section>
         <section>
             <label>Email</label>
             <input type="text" th:field="*{email}"/>
-            <span th:if="${#fields.hasErrors('email'}" th:errors="*{email}">Don't forget about email format!</span>
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Don't forget about email format!</span>
         </section>
         <section>
             <label>Password</label>
             <input type="password" th:field="*{password}"/>
-            <span th:if="${#fields.hasErrors('login'}" th:errors="*{login}">Bad password</span>
+            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Bad password</span>
         </section>
         <section>
             <button type="submit">Save</button>
