@@ -37,14 +37,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         border: 5px solid #FFFF00;
 
-        padding: 10px;
+        padding: 10px;}
 
-    }</style>
+    .downtown {
+        background: black;
+        color: whitesmoke;
+        margin: auto;
+
+        width: 60%;
+        border: 5px solid ;
+        border-color: black;
+
+        padding: 10px;
+        text-align: center;
+    }
+    </style>
 </head>
 <body style="width: 98%; display: inline-block">
 <div th:include="fragments/headerafterlogin :: header"></div>
-<form th:object="${userPref}" method="post" th:action="@{/change}" class="center">
-    <label>Team</label>
+<form th:object="${userPref}" method="post" th:action="@{/change}" class="center" style="background: black">
+    <h4 class="downtown">Team</h4>
     <div class="form-group" style="background: black; color: white; padding: 5%; columns: 2">
         <div th:each="team: ${teams}">
             <div class="custom-control custom-radio custom-control-inline" style="background: black">
@@ -54,12 +66,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
         </div>
     </div>
-    <button class="btn btn-primary" type="submit">Submit form</button>
+    <button style="padding: 15px; background: darkblue; color: whitesmoke; border-radius: 34%; border-color: black"  type="submit">Choose</button>
 </form>
-<form th:object="${userPrefPlayer}" method="post" th:action="@{/change}" class="center">
+
+<form th:object="${userPrefPlayer}" method="post" th:action="@{/change}" class="center" style="background: black">
+    <h4 class="downtown">Players</h4>
     <div class="form-group"
-         style="background: black; color: white; padding: 5%; columns: 2; display: inline-block; text-align: center;">
-        <label>Players</label>
+         style="background: black; color: white; padding: 5%; columns: 2">
+
         <div th:each="player: ${players}">
             <div class="custom-control custom-radio custom-control-inline" style="columns: auto">
                 <input type="radio" th:field="*{favPlayerId}" th:value="${player.id}" class="custom-control-input">
@@ -68,7 +82,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
         </div>
     </div>
-    <button class="btn btn-primary" type="submit" style="padding-bottom: 15px">Submit form</button>
+    <button type="submit" style="padding: 15px; background: darkblue; color: whitesmoke; border-radius: 34%;border-color: black" >Choose</button>
 </form>
 
 </body>
