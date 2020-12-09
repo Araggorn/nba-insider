@@ -43,6 +43,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div th:include="fragments/header :: header"></div>
 <div class="downtown">
 <h1>User registration</h1>
+<!--    <p th:if="${user}" class="error">Wrong user or email</p>-->
     <form th:object="${user}" method="post" th:action="@{/registration}">
         <section>
             <label>Login</label>

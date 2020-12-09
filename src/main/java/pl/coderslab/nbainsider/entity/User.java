@@ -3,6 +3,7 @@ package pl.coderslab.nbainsider.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Set;
@@ -30,6 +31,7 @@ public class User {
 
     @NotNull
     @Column(unique=true)
+    @Email
     private String email;
 
     @ManyToOne
@@ -39,6 +41,8 @@ public class User {
     private Player player;
 
     private boolean active = true;
+    @Column (name="role")
+    private boolean admin = false;
 
 //    @Transient
 //    @ElementCollection
