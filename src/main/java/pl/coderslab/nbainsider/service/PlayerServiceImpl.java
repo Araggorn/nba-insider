@@ -9,6 +9,7 @@ import pl.coderslab.nbainsider.dto.PlayerLikeDto;
 import pl.coderslab.nbainsider.entity.Player;
 import pl.coderslab.nbainsider.repository.PlayerRepository;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -38,6 +39,15 @@ public class PlayerServiceImpl implements PlayerService {
 
     @Override
     public boolean add(Player player) {
+        List<Player> players = findAllPlayers();
+
+        Iterator<Player> playersIterator = players.iterator();
+        while(playersIterator.hasNext()){
+            if (playersIterator.next().getFirstName() == player.getFirstName() &&
+                    playersIterator.next().getLastName() == player.getLastName())
+            {return false;}
+            else continue;
+        }
         if (playerDataService.checkIfPlayerExists(player.getFirstName(), player.getLastName())) {
             playerRepository.save(player);
             return true;
