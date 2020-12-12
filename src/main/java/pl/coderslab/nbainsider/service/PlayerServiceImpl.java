@@ -39,13 +39,16 @@ public class PlayerServiceImpl implements PlayerService {
 
     @Override
     public boolean add(Player player) {
-        List<Player> players = findAllPlayers();
+        List<Player> players = playerRepository.findAll();
 
         Iterator<Player> playersIterator = players.iterator();
+
         while(playersIterator.hasNext()){
-            if (playersIterator.next().getFirstName() == player.getFirstName() &&
-                    playersIterator.next().getLastName() == player.getLastName())
-            {return false;}
+            Player next = playersIterator.next();
+            if (next.getFirstName().equals(player.getFirstName()) &&
+                    next.getLastName().equals(player.getLastName()))
+            {log.info("Player duplicated");
+                return false;}
             else continue;
         }
         if (playerDataService.checkIfPlayerExists(player.getFirstName(), player.getLastName())) {
