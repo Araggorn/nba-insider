@@ -9,18 +9,17 @@ import pl.coderslab.nbainsider.service.PlayerService;
 import pl.coderslab.nbainsider.service.TeamService;
 import pl.coderslab.nbainsider.service.UserService;
 
-import java.awt.print.Book;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 @Component
 public class UserFixture {
-    private UserService userService;
-    private TeamService teamService;
-    private PlayerService playerService;
+    private final UserService userService;
+    private final TeamService teamService;
+    private final PlayerService playerService;
 
-    private List<User> userList = Arrays.asList(
+    private final List<User> userList = Arrays.asList(
             new User(null, "Araggorn", "masło", "zerelik@o2.pl", null, null),
             new User(null, "Araggornik", "basło", "zerelik@p2.pl", null, null),
             new User(null, "qba", "qbeczek", "kuboniszom@gmail.com", null, null),

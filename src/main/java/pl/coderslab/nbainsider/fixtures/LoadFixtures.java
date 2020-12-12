@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoadFixtures {
 
-    private UserFixture userFixture;
-    private TeamFixture teamFixture;
-    private PlayerFixture playerFixture;
+    private final UserFixture userFixture;
+    private final TeamFixture teamFixture;
+    private final PlayerFixture playerFixture;
 
     @Autowired
     public LoadFixtures(UserFixture userFixture, TeamFixture teamFixture, PlayerFixture playerFixture) {

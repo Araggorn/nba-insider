@@ -12,7 +12,7 @@ import java.util.List;
 
 @Controller
 public class TeamController {
-    private TeamService teamService;
+    private final TeamService teamService;
 
     @Autowired
     public TeamController(TeamService teamService) {

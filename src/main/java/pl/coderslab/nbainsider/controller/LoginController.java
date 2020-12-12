@@ -10,7 +10,7 @@ import pl.coderslab.nbainsider.service.UserService;
 
 @Controller
 public class LoginController {
-    private UserService userService;
+    private final UserService userService;
 
     @Autowired
     public LoginController(UserService userService) {

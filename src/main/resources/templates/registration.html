@@ -47,17 +47,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <form th:object="${user}" method="post" th:action="@{/registration}">
         <section>
             <label>Login</label>
-            <input type="text" th:field="*{login}"/>
+            <input style="color: black" type="text" th:field="*{login}"/>
             <span th:if="${#fields.hasErrors('login')}" th:errors="*{login}">Login should have at least 3 letters</span>
         </section>
         <section>
             <label>Email</label>
-            <input type="text" th:field="*{email}"/>
+            <input style="color: black"  type="text" th:field="*{email}"/>
             <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Don't forget about email format!</span>
         </section>
         <section>
             <label>Password</label>
-            <input type="password" th:field="*{password}"/>
+            <input style="color: black"  type="password" th:field="*{password}"/>
             <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Bad password</span>
         </section>
         <section>

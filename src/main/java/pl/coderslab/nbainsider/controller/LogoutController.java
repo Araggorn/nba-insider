@@ -11,7 +11,7 @@ import pl.coderslab.nbainsider.service.UserService;
 @Controller
 public class LogoutController {
 
-    private UserService userService;
+    private final UserService userService;
 
     @Autowired
     public LogoutController(UserService userService) {
