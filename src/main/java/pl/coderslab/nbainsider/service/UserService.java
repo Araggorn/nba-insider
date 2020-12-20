@@ -30,6 +30,8 @@ public interface UserService {
 
     void updateTeam(Long favTeamId);
 
+    Long countUsers();
+
     void updatePlayer(Long favPlayerId);
 
     User getByLogin(String login);

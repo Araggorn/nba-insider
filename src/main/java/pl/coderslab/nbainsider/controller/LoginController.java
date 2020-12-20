@@ -21,6 +21,8 @@ public class LoginController {
     @GetMapping("/login")
     public String form(Model model) {
         model.addAttribute("user", new User());
+        Long numberOfUsers = userService.countUsers();
+        model.addAttribute("numberOfUsers", numberOfUsers);
         return "login";
     }
     @PostMapping("/login")

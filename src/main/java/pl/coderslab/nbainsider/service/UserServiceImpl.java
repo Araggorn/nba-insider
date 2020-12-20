@@ -120,5 +120,8 @@ public class UserServiceImpl implements UserService {
         return userRepository.getByLogin(login);
     }
 
+    public Long countUsers(){
+        return userRepository.count();
+    }
 
 }
