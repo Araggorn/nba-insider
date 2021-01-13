@@ -14,9 +14,9 @@
     <name>nbainsider</name>
     <description>The NBA Insider</description>
 
-    <properties>
-        <java.version>11</java.version>
-    </properties>
+<!--    <properties>-->
+<!--        <java.version>11</java.version>-->
+<!--    </properties>-->
 
     <dependencies>
         <dependency>
