@@ -56,7 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body style="width: 98%; display: inline-block">
 <div th:include="fragments/headerafterlogin :: header"></div>
 <form th:object="${userPref}" method="post" th:action="@{/change}" class="center" style="background: black">
-    <h4 class="downtown">Team</h4>
+    <h4 class="downtown" style="color: #FFCC00">Teams</h4>
     <div class="form-group" style="background: black; color: white; padding: 5%; columns: 2">
         <div th:each="team: ${teams}">
             <div class="custom-control custom-radio custom-control-inline" style="background: black">
@@ -70,7 +70,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </form>
 
 <form th:object="${userPrefPlayer}" method="post" th:action="@{/change}" class="center" style="background: black">
-    <h4 class="downtown">Players</h4>
+    <h4 class="downtown" style="color: #FFCC00">Players</h4>
     <div class="form-group"
          style="background: black; color: white; padding: 5%; columns: 2">
 
