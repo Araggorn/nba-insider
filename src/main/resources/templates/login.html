@@ -45,9 +45,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <form th:action="@{/login}" method="post" th:object="${user}" class="downtown">
     <h1 style="padding: 8px">Login page</h1>
     <div><label> Login: <input style="color: black" type="text" th:field="*{login}"/> </label></div>
-    <div><label> Password:<input style="color: black" type="password" th:field="*{password}"/></label></div>
-    <div><input style="color: black" type="submit"/>Login</div>
+    <div><label> Password:<input style="color: black; margin: 10px" type="password" th:field="*{password}"/></label></div>
+    <div><input style="color: black; " type="submit" placeholder="Submit"/></div>
+    <div style="padding: 10px">Already registered users: <span style="font-size: larger" th:text="${numberOfUsers}"></span></div>
 </form>
-<div>Already registered users: <span th:text="${numberOfUsers}"></span></div>
+
 </body>
 </html>

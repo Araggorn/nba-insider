@@ -17,5 +17,6 @@ public interface PlayerService {
 
     String getPlayerByUser();
     Player getPlayerFullInfoByUser();
+    Long countPlayers();
 
 }

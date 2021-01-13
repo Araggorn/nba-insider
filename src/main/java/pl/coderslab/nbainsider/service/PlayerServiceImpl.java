@@ -77,4 +77,8 @@ public class PlayerServiceImpl implements PlayerService {
         return playerRepository.getPlayerFullInfoByUser(SecurityUtils.username());
     }
 
+    public Long countPlayers(){
+        return playerRepository.count();
+    }
+
 }

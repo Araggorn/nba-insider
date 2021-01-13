@@ -104,13 +104,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <tr style="border: solid 1px">
         <th class="tables">Id</th>
         <th class="tables">Name</th>
-        <th class="tables">Twitter</th>
+<!--        <th class="tables">Twitter</th>-->
 
     </tr>
     <tr style="border: solid 1px" th:each="team: ${teams}">
         <td class="tables" th:text="${team.id}"></td>
         <td class="tables" th:text="${team.name}"></td>
-        <td class="tables" th:text="${team.twitterAddress}"></td>
+        <td class="tables" th:hidden="${team.twitterAddress}"></td>
     </tr>
 </table>
 </body>

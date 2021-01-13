@@ -151,14 +151,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <button type="submit">Add player!</button>
                             </td>
                         </tr>
+
                     </form>
                     <div class="downtown" style="background:black; color: green; font-size: 18px" th:if="${addedGet} == true">Player added</div>
                     <div class="downtown" style="background:black; color: red; font-size: 18px" th:if="${addedGet} == false">That player doesn't exist in NBA players database
                         (after 1979) OR he is already on the list!!
                     </div>
-
-<!--                    <div class="downtown" style="color:black" th:text="${addedGet}"></div>-->
                 </table>
+                <div style="padding: 10px; color: #FFCC00">Players in Database: <strong><span th:text="${numberOfPlayers}"></span></strong></div>
             </div>
         </div>
         <div class="right">

@@ -30,6 +30,8 @@ public class PlayerController {
         model.addAttribute("players", players);
         model.addAttribute("player", new Player());
         model.addAttribute("addedGet", added);
+        Long numberOfPlayers = playerService.countPlayers();
+        model.addAttribute("numberOfPlayers", numberOfPlayers);
         return "playerlist";
     }
 
