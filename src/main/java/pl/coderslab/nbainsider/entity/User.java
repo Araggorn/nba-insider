@@ -43,7 +43,7 @@ public class User {
 
     private boolean active = true;
     @Column (name="role")
-    private boolean admin = false;
+    private String role = "ROLE_USER";
 
 //    @Transient
 //    @ElementCollection

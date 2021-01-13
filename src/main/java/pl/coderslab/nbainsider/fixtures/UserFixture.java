@@ -21,7 +21,7 @@ public class UserFixture {
 
     private final List<User> userList = Arrays.asList(
             new User(null, "Araggorn", "masło", "zerelik@o2.pl", null, null),
-            new User(null, "Araggornik", "basło", "zerelik@p2.pl", null, null),
+            new User(null, "Olek", "wygasło", "zerelik@p2.pl", null, null),
             new User(null, "qba", "qbeczek", "kuboniszom@gmail.com", null, null),
             new User(null, "pinka", "malinka", "korniszonek@nba.com", null, null),
             new User(null, "Arek", "aserehe", "arekbezbarek@nba.com", null, null),
@@ -43,10 +43,16 @@ public class UserFixture {
         List<Player> players = playerService.findAllPlayers();
         Random rand = new Random();
 
+        User useradmin = userList.get(1);
+        User useradmin1 = userList.get(0);
+        useradmin.setAdmin("ROLE_ADMIN");
+        useradmin1.setAdmin("ROLE_ADMIN");
+
         for (User user : userList) {
             user.setTeam(teams.get(rand.nextInt(teams.size())));
             user.setPlayer(players.get(rand.nextInt(players.size())));
             userService.save(user);
         }
+
     }
 }
