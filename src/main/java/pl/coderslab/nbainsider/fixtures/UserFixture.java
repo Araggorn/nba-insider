@@ -45,8 +45,8 @@ public class UserFixture {
 
         User useradmin = userList.get(1);
         User useradmin1 = userList.get(0);
-        useradmin.setAdmin("ROLE_ADMIN");
-        useradmin1.setAdmin("ROLE_ADMIN");
+        useradmin.setRole("ROLE_ADMIN");
+        useradmin1.setRole("ROLE_ADMIN");
 
         for (User user : userList) {
             user.setTeam(teams.get(rand.nextInt(teams.size())));

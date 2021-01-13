@@ -33,7 +33,7 @@ public class TeamFixture {
             new Team(null, "Washington Wizards", "WashWizards"),
             new Team(null, "Brooklyn Nets", "BrooklynNets"),
             new Team(null, "Cleveland Cavaliers", "cavs"),
-            new Team(null, "Utah Jazz", "utah jazz"),
+            new Team(null, "Utah Jazz", "utahjazz"),
             new Team(null, "Sacramento Kings", "SacramentoKings"),
             new Team(null, "Indiana Pacers", "Pacers"),
             new Team(null, "Memphis Grizzlies", "memgrizz"),

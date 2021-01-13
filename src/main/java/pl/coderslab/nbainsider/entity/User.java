@@ -42,6 +42,7 @@ public class User {
     private Player player;
 
     private boolean active = true;
+
     @Column (name="role")
     private String role = "ROLE_USER";
 
