@@ -1,12 +1,15 @@
 package pl.coderslab.nbainsider.fixtures;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import pl.coderslab.nbainsider.entity.Player;
 import pl.coderslab.nbainsider.service.PlayerService;
+
 import java.util.Arrays;
 import java.util.List;
 
 @Component
+@Profile("local")
 public class PlayerFixture {
     PlayerService playerService;
 

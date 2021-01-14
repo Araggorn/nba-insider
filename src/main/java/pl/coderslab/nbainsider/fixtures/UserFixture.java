@@ -1,6 +1,7 @@
 package pl.coderslab.nbainsider.fixtures;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import pl.coderslab.nbainsider.entity.Player;
 import pl.coderslab.nbainsider.entity.Team;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.Random;
 
 @Component
+@Profile("local")
 public class UserFixture {
     private final UserService userService;
     private final TeamService teamService;

@@ -1,13 +1,16 @@
 package pl.coderslab.nbainsider.fixtures;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import pl.coderslab.nbainsider.entity.Team;
 import pl.coderslab.nbainsider.service.TeamService;
+
 import java.util.Arrays;
 import java.util.List;
 
 @Component
+@Profile("local")
 public class TeamFixture {
     private final TeamService teamService;
 
@@ -38,15 +41,14 @@ public class TeamFixture {
             new Team(null, "Indiana Pacers", "Pacers"),
             new Team(null, "Memphis Grizzlies", "memgrizz"),
             new Team(null, "Phoenix Suns", "Suns"),
-            new Team(null, "Philadelphia 76ers", "sixers" ),
+            new Team(null, "Philadelphia 76ers", "sixers"),
             new Team(null, "Detroit Pistons", "DetroitPistons"),
             new Team(null, "Milwaukee Bucks", "Bucks"),
-            new Team(null, "Minnesota Timberwolves", "Timberwolves" )
+            new Team(null, "Minnesota Timberwolves", "Timberwolves")
     );
 
     @Autowired
-    public TeamFixture(TeamService teamService)
-    {
+    public TeamFixture(TeamService teamService) {
         this.teamService = teamService;
     }
 
