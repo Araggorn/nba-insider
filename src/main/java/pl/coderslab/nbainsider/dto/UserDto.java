@@ -3,7 +3,6 @@ package pl.coderslab.nbainsider.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -29,11 +28,9 @@ public class UserDto {
     @NotNull
     private String password;
     @NotNull
-    @Column(unique=true)
+    @Column(unique = true)
     @Email
     private String email;
-
-
 
 
 }

@@ -5,7 +5,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import pl.coderslab.nbainsider.entity.Player;
-import pl.coderslab.nbainsider.entity.Team;
 
 import java.util.List;
 
