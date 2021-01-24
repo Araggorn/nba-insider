@@ -69,7 +69,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                style="color: black; justify-content:center; text-align: left;border: solid 2px">
             <form th:object="${contact}" method="post" th:action="@{/about}">
                 <tr style="border: solid 1px">
-                    <th class="tables" style="color: #1dcaff" ; height="40px">If You have any suggestions, please contact us!</th>
+                    <th class="tables" style="color: #1dcaff" ; height="40px">If You have any suggestions, contact us please!</th>
                 </tr>
                 <tr style="border: solid 1px">
                     <th class="tables">Your mail!</th>
@@ -78,10 +78,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <td class="tables"><input type="text" th:field="*{email}"/></td>
                 </tr>
                 <tr style="border: solid 1px">
-                    <th class="tables">Last Name:</th>
+                    <th class="tables">Message:</th>
                 </tr>
                 <tr style="border: solid 1px">
-                    <td class="tables"><input type="text" th:field="*{description}"/></td>
+                    <td >
+<!--                            class="tables"><input type="" th:field="*{description}"/>-->
+                        <textarea class="tables" name="comment" th:field="*{description}">Enter text here...</textarea></td>
                 </tr>
                 <tr style="border: solid 1px">
                     <td class="tables">

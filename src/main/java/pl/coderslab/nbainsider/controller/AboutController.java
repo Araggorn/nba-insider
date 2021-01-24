@@ -33,9 +33,9 @@ public class AboutController {
         return "about";
     }
 
-    @PostMapping("/contact")
+    @PostMapping("/about")
     public String add(@Valid @ModelAttribute("user") Contact contact, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {return "contact";}
+        if (bindingResult.hasErrors()) {return "about";}
         repository.save(contact);
-        return "redirect:/contact";
+        return "redirect:/main";
 }}
