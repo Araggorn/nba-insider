@@ -64,6 +64,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <h2 style="padding: 100px"> It's all about basketball!</h2>
 
+    <div class="form">
+        <table class="downtown"
+               style="color: black; justify-content:center; text-align: left;border: solid 2px">
+            <form th:object="${contact}" method="post" th:action="@{/about}">
+                <tr style="border: solid 1px">
+                    <th class="tables" style="color: #1dcaff" ; height="40px">If You have any suggestions, please contact us!</th>
+                </tr>
+                <tr style="border: solid 1px">
+                    <th class="tables">Your mail!</th>
+                </tr>
+                <tr style="border: solid 1px">
+                    <td class="tables"><input type="text" th:field="*{email}"/></td>
+                </tr>
+                <tr style="border: solid 1px">
+                    <th class="tables">Last Name:</th>
+                </tr>
+                <tr style="border: solid 1px">
+                    <td class="tables"><input type="text" th:field="*{description}"/></td>
+                </tr>
+                <tr style="border: solid 1px">
+                    <td class="tables">
+                        <button type="submit">Send message</button>
+                    </td>
+                </tr>
+
+            </form>
+
+        </table>
+        <div style="padding: 10px; color: #FFCC00">Messages sent: <span style="color: #FFCC00" th:text="${numberOfMesseges}"></span></div>
+    </div>
+
 
     <h5 style="padding: 20px"><a href = "mailto: zerelik@o2.pl">Contact</a></h5>
 
