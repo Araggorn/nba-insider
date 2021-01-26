@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Userlist</title>
+    <title>Contactlist</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Basketball Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
@@ -74,46 +74,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 <div th:include="fragments/headerafterlogin :: header"></div>
-<div style="background: black; color: white;font-size: 20px;text-align: center">These users registered to your site!</div>
-
-<!--<ul th:each="user: ${users}" style="list-style-type: inherit" th:cellpadding="10px">-->
-<!--    <li th:text="'Id:        ' +${user.id}"></li>-->
-<!--    <li style="color: darkblue;font-size: 20px" th:text="'Login ' + ${user.login}"></li>-->
-<!--    <li th:text="'Email    ' +${user.email}"></li>-->
-<!--    <li th:hidden="'Password: ' +${user.password}"></li>-->
-<!--    <li th:text="'Favourite Team     ' +${user.team.getName()}"></li>-->
-<!--    <li th:text="|Favourite Player: ${user.player.getFirstName()}  ${user.player.getLastName()} |"></li>-->
-
-<!--    <a th:href="@{/user/delete/{id}(id=${user.id})}"><button class="buttondelete" style="min-width: 120px">Delete</button></a>-->
-<!--    <a th:href="@{/user/form/{id}(id=${user.id)}"><button class="button" style="min-width: 120px">Edit</button></a>-->
-<!--</ul>-->
+<div style="background: black; color: white;font-size: 20px;text-align: center">Contact forms filled:</div>
 
 <table  style="color: black; justify-content:center; text-align: left;width:100%;border: solid 2px">
 
     <tr style="border: solid 1px">
         <th class="tables">Id</th>
-        <th class="tables">Login</th>
         <th class="tables">Email</th>
-        <th class="tables">Favourite Team</th>
-        <th class="tables">Favourite Player</th>
+        <th class="tables">Description</th>
         <th class="tables">Status</th>
-    </tr>
-    <tr style="border: solid 1px" th:each="user: ${users}">
-        <td class="tables" th:text="${user.id}"></td>
-        <td class="tables" th:text="${user.login}"></td>
-        <td class="tables" th:text="${user.email}"></td>
-        <td class="tables" th:text="${user.team != null} ? ${user.team} : 'You forgot to choose favourite team'" > </a></td>
-        <td class="tables" th:text="${user.player != null} ? ${user.player}: 'You forgot to choose favourite player'" ></a></td>
 
-        <td><a class="button" th:href="@{/user/delete/{id}(id=${user.id})}"><button class="buttondelete" style="min-width: 50px">Delete</button></a>
-             <a class="button" th:href="@{/edit/{id}(id=${user.id})}"><button class="buttondelete" style="min-width: 50px">Edit</button></a></td>
+    </tr>
+    <tr style="border: solid 1px" th:each="contact: ${contact}">
+        <td class="tables" th:text="${contact.id}"></td>
+        <td class="tables" th:text="${contact.email}"></td>
+        <td class="tables" th:text="${contact.description}"></td>
+
+        <td><a class="button" th:href="@{/contactlist/delete/{id}(id=${contact.id})}"><button class="buttondelete" style="min-width: 50px">Delete</button></a>
+
     </tr>
 </table>
 <div style="display:flex; justify-content: space-evenly">
-    <a class="button" th:href="@{/change}"><button class="button" style="min-width: 50px">Choose</button></a>
-    <a class="button" th:href="@{/playerlist}"><button class="button" style="min-width: 50px">Players</button> </a>
-    <a class="button" th:href="@{/teamlist}"><button class="button" style="min-width: 50px">Teams</button> </a>
-    <a class="button" th:href="@{/contactlist}"><button class="button" style="min-width: 50px">Contacts</button> </a>
+
+    <a class="button" th:href="@{/userlist}"><button class="button" style="min-width: 50px">Userlist</button> </a>
     <a class="button" th:href="@{/logout}"><button class="button" style="min-width: 50px; color: darkred">Logout</button> </a>
 </div>
 
