@@ -32,17 +32,18 @@ public class MainPageController {
     }
     @GetMapping("/main")
     public String list(Model model) {
-        List<TeamLikeDto> teams = teamService.find4mostlikedteams();
-        model.addAttribute("teams", teams);
-        List<PlayerLikeDto> players = playerService.find4mostlikedplayers();
-        model.addAttribute("players", players);
+//        List<TeamLikeDto> teams = teamService.find4mostlikedteams();
+//        model.addAttribute("teams", teams);
+//        List<PlayerLikeDto> players = playerService.find4mostlikedplayers();
+//        model.addAttribute("players", players);
         Team favteam = teamService.getTeamByUsers();
         model.addAttribute("favteam", favteam);
         String favplaya = playerService.getPlayerByUser();
+        Player player = playerService.getPlayerFullInfoByUser();
         model.addAttribute("favplaya", favplaya);
         Long howmany = teamService.count(favteam.getId());
         model.addAttribute("howmany", howmany);
-        Long howManyP = playerService.countUsersThatLikeMyFavouritePlayer(favteam.getId());
+        Long howManyP = playerService.countUsersThatLikeMyFavouritePlayer(player.getId());
         model.addAttribute("howmanyP", howManyP);
         return "main";
     }
