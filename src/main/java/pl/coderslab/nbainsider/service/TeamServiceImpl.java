@@ -48,4 +48,12 @@ public class TeamServiceImpl implements TeamService {
     public Team getTeamByUsers() {
        return teamRepository.getTeamByUser(SecurityUtils.username());
     }
+
+    @Override
+    public List<TeamLikeDto> findleastlikedteams() {
+        return teamRepository.findlesslikedteams()
+                .stream()
+                .map(team -> new TeamLikeDto(team.getCounter(), team.getId(), team.getName()))
+                .collect(Collectors.toList());
+    }
 }

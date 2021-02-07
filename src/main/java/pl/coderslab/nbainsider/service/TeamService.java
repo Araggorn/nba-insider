@@ -17,5 +17,8 @@ public interface TeamService {
 
     Team getTeamByUsers();
 
+    List<TeamLikeDto> findleastlikedteams();
+
+
 
 }
