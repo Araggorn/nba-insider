@@ -19,6 +19,9 @@ public interface TeamService {
 
     List<TeamLikeDto> findleastlikedteams();
 
+    Long count(Long id);
+
+
 
 
 }

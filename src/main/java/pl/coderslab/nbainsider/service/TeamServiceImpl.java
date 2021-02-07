@@ -56,4 +56,9 @@ public class TeamServiceImpl implements TeamService {
                 .map(team -> new TeamLikeDto(team.getCounter(), team.getId(), team.getName()))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public Long count(Long id) {
+        return teamRepository.counter(id);
+    }
 }

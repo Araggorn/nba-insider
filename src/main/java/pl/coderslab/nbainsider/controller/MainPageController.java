@@ -40,6 +40,8 @@ public class MainPageController {
         model.addAttribute("favteam", favteam);
         String favplaya = playerService.getPlayerByUser();
         model.addAttribute("favplaya", favplaya);
+        Long howmany = teamService.count(favteam.getId());
+        model.addAttribute("howmany", howmany);
         return "main";
     }
 

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>NBA Insider NOT LIKED TEAMS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="Basketball Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <link th:href="@{/css/bootstrap-3.1.1.min.css}" rel="stylesheet" type="text/css">
+    <!-- Custom Theme files -->
+    <link th:href="@{/css/owl.carousel.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{/css/style.css}" rel='stylesheet' type='text/css'/>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/move-top.js}"></script>
+    <script type="text/javascript" th:src="@{/js/easing.js}"></script>
+    <!--/script-->
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 900);
+            });
+        });
+    </script>
+    <style>
+        .downtown {
+            background: whitesmoke;
+            color: black;
+            margin: auto;
+            width: 60%;
+            border: 5px solid ;
+            border-color: black;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body style="display: inline-block; justify-content: center; width: 100%">
+<div th:include="fragments/header :: header"></div>
+<h3 class="downtown">Least liked teams </h3>
+<table class="downtown">
+    <tr style="border: solid 1px">
+        <th class="tables">Likes</th>
+        <th class="tables">Team</th>
+    </tr>
+    <tr style="border: solid 1px" th:each="team: ${teams}">
+        <td class="tables" th:text="${team.counter}"></td>
+        <td class="tables" th:text="${team.team}"></td>
+
+    </tr>
+<!--</table>-->
+<!--<h3 class="downtown">Favourite Player:</h3>-->
+<!--<table class="downtown">-->
+<!--    <tr style="border: solid 1px">-->
+<!--        <th class="tables">Likes</th>-->
+<!--        <th class="tables">Player firstname</th>-->
+<!--        <th class="tables">Player lastname</th>-->
+
+<!--    </tr>-->
+<!--    <tr style="border: solid 1px" th:each="player: ${players}">-->
+<!--        <td class="tables" th:text="${player.counter}"></td>-->
+<!--        <td class="tables" th:text="${player.firstName}"></td>-->
+<!--        <td class="tables" th:text="${player.lastName}"></td>-->
+
+<!--    </tr>-->
+</table>
+<div style="display:flex; justify-content: space-evenly">
+    <a class="button" th:href="@{/change}"><button class="button" style="min-width: 50px">Choose</button></a>
+    <a class="button" th:href="@{/playerlist}"><button class="button" style="min-width: 50px">Players</button> </a>
+    <a class="button" th:href="@{/teamlist}"><button class="button" style="min-width: 50px">Teams</button> </a>
+    <a class="button" th:href="@{/contactlist}"><button class="button" style="min-width: 50px">Contacts</button> </a>
+    <a class="button" th:href="@{/leastlike}"><button class="button" style="min-width: 50px">Least Liked Teams</button> </a>
+    <a class="button" th:href="@{/logout}"><button class="button" style="min-width: 50px; color: darkred">Logout</button> </a>
+</div>
+</body>
+</html>
