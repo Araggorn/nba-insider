@@ -20,6 +20,9 @@ public interface TeamRepository extends JpaRepository <Team, Long>{
         int getCounter();
     }
 
+//    @Query(value = "select count(u.id) as counter from users u inner join teams t on t.id = u.team_id", nativeQuery = true)
+//    int counter(lo)
+
 
     @Query(value = "SELECT * from Teams t Where t.users.login = :user ORDER BY t.name DESC LIMIT 1", nativeQuery = true)
    Team findTeamByUser(@Param("user") String user);
