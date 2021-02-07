@@ -3,36 +3,41 @@
 <head>
     <title>NBA Insider</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="keywords" content="Basketball Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
     <link th:href="@{/css/bootstrap-3.1.1.min.css}" rel="stylesheet" type="text/css">
     <!-- Custom Theme files -->
-    <link th:href="@{/css/owl.carousel.css}" rel="stylesheet" type="text/css" media="all" />
-    <link th:href="@{/css/style.css}" rel='stylesheet' type='text/css' />
-    <script th:src="@{/js/jquery.min.js}"> </script>
+    <link th:href="@{/css/owl.carousel.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{/css/style.css}" rel='stylesheet' type='text/css'/>
+    <script th:src="@{/js/jquery.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/move-top.js}"></script>
     <script type="text/javascript" th:src="@{/js/easing.js}"></script>
     <!--/script-->
     <script type="text/javascript">
-        jQuery(document).ready(function($) {
-            $(".scroll").click(function(event){
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
                 event.preventDefault();
-                $('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 900);
             });
         });
     </script>
     <style>
-        .downtown
-        {
+        .downtown {
             background: whitesmoke;
             color: black;
             margin: auto;
 
             width: 60%;
 
-            border: 5px solid ;
+            border: 5px solid;
             border-color: black;
             padding: 10px;
             text-align: center;
@@ -41,38 +46,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 <div th:include="fragments/headerafterlogin :: header"></div>
-    <h2 class="center", style="display: flex; margin-left: auto; margin-right: auto; justify-content: center; padding: 20px; background: black; color: whitesmoke; width: 84%">
-    </h2>
-    <h3 class="center" style="display: flex; justify-content: center; padding: 10px;">
-        <table  style="color: black; width: 40%; display: inline-block; justify-content: center; text-align: center;border: solid 2px;">
-            <tr style="border: solid 1px">
-                <th class="tables">Your login: </th>
-                <th class="tables">Favourite Team: </th>
-                <th class="tables">Favourite Player: </th>
-            </tr>
-            <tr style="border: solid 1px">
-                <td class="tables" th:text="${#request.remoteUser}"></td>
-                <span th:if="${favteam} != null">
+<h2 class="center" ,
+    style="display: flex; margin-left: auto; margin-right: auto; justify-content: center; padding: 20px; background: black; color: whitesmoke; width: 84%">
+</h2>
+<h3 class="center" style="display: flex; justify-content: center; padding: 10px;">
+    <table style="color: black; width: 40%; display: inline-block; justify-content: center; text-align: center;border: solid 2px;">
+        <tr style="border: solid 1px">
+            <th class="tables">Your login:</th>
+            <th class="tables">Favourite Team:</th>
+            <th class="tables">Favourite Player:</th>
+        </tr>
+        <tr style="border: solid 1px">
+            <td class="tables" th:text="${#request.remoteUser}"></td>
+            <span th:if="${favteam} != null">
                     <td class="tables" th:text="${favteam.name}"></td></span>
-                <span th:unless="${favteam} != null">
+            <span th:unless="${favteam} != null">
                     <td class="tables" text="Choose Your team!"></td></span>
-                <span th:if="${favplaya} != null">
+            <span th:if="${favplaya} != null">
                 <td class="tables" th:text="${favplaya}"></td></span>
-                <span th:unless="${favplaya} != null">
-                    <td class="tables" text="Choose Your favoute player"></td>
+            <span th:unless="${favplaya} != null">
+                    <td class="tables" text="Choose Your favourite player"></td>
                 </span></tr>
-        </table>
-<!--        <ul>-->
-<!--            <li>-->
-<!--                <div style="color: red;text-align: center;font-size: 20px;font-weight: bold;"-->
-<!--                     th:text="'Your favourite team is :'+ ${favteam.name}"></div>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--                <div style="color: red;text-align: center;font-size: 20px;font-weight: bold;"-->
-<!--                     th:text="'Your favourite player is :'+ ${favplaya}"></div>-->
-<!--            </li>-->
-<!--        </ul>-->
-    </h3>
+    </table>
+    <!--        <ul>-->
+    <!--            <li>-->
+    <!--                <div style="color: red;text-align: center;font-size: 20px;font-weight: bold;"-->
+    <!--                     th:text="'Your favourite team is :'+ ${favteam.name}"></div>-->
+    <!--            </li>-->
+    <!--            <li>-->
+    <!--                <div style="color: red;text-align: center;font-size: 20px;font-weight: bold;"-->
+    <!--                     th:text="'Your favourite player is :'+ ${favplaya}"></div>-->
+    <!--            </li>-->
+    <!--        </ul>-->
+</h3>
 
 </a>
 <div class="container"
@@ -103,18 +109,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--        <li th:hidden="'Id   '+ ${player.id}"></li>-->
 <!--    </ul>-->
 <!--</div>-->
+
+    <div class="downtown" style="width: 302px; ">
+        <div th:if="${favteam} != null">
+            <a class="twitter-timeline" data-width="300" data-height="500"
+               th:href="'https://twitter.com/' + ${favteam.twitterAddress}">Tweets by Your favourite team:</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+        <div th:unless="${favteam} != null">
+            <a class="twitter-timeline" data-width="300" data-height="500" href="https://twitter.com/nba">Tweets from
+                NBA: </a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+        <div th:hidden="${#request.remoteUser}"></div>
+    </div>
+
 <div class="downtown" style="background: black">
-<span class="downtown" style="width: 302px">Your favourite team is liked by:<span th:text="${howmany}"></span> users</span>
-<span class="downtown" style="width: 302px">Your favourite player is liked by:<span th:text="${howmanyP}"></span> users</span>
-</div>
-<div class="downtown" style="width: 302px; ">
-    <div th:if="${favteam} != null">
-        <a class="twitter-timeline" data-width="300" data-height="500" th:href="'https://twitter.com/' + ${favteam.twitterAddress}">Tweets by Your favourite team:</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8" ></script></div>
-    <div th:unless="${favteam} != null">
-        <a class="twitter-timeline" data-width="300" data-height="500" href="https://twitter.com/nba">Tweets from NBA: </a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8" ></script></div>
-    <div th:hidden="${#request.remoteUser}"></div>
-
-
+    <div style="padding: 20px" th:if="${howmany} != null">
+        <span class="downtown" style="width: 302px">Your favourite team is liked by: <span th:text="${howmany}"></span> users</span>
+    </div>
+    <div style="padding: 20px" th:unless="${howmany} != null">
+        <span class="downtown" style="width: 302px">We will see how many users like Your team when You choose it!</span>
+        users</span>
+    </div>
+    <div style="padding: 20px" th:if="${howmanyP} != null">
+        <span class="downtown" style="width: 302px">Your favourite player is liked by:
+            <span th:text="${howmanyP}"></span> users</span>
+    </div>
+    <div style="padding: 20px" th:unless="${howmanyP} != null">
+        <span class="downtown" style="width: 302px">Choose Your fav player first</span>
+    </div>
 </div>
 </div>
 </body>
