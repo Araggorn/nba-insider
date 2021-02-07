@@ -42,6 +42,8 @@ public class MainPageController {
         model.addAttribute("favplaya", favplaya);
         Long howmany = teamService.count(favteam.getId());
         model.addAttribute("howmany", howmany);
+        Long howManyP = playerService.countUsersThatLikeMyFavouritePlayer(favteam.getId());
+        model.addAttribute("howmanyP", howManyP);
         return "main";
     }
 

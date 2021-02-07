@@ -29,4 +29,7 @@ public interface PlayerRepository extends JpaRepository<Player, Long> {
     @Query(value = "SELECT p.* FROM users u\n" +
             "    LEFT JOIN players p on p.id = u.player_id WHERE u.login = ?1", nativeQuery = true)
     Player getPlayerFullInfoByUser(@Param("login") String login);
+
+    @Query(value = "select count(u.id) as counter from users u inner join players p on p.id = u.player_id where p.id = :playerid", nativeQuery = true)
+    Long counterOfLikesForFavPlayer (@Param ("playerid") Long id);
 }

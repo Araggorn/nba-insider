@@ -19,4 +19,7 @@ public interface PlayerService {
     Player getPlayerFullInfoByUser();
     Long countPlayers();
 
+    Long countUsersThatLikeMyFavouritePlayer(Long id);
+
+
 }

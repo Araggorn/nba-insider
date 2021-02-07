@@ -81,4 +81,9 @@ public class PlayerServiceImpl implements PlayerService {
         return playerRepository.count();
     }
 
+    @Override
+    public Long countUsersThatLikeMyFavouritePlayer(Long id) {
+        return playerRepository.counterOfLikesForFavPlayer(id);
+    }
+
 }
