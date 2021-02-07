@@ -42,7 +42,7 @@ public class UserController {
     public String add(@Valid @ModelAttribute("user") UserDto user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {return "registration";}
         userService.add(user);
-        return "redirect:/userlist";
+        return "redirect:/login";
     }
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable Long id, Model model) {

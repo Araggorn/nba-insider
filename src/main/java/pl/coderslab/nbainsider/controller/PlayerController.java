@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pl.coderslab.nbainsider.entity.Player;
-import pl.coderslab.nbainsider.entity.User;
 import pl.coderslab.nbainsider.service.PlayerService;
 
 import java.util.List;

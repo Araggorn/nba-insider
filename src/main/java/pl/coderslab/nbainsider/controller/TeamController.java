@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import pl.coderslab.nbainsider.entity.Team;
-import pl.coderslab.nbainsider.entity.User;
 import pl.coderslab.nbainsider.service.TeamService;
 
 import java.util.List;

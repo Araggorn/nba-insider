@@ -6,8 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import pl.coderslab.nbainsider.dto.PlayerLikeDto;
 import pl.coderslab.nbainsider.dto.TeamLikeDto;
-import pl.coderslab.nbainsider.repository.PlayerRepository;
-import pl.coderslab.nbainsider.repository.TeamRepository;
 import pl.coderslab.nbainsider.service.PlayerService;
 import pl.coderslab.nbainsider.service.TeamService;
 
