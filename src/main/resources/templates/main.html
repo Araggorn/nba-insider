@@ -128,7 +128,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div style="padding: 20px" th:if="${howmany} != null">
         <span class="downtown" style="width: 302px">Your favourite team is liked by: <span th:text="${howmany}"></span> users</span>
     </div>
-    <div style="padding: 20px" th:unless="${howmany} != null">
+    <div style="padding: 20px" th:if="${howmany} == null">
         <span class="downtown" style="width: 302px">We will see how many users like Your team when You choose it!</span>
         users</span>
     </div>
@@ -136,7 +136,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <span class="downtown" style="width: 302px">Your favourite player is liked by:
             <span th:text="${howmanyP}"></span> users</span>
     </div>
-    <div style="padding: 20px" th:unless="${howmanyP} != null">
+    <div style="padding: 20px" th:if="${howmanyP} == null">
         <span class="downtown" style="width: 302px">Choose Your fav player first</span>
     </div>
 </div>

@@ -22,6 +22,7 @@ public class MainPageController {
         this.playerService = playerService;
         this.userService = userService;
     }
+
     @GetMapping("/main")
     public String list(Model model) {
 //        List<TeamLikeDto> teams = teamService.find4mostlikedteams();
@@ -33,10 +34,22 @@ public class MainPageController {
         String favplaya = playerService.getPlayerByUser();
         Player player = playerService.getPlayerFullInfoByUser();
         model.addAttribute("favplaya", favplaya);
-        Long howmany = teamService.count(favteam.getId());
-        model.addAttribute("howmany", howmany);
-        Long howManyP = playerService.countUsersThatLikeMyFavouritePlayer(player.getId());
-        model.addAttribute("howmanyP", howManyP);
+        if (favteam != null) {
+            Long howmany = teamService.count(favteam.getId());
+            model.addAttribute("howmany", howmany);
+        }
+        if (favteam == null) {
+            Long howmany = null;
+            model.addAttribute("howmany", howmany);
+        }
+        if (favplaya != null) {
+            Long howManyP = playerService.countUsersThatLikeMyFavouritePlayer(player.getId());
+            model.addAttribute("howmanyP", howManyP);
+        }
+        if (favplaya == null) {
+            Long howManyP = null;
+            model.addAttribute("howmanyP", howManyP);
+        }
         return "main";
     }
 
