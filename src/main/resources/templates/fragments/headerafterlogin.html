@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -28,8 +29,10 @@
                             <li><a th:href="@{main}">Main</a></li>
                             <li><a th:href="@{playerlist}">Player List</a></li>
                             <li><a th:href="@{teamlist}">Team List</a></li>
-                            <li><a th:href="@{change}">Change preferences</a></li>
+                            <li><a id=button th:href="@{change}">Change preferences</a></li>
                             <li><a th:href="@{editaccount}">Edit account</a></li>
+                            <li sec:authorize="hasRole('ROLE_ADMIN')">
+                                <a style="display: flex; color: #ac2925" th:href="@{userlist}">Admin area</a></li>
                             <li><a th:href="@{logout}">Logout</a></li>
 
                         </ul>
@@ -40,4 +43,11 @@
     </div>
 </div>
 </body>
+<script>
+    // const Button = document.getElementById("button")
+    //
+    // button.addEventListener("load", function () {
+    //     if
+    //         })
+</script>
 </html>

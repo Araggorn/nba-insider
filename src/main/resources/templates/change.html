@@ -57,7 +57,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div th:include="fragments/headerafterlogin :: header"></div>
 <form th:object="${userPref}" method="post" th:action="@{/change}" class="center" style="background: black">
     <h4 class="downtown" style="color: #FFCC00">Teams</h4>
-    <div class="form-group" style="background: black; color: white; padding: 5%; columns: 2">
+    <div class="form-group" style="background: black; color: white; padding: 5%; columns: 3">
         <div th:each="team: ${teams}">
             <div class="custom-control custom-radio custom-control-inline" style="background: black">
                 <input type="radio" th:field="*{favTeamId}" th:value="${team.id}" class="custom-control-input">
