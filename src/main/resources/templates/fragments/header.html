@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -24,8 +25,14 @@
 
                     <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li><a th:href="@{login}">Login</a></li>
-                            <li><a th:href="@{registration}">Registration</a></li>
+                            <li><a style="color: #FFCC00" sec:authorize="hasRole('ROLE_ADMIN')"><span>Login: </span><span th:text="${#request.remoteUser}"></span></a></li>
+                            <li><a style="color: #FFCC00" sec:authorize="hasRole('ROLE_USER')"><span>Login: </span></span><span th:text="${#request.remoteUser}"></span></a></li>
+                            <li sec:authorize="hasRole('ROLE_USER')">
+                                <a style="display: flex;" th:href="@{main}">Main</a></li>
+                            <li sec:authorize="!hasRole('ROLE_USER')">
+                                <a th:href="@{login}">Login</a></li>
+                            <li sec:authorize="!hasRole('ROLE_USER')">
+                                <a th:href="@{registration}">Registration</a></li>
                             <li><a th:href="@{top}" target="_blank">Top</a></li>
                             <li><a th:href="@{about}">Contact and about</a></li>
                         </ul>

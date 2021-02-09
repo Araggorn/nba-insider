@@ -26,13 +26,16 @@
                     <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
 
+                            <li><a style="color: #FFCC00" sec:authorize="hasRole('ROLE_ADMIN')"><span>Login: </span><span th:text="${#request.remoteUser}"></span></a></li>
+                            <li><a style="color: #FFCC00" sec:authorize="hasRole('ROLE_USER')"><span>Login: </span></span><span th:text="${#request.remoteUser}"></span></a></li>
                             <li><a th:href="@{main}">Main</a></li>
-                            <li><a th:href="@{playerlist}">Player List</a></li>
-                            <li><a th:href="@{teamlist}">Team List</a></li>
+                            <li><a th:href="@{playerlist}">Players</a></li>
+                            <li><a th:href="@{teamlist}">Teams</a></li>
                             <li><a id=button th:href="@{change}">Change preferences</a></li>
-                            <li><a th:href="@{editaccount}">Edit account</a></li>
+                            <li><a th:href="@{editaccount}">Edit</a></li>
                             <li sec:authorize="hasRole('ROLE_ADMIN')">
-                                <a style="display: flex; color: #ac2925" th:href="@{userlist}">Admin area</a></li>
+                                <a style="display: flex; color: #ac2925" th:href="@{userlist}">Admin</a></li>
+                            <li><a th:href="@{top}" target="_blank">Top</a></li>
                             <li><a th:href="@{logout}">Logout</a></li>
 
                         </ul>
