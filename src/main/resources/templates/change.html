@@ -67,10 +67,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
     </div>
     <button style="padding: 15px; background: darkblue; color: whitesmoke; border-radius: 34%; border-color: black"  type="submit">Choose</button>
+    <div th:if="${param.success}">
+        <p style="color: #4cae4c;">Favourite team has been chosen</p>
+    </div>
 </form>
 
 <form th:object="${userPrefPlayer}" method="post" th:action="@{/change}" class="center" style="background: black">
     <h4 class="downtown" style="color: #FFCC00">Players</h4>
+    <h6 class="downtown" style="color: #FFCC00">If Your favourite player is not here, add him <a th:href="@{playerlist}">HERE</a></h6>
     <div class="form-group"
          style="background: black; color: white; padding: 5%; columns: 2">
 

@@ -4,35 +4,40 @@
     <meta charset="UTF-8">
     <title>Log in</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="keywords" content="Basketball Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
 
     <link th:href="@{/css/bootstrap-3.1.1.min.css}" rel="stylesheet" type="text/css">
     <!-- Custom Theme files -->
-    <link th:href="@{/css/owl.carousel.css}" rel="stylesheet" type="text/css" media="all" />
-    <link th:href="@{/css/style.css}" rel='stylesheet' type='text/css' />
-    <script th:src="@{/js/jquery.min.js}"> </script>
+    <link th:href="@{/css/owl.carousel.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{/css/style.css}" rel='stylesheet' type='text/css'/>
+    <script th:src="@{/js/jquery.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/move-top.js}"></script>
     <script type="text/javascript" th:src="@{/js/easing.js}"></script>
     <!--/script-->
     <script type="text/javascript">
-        jQuery(document).ready(function($) {
-            $(".scroll").click(function(event){
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
                 event.preventDefault();
-                $('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 900);
             });
         });
     </script>
     <style>
-        .downtown
-        {
+        .downtown {
             background: black;
             color: whitesmoke;
             margin: auto;
             width: 60%;
-            border: 5px solid ;
+            border: 5px solid;
             border-color: black;
             padding: 10px;
             text-align: center;
@@ -44,11 +49,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <form th:action="@{/login}" method="post" th:object="${user}" class="downtown">
     <h1 style="padding: 8px">Login page</h1>
-    <div><label> Login: <input style="color: black" type="text" th:field="*{login}"/> </label></div>
-    <div><label> Password:<input style="color: black; margin: 10px" type="password" th:field="*{password}"/></label></div>
+    <div><label> Login: <input id="input1" style="color: black" type="text" th:field="*{login}"/> </label></div>
+    <div><label> Password:<input id="input2" style="color: black; margin: 10px" type="password" th:field="*{password}"/></label>
+    </div>
     <div><input style="color: black; " type="submit" placeholder="Submit"/></div>
-    <div style="padding: 10px">Already registered users: <span style="font-size: larger" th:text="${numberOfUsers}"></span></div>
+    <div th:if="${param.error}">
+        <p style="color: #ac2925">Invalid username or password</p>
+    </div>
+    <div style="padding: 10px">Already registered users: <span style="font-size: larger"
+                                                               th:text="${numberOfUsers}"></span></div>
 </form>
 
 </body>
+<!--<script>-->
+<!--    superplaceholder({-->
+<!--        el: input1,-->
+<!--        sentences: ['Write your Username', 'For example:', 'MagdaM', 'or', 'PiotrP'],-->
+<!--        options: {-->
+<!--            loop: true,-->
+<!--            startOnFocus: false-->
+<!--        }-->
+<!--    })-->
+<!--    superplaceholder({-->
+<!--        el: input2,-->
+<!--        sentences: ['Write your Password', 'For example:', '123', '********', '123'],-->
+<!--        options: {-->
+<!--            loop: true,-->
+<!--            startOnFocus: false-->
+<!--        }-->
+<!--    })-->
+<!--</script>-->
 </html>
