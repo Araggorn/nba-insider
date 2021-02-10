@@ -27,7 +27,7 @@ public class PlayerDataService {
             Page<Player> page = balldontlieClient.getPlayers(lastname, nextPage);
             log.info("Players: {}", page);
             for (Player player : page.getData()) {
-                if (player.getFirst_name().equals(firstname) && player.getLast_name().equals(lastname)) {
+                if (player.getFirst_name().toLowerCase().equals(firstname.toLowerCase()) && player.getLast_name().toLowerCase().equals(lastname.toLowerCase())) {
                     return true;
                 }
             }
