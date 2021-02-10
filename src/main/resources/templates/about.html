@@ -42,7 +42,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             margin: auto;
 
             width: 60%;
-            border: 5px solid ;
+            border: 5px solid;
             border-color: black;
 
             padding: 10px;
@@ -69,25 +69,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                style="color: black; justify-content:center; text-align: left;border: solid 2px">
             <form th:object="${contact}" method="post" th:action="@{/about}">
                 <tr style="border: solid 1px">
-                    <th class="tables" style="color: #1dcaff" ; height="40px">If You have any suggestions, contact us please!</th>
+                    <th class="tables" style="color: #1dcaff" ; height="40px">If You have any suggestions, contact us
+                        please!
+                    </th>
                 </tr>
                 <tr style="border: solid 1px; color: black">
                     <th class="tables">Your e-mail</th>
                 </tr>
                 <tr style="border: solid 1px">
-                    <td class="tables"><input type="text" th:field="*{email}"/></td>
+                    <td class="tables"><input id=email type="text" th:field="*{email}"/></td>
                 </tr>
                 <tr style="border: solid 1px">
                     <th class="tables">Message:</th>
                 </tr>
                 <tr style="border: solid 1px">
-                    <td >
-<!--                            class="tables"><input type="" th:field="*{description}"/>-->
-                        <textarea class="tables" name="comment" th:field="*{description}">Enter text here...</textarea></td>
+                    <td>
+                        <!--                            class="tables"><input type="" th:field="*{description}"/>-->
+                        <textarea class="tables" name="comment" th:field="*{description}">Enter text here...</textarea>
+                    </td>
                 </tr>
                 <tr style="border: solid 1px">
                     <td class="tables">
-                        <button type="submit">Send message</button>
+                        <button id="button" type="submit">Send message</button>
+                        <div id="inner" style="color: #2b542c"></div>
                     </td>
                 </tr>
 
@@ -98,13 +102,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 
 
-    <h5 style="padding: 20px"><a href = "mailto: zerelik@o2.pl">Contact</a></h5>
+    <h5 style="padding: 20px"><a href="mailto: zerelik@o2.pl">Contact</a></h5>
 
     <div class="copyright">
         <p>&copy; 2020-2021 - Olek Żerelik NBAInsider. All Rights Reserved | Design by <a href="http://w3layouts.com/">W3layouts</a>
         </p>
     </div>
 
+    <script type="text/javascript" th:src="@{/js/jquery2.js}"></script>
+    <script>
+
+        $("#summary-email").text($("#email").val());
+
+        const button = document.getElementById("button");
+        const inner = document.getElementById("inner");
+
+        button.addEventListener("click", function (){
+            if (confirm("Do You really want to send this message?")) {
+                alert("Thanks. Message sent!");
+            } else {
+                alert("Ok, keep going :)");
+            }
+        })
+
+    </script>
 
     <!--start-smoth-scrolling-->
     <script type="text/javascript">

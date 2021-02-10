@@ -32,5 +32,5 @@ public class AboutController {
     public String add(@Valid @ModelAttribute("contact") Contact contact, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {return "about";}
         repository.save(contact);
-        return "redirect:/main";
+        return "about";
 }}
