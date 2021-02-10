@@ -52,14 +52,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div><label> Login: <input id="input1" style="color: black" type="text" th:field="*{login}"/> </label></div>
     <div><label> Password:<input id="input2" style="color: black; margin: 10px" type="password" th:field="*{password}"/></label>
     </div>
-    <div><input style="color: black; " type="submit" placeholder="Submit"/></div>
+    <div><input style="color: black; " type="submit" placeholder="Submit"/>Login</div>
     <div th:if="${param.error}">
         <p style="color: #ac2925">Invalid username or password</p>
     </div>
     <div style="padding: 10px">Already registered users: <span style="font-size: larger"
                                                                th:text="${numberOfUsers}"></span></div>
 </form>
-
+<div th:include="fragments/footer :: footer"></div>
 </body>
 <!--<script>-->
 <!--    superplaceholder({-->
@@ -79,4 +79,5 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--        }-->
 <!--    })-->
 <!--</script>-->
+
 </html>

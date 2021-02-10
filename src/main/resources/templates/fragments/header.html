@@ -3,7 +3,7 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Header</title>
 </head>
 <body>
 <div th:fragment="header">
@@ -28,6 +28,8 @@
                             <li><a style="color: #FFCC00" sec:authorize="hasRole('ROLE_ADMIN')"><span>Login: </span><span th:text="${#request.remoteUser}"></span></a></li>
                             <li><a style="color: #FFCC00" sec:authorize="hasRole('ROLE_USER')"><span>Login: </span></span><span th:text="${#request.remoteUser}"></span></a></li>
                             <li sec:authorize="hasRole('ROLE_USER')">
+                                <a style="display: flex;" th:href="@{main}">Main</a></li>
+                            <li sec:authorize="hasRole('ROLE_ADMIN')">
                                 <a style="display: flex;" th:href="@{main}">Main</a></li>
                             <li sec:authorize="!hasRole('ROLE_USER')">
                                 <a th:href="@{login}">Login</a></li>

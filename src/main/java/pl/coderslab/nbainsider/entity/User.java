@@ -1,6 +1,7 @@
 package pl.coderslab.nbainsider.entity;
 
 import lombok.*;
+import org.checkerframework.common.aliasing.qual.Unique;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -12,7 +13,7 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name="users")
+@Table(name="users", uniqueConstraints={@UniqueConstraint(columnNames = {"login" , "email"})})
 @EqualsAndHashCode(of = "login")
 @ToString(exclude = "password")
 
@@ -28,6 +29,7 @@ public class User {
     private String login;
 
     @NotNull
+    @Size(min = 3, max = 120)
     private String password;
 
     @NotNull

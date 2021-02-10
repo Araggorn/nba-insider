@@ -135,13 +135,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <th class="tables">First Name:</th>
                         </tr>
                         <tr style="border: solid 1px">
-                            <td class="tables"><input type="text" th:field="*{firstName}"/></td>
+                            <td class="tables"><input id="firstname" name="firstname" type="text" th:field="*{firstName}"/></td>
                         </tr>
                         <tr style="border: solid 1px">
                             <th class="tables">Last Name:</th>
                         </tr>
                         <tr style="border: solid 1px">
-                            <td class="tables"><input type="text" th:field="*{lastName}"/></td>
+                            <td class="tables"><input id="lastname" name="lastname" type="text" th:field="*{lastName}"/></td>
                         </tr>
                         <tr style="border: solid 1px">
                             <th class="tables">Add player</th>
@@ -151,12 +151,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <button type="submit">Add player!</button>
                             </td>
                         </tr>
-
+                        <div th:if="${param.error}">
+                            <p style="color: #ac2925">Empty name or lastname</p>
+                        </div>
                     </form>
                     <div class="downtown" style="background:black; color: green; font-size: 18px" th:if="${addedGet} == true">Player added</div>
                     <div class="downtown" style="background:black; color: red; font-size: 18px" th:if="${addedGet} == false">That player doesn't exist in NBA players database
                         (after 1979) OR he is already on the list!!
                     </div>
+
                 </table>
                 <div style="padding: 10px; color: #FFCC00">Players in Database: <span style="color: #FFCC00" th:text="${numberOfPlayers}"></span></div>
             </div>
@@ -184,7 +187,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
     </div>
 </div>
+<script language="JavaScript">
+        var empt = document.forms["firstname"]["lastname"].value;
+            function IsEmpty() {
 
-
+            if (document.forms["firstname"]["lastname"].value == "") {
+            alert("empty");
+        }
+            return;
+        }
+</script>
 </body>
 </html>

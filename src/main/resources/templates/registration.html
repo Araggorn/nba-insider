@@ -61,12 +61,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Bad password</span>
         </section>
         <section>
-            <button style="color: black" type="submit">Save</button>
+            <button style="color: black" type="submit">Register</button>
         </section>
         <div th:if="${param.error}">
             <p style="color: #ac2925">Something went wrong!</p>
         </div>
     </form>
 </div>
+<div th:include="fragments/footer :: footer"></div>
 </body>
 </html>

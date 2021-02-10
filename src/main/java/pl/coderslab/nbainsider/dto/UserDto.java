@@ -26,6 +26,7 @@ public class UserDto {
     @Column(unique = true)
     private String login;
     @NotNull
+    @Size(min = 3, max = 120)
     private String password;
     @NotNull
     @Column(unique = true)
