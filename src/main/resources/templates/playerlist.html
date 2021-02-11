@@ -135,68 +135,75 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <th class="tables">First Name:</th>
                         </tr>
                         <tr style="border: solid 1px">
-                            <td class="tables"><input id="firstname" name="firstname" type="text" th:field="*{firstName}"/></td>
+                            <td class="tables"><input id="firstname" onfocusout="checkin()" class="input"
+                                                      name="firstname" type="text"
+                                                      th:field="*{firstName}"/></td>
                         </tr>
                         <tr style="border: solid 1px">
                             <th class="tables">Last Name:</th>
                         </tr>
                         <tr style="border: solid 1px">
-                            <td class="tables"><input id="lastname" name="lastname" type="text" th:field="*{lastName}"/></td>
+                            <td class="tables"><input id="lastname" onfocusout="checkin()" class="input" name="lastname"
+                                                      type="text"
+                                                      th:field="*{lastName}"/></td>
+
                         </tr>
                         <tr style="border: solid 1px">
                             <th class="tables">Add player</th>
                         </tr>
                         <tr style="border: solid 1px">
                             <td class="tables">
-                                <button type="submit">Add player!</button>
+                                <button class="submit" type="submit">Add player!</button>
                             </td>
                         </tr>
-                        <div th:if="${param.error}">
-                            <p style="color: #ac2925">Empty name or lastname</p>
-                        </div>
+
                     </form>
-                    <div class="downtown" style="background:black; color: green; font-size: 18px" th:if="${addedGet} == true">Player added</div>
-                    <div class="downtown" style="background:black; color: red; font-size: 18px" th:if="${addedGet} == false">That player doesn't exist in NBA players database
+
+                    <script>
+                        function checkin() {
+                            const empt = document.getElementById("firstname").value;
+                            const empt2 = document.getElementById("lastname").value;
+                            if (empt == "" || empt2 == "") {
+                                document.getElementById("info").innerHTML = "Don't forget to write both - firstname and lastname"
+                            } else {
+                                document.getElementById("info").innerHTML = "";
+                            }
+                        }
+                    </script>
+                    <div class="downtown" style="background:black; color: green; font-size: 18px"
+                         th:if="${addedGet} == true">Player added
+                    </div>
+                    <div class="downtown" style="background:black; color: red; font-size: 18px"
+                         th:if="${addedGet} == false">That player doesn't exist in NBA players database
                         (after 1979) OR he is already on the list!!
                     </div>
 
                 </table>
-                <div style="padding: 10px; color: #FFCC00">Players in Database: <span style="color: #FFCC00" th:text="${numberOfPlayers}"></span></div>
+                <span style="color:red;" id="info"></span>
+                <div style="padding: 10px; color: #FFCC00">Players in Database: <span style="color: #FFCC00"
+                                                                                      th:text="${numberOfPlayers}"></span>
+                </div>
             </div>
         </div>
         <div class="right">
             <table class="downtown" style="color: black; justify-content:center; text-align: left;border: solid 2px">
                 <tr style="border: solid 1px">
-<!--                    <th class="tables">Id</th>-->
+                    <!--                    <th class="tables">Id</th>-->
                     <th class="tables">First Name</th>
                     <th class="tables">Last Name</th>
 
                 </tr>
                 <tr style="border: solid 1px" th:each="player: ${players}">
-<!--                    <td class="tables" th:text="${player.id}"></td>-->
+                    <!--                    <td class="tables" th:text="${player.id}"></td>-->
                     <td class="tables" th:text="${player.firstName}"></td>
                     <td class="tables" th:text="${player.lastName}"></td>
                 </tr>
             </table>
-            <!--        <ul th:each="player: ${players}" style="align-items: center; list-style-type: none">-->
-            <!--            <li th:text="'Id:        ' +${player.id}"></li>-->
-            <!--            <li th:text="'Name:  '+${player.firstName}"></li>-->
-            <!--            <li style="color: darkblue; font-size: 22px" th:text="'LastName:  '+${player.lastName}"></li>-->
 
-            <!--        </ul>-->
         </div>
     </div>
 </div>
-<script language="JavaScript">
-        var empt = document.forms["firstname"]["lastname"].value;
-            function IsEmpty() {
-
-            if (document.forms["firstname"]["lastname"].value == "") {
-            alert("empty");
-        }
-            return;
-        }
-</script>
 <div th:include="fragments/footer :: footer"></div>
 </body>
 </html>
+
