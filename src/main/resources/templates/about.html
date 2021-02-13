@@ -15,7 +15,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script type="application/x-javascript"> addEventListener("load", function () {
         setTimeout(hideURLbar, 0);
     }, false);
-
     function hideURLbar() {
         window.scrollTo(0, 1);
     } </script>
@@ -40,11 +39,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             background: black;
             color: whitesmoke;
             margin: auto;
-
             width: 60%;
             border: 5px solid;
             border-color: black;
-
             padding: 10px;
             text-align: center;
         }
@@ -52,22 +49,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 <div th:include="fragments/header :: header"></div>
-
-
 <div class="container">
-
 </div>
-
-
 <div class="downtown">
-
-
     <h2 style="padding: 100px"> It's all about basketball!</h2>
-
     <div class="form">
         <table class="downtown"
                style="color: black; justify-content:center; text-align: left;border: solid 2px">
-            <form th:object="${contact}" method="post" th:action="@{/about}" name="contact-form" id="contact-form" onsubmit="verify()">
+            <form th:object="${contact}" method="post" th:action="@{/about}" name="contact-form" id="myForm">
                 <tr style="border: solid 1px">
                     <th class="tables" style="color: #1dcaff" ; height="40px">If You have any suggestions, contact us
                         please!
@@ -77,7 +66,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <th class="tables">Your e-mail</th>
                 </tr>
                 <tr style="border: solid 1px">
-                    <td class="tables"><input id=email type="text" onfocusout="out()" th:field="*{email}"/></td>
+                    <td class="tables"><input id=email type="text"  th:field="*{email}"/></td>
                 </tr>
                 <tr style="border: solid 1px">
                     <th class="tables">Message:</th>
@@ -85,102 +74,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <tr style="border: solid 1px">
                     <td>
                         <!--                            class="tables"><input type="" th:field="*{description}"/>-->
-                        <textarea class="tables" id="desc" name="comment" onfocusout="out()" th:field="*{description}">Enter text here...</textarea>
+                        <textarea class="tables" id="desc" name="comment" th:field="*{description}">Enter text here...</textarea>
                     </td>
                 </tr>
                 <tr style="border: solid 1px">
                     <td class="tables">
-                        <button id="button" type="submit">Send message</button>
-
+                        <button id="sendMessage" type="submit" onclick="verify()">Send message</button>
                     </td>
                 </tr>
-
             </form>
             <span style="color: red" id="inner"></span>
-
         </table>
         <div style="padding: 10px; color: #FFCC00">Messages sent: <span style="color: #FFCC00"
                                                                         th:text="${numberOfMesseges}"></span></div>
     </div>
-
-
     <h5 style="padding: 20px"><a href="mailto: zerelik@o2.pl">Contact</a></h5>
-
     <div class="copyright">
         <p>&copy; 2020-2021 - Olek Żerelik NBAInsider. All Rights Reserved | Design by <a href="http://w3layouts.com/">W3layouts</a>
         </p>
     </div>
-
-    <script type="text/javascript" th:src="@{/js/jquery2.js}">
-
-        const button = document.getElementById("button");
-        var contactform = document.getElementById("contact-form");
-
-        function out() {
-            const inner = document.getElementById("inner");
-            const email = document.getElementById("email");
-            const desc = document.getElementById("desc");
-            if (email == "" || desc == "") {
-                inner.innerHTML = "It shouldnt' be empty"
-            } else {
-                inner.innerHTML = ""
-            }
-        }
-
-        function verify(){
-            const email = document.getElementById("email");
-            const desc = document.getElementById("desc");
-
-            if (email == "") {alert("Puste email kurfa!")}
-            if (desc == "") {alert("Pusta wiadomość kurfa!")}
-        }
-
-        function checkin() {
-            const empt = document.getElementById("firstname").value;
-            const empt2 = document.getElementById("lastname").value;
-            if (empt == "" || empt2 == "") {
-                document.getElementById("info").innerHTML = "Don't forget to write both - firstname and lastname"
-            } else {
-                document.getElementById("info").innerHTML = "";
-            }
-        }
-
-        button.onclick = function () {
-            if (confirm("Do You really want to send this message?")) {
-                alert("Thanks. Message sent!");
-                inner.innerText("Poprawnie przesłano")
-                return false;
-            } else {
-                alert("Ok, keep going :)");
-            }
-        }
-        button.addEventListener("click", function () {
-            if (confirm("Do You really want to send this message?")) {
-                alert("Thanks. Message sent!");
-                contactform.hidden;
-
-            } else {
-                alert("Ok, keep going :)");
-            }
-
-        })
-    </script>
-
+    <script type="text/javascript" th:src="@{/js/jquery2.js}"></script>
     <!--start-smoth-scrolling-->
     <script type="text/javascript">
-        $(document).ready(function () {
-
-            $().UItoTop({easingType: 'easeOutQuart'});
-
-        });
+        function verify(){
+            var email = document.getElementById("email").value;
+            var desc = document.getElementById("desc").value;
+            if (email == "" && desc == "") {alert("Your email and message are empty")}
+            else if (email == "" && desc != "") {alert("Your email is empty")}
+            else if (desc == "" && email != "") {alert("Your message is empty")}
+            $('#myForm')[0].reset();
+        }
     </script>
     <a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover"
                                                                              style="opacity: 1;"> </span></a>
-
-
     <!--JS-->
     <script type="text/javascript" th:src="@{/js/bootstrap-3.1.1.min.js}"></script>
-
     <!--//JS-->
 </div>
 </div></div></div>
