@@ -99,10 +99,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         function verify(){
             var email = document.getElementById("email").value;
             var desc = document.getElementById("desc").value;
-            if (email == "" && desc == "") {alert("Your email and message are empty")}
-            else if (email == "" && desc != "") {alert("Your email is empty")}
-            else if (desc == "" && email != "") {alert("Your message is empty")}
+            if (email == "" && desc == ""){
+                alert("Empty email!")
+                returnToPreviousPage();
+                return false;
+            }
+            else if (email == "" && desc != ""){
+                alert("Empty email!")
+                returnToPreviousPage();
+                return false;
+            }
+            else if (desc == "" && email != ""){
+                alert("Empty message!")
+                returnToPreviousPage();
+                return false;
+            }
             $('#myForm')[0].reset();
+        }
+        function returnToPreviousPage() {
+            window.history.forward(-1)
         }
     </script>
     <a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover"
