@@ -68,6 +68,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <tr style="border: solid 1px">
                     <td class="tables"><input id=email type="text"  th:field="*{email}"/></td>
                 </tr>
+                <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
                 <tr style="border: solid 1px">
                     <th class="tables">Message:</th>
                 </tr>
@@ -77,6 +78,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <textarea class="tables" id="desc" name="comment" th:field="*{description}">Enter text here...</textarea>
                     </td>
                 </tr>
+                <td th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Description Error</td>
                 <tr style="border: solid 1px">
                     <td class="tables">
                         <button id="sendMessage" type="submit" onclick="verify()">Send message</button>
@@ -101,24 +103,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             var desc = document.getElementById("desc").value;
             if (email == "" && desc == ""){
                 alert("Empty email!")
-                returnToPreviousPage();
                 return false;
             }
             else if (email == "" && desc != ""){
                 alert("Empty email!")
-                returnToPreviousPage();
                 return false;
             }
             else if (desc == "" && email != ""){
                 alert("Empty message!")
-                returnToPreviousPage();
                 return false;
             }
-            $('#myForm')[0].reset();
         }
-        function returnToPreviousPage() {
-            window.history.forward(-1)
-        }
+
     </script>
     <a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover"
                                                                              style="opacity: 1;"> </span></a>
