@@ -52,7 +52,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div><label> Login: <input id="input1" style="color: black" type="text" th:field="*{login}"/> </label></div>
     <div><label> Password:<input id="input2" style="color: black; margin: 10px" type="password" th:field="*{password}"/></label>
     </div>
-    <div><input style="color: black; " type="submit" placeholder="Submit"/>Login</div>
+    <div><input style="color: black; " type="submit" placeholder="Submit" value="Login"></div>
     <div th:if="${param.error}">
         <p style="color: #ac2925">Invalid username or password</p>
     </div>

@@ -29,7 +29,7 @@ public class User {
     private String login;
 
     @NotNull
-    @Size(min = 3, max = 120)
+    @Size(min = 3, max = 120,message = "Password should be longer than 2 letters")
     private String password;
 
     @NotNull

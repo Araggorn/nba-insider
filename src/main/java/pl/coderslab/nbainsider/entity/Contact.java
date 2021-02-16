@@ -32,8 +32,6 @@ public class Contact {
     @NotBlank (message = "Description shouldn't be empty")
     private String description;
 
-
-
     @Override
     public String toString() {
         return "Contact{" +
