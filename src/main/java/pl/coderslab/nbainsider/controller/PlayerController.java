@@ -24,7 +24,7 @@ public class PlayerController {
     }
 
     @GetMapping("/playerlist")
-    public String list(Model model, @RequestParam( name = ADDED, required = false) Boolean added) {
+    public String list(Model model, @RequestParam(name = ADDED, required = false) Boolean added) {
         List<Player> players = playerService.findAllPlayers();
         model.addAttribute("players", players);
         model.addAttribute("player", new Player());

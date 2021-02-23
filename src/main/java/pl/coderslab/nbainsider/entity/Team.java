@@ -1,6 +1,5 @@
 package pl.coderslab.nbainsider.entity;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,18 +18,18 @@ import java.util.List;
 public class Team {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
-    @Size(max=50)
+    @Size(max = 50)
     private String name;
 
     @NotNull
-    @Size(max=50)
+    @Size(max = 50)
     private String twitterAddress;
 
-    @OneToMany (mappedBy = "team")
+    @OneToMany(mappedBy = "team")
     List<User> users = new ArrayList<>();
 
     public Team(Long id, @NotNull String name, @NotNull String twitterAddress) {

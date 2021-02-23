@@ -24,12 +24,12 @@ public class Contact {
     private Long id;
 
     @NotNull
-    @Size(max=25, message = "Email is to looong")
-    @Email (message = "Please put valid email")
+    @Size(max = 25, message = "Email is to looong")
+    @Email(message = "Please put valid email")
     private String email;
 
     @Column(columnDefinition = "TEXT", nullable = false)
-    @NotBlank (message = "Description shouldn't be empty")
+    @NotBlank(message = "Description shouldn't be empty")
     private String description;
 
     @Override

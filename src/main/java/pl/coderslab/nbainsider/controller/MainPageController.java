@@ -25,10 +25,6 @@ public class MainPageController {
 
     @GetMapping("/main")
     public String list(Model model) {
-//        List<TeamLikeDto> teams = teamService.find4mostlikedteams();
-//        model.addAttribute("teams", teams);
-//        List<PlayerLikeDto> players = playerService.find4mostlikedplayers();
-//        model.addAttribute("players", players);
         Team favteam = teamService.getTeamByUsers();
         model.addAttribute("favteam", favteam);
         String favplaya = playerService.getPlayerByUser();

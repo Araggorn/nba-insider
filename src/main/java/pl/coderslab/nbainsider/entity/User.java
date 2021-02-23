@@ -1,26 +1,24 @@
 package pl.coderslab.nbainsider.entity;
 
 import lombok.*;
-import org.checkerframework.common.aliasing.qual.Unique;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Set;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name="users", uniqueConstraints={@UniqueConstraint(columnNames = {"login" , "email"})})
+@Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = {"login", "email"})})
 @EqualsAndHashCode(of = "login")
 @ToString(exclude = "password")
 
 public class User {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
@@ -29,11 +27,11 @@ public class User {
     private String login;
 
     @NotNull
-    @Size(min = 3, max = 120,message = "Password should be longer than 2 letters")
+    @Size(min = 3, max = 120, message = "Password should be longer than 2 letters")
     private String password;
 
     @NotNull
-    @Column(unique=true)
+    @Column(unique = true)
     @Email
     private String email;
 
@@ -45,7 +43,7 @@ public class User {
 
     private boolean active = true;
 
-    @Column (name="role")
+    @Column(name = "role")
     private String role = "ROLE_USER";
 
 //    @Transient

@@ -1,6 +1,9 @@
 package pl.coderslab.nbainsider.entity;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -22,16 +25,16 @@ public class Player {
     private Long id;
 
     @NotNull
-    @Size(max=25)
-    @NotBlank (message = "Player should have a name")
+    @Size(max = 25)
+    @NotBlank(message = "Player should have a name")
     private String firstName;
 
     @NotNull
-    @Size(max=25)
-    @NotBlank (message = "Player should have a surname")
+    @Size(max = 25)
+    @NotBlank(message = "Player should have a surname")
     private String lastName;
 
-    @OneToMany (mappedBy = "player")
+    @OneToMany(mappedBy = "player")
     List<User> users = new ArrayList<>();
 
     public Player(Long id, String firstName, String lastName) {

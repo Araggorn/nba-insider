@@ -23,7 +23,7 @@ public class EditAccountController {
     @GetMapping("/editaccount")
     public String edit(Model model) {
         User user1 = userService.getByLogin(SecurityUtils.username());
-        UserDto user = new UserDto(user1.getId(),user1.getLogin(), user1.getPassword(), user1.getEmail());
+        UserDto user = new UserDto(user1.getId(), user1.getLogin(), user1.getPassword(), user1.getEmail());
         model.addAttribute("user", user);
         return "editaccount";
     }

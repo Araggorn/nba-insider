@@ -36,17 +36,17 @@ public class ChangeController {
         List<Team> teams = teamService.findAllTeams();
         model.addAttribute("teams", teams);
         UserPrefDto userPref = new UserPrefDto();
-        if (userService.getByLogin(SecurityUtils.username()).getTeam() != null){
-        userPref.setFavTeamId(userService.getByLogin(SecurityUtils.username()).getTeam().getId());}
-        else userPref.setFavTeamId(null);
+        if (userService.getByLogin(SecurityUtils.username()).getTeam() != null) {
+            userPref.setFavTeamId(userService.getByLogin(SecurityUtils.username()).getTeam().getId());
+        } else userPref.setFavTeamId(null);
         model.addAttribute("userPref", userPref);
 
         List<Player> players = playerService.findAllPlayers();
         model.addAttribute("players", players);
         UserPrefPlayerDto userPrefPlayerDto = new UserPrefPlayerDto();
-        if (userService.getByLogin(SecurityUtils.username()).getPlayer() != null){
-        userPrefPlayerDto.setFavPlayerId(userService.getByLogin(SecurityUtils.username()).getPlayer().getId());}
-        else userPrefPlayerDto.setFavPlayerId(null);
+        if (userService.getByLogin(SecurityUtils.username()).getPlayer() != null) {
+            userPrefPlayerDto.setFavPlayerId(userService.getByLogin(SecurityUtils.username()).getPlayer().getId());
+        } else userPrefPlayerDto.setFavPlayerId(null);
         model.addAttribute("userPrefPlayer", userPrefPlayerDto);
         return "change";
     }
@@ -56,6 +56,7 @@ public class ChangeController {
         userService.updateTeam(userPrefDto.getFavTeamId());
         return "redirect:/change";
     }
+
     @PostMapping(path = "/change", params = {"favPlayerId"})
     public String changepreferences(UserPrefPlayerDto userPrefPlayerDto) {
         userService.updatePlayer(userPrefPlayerDto.getFavPlayerId());

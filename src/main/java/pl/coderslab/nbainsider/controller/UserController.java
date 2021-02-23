@@ -40,14 +40,17 @@ public class UserController {
 
     @PostMapping("/registration")
     public String add(@Valid @ModelAttribute("user") UserDto user, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {return "registration";}
+        if (bindingResult.hasErrors()) {
+            return "registration";
+        }
         userService.add(user);
         return "redirect:/login";
     }
+
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable Long id, Model model) {
         User user1 = userService.findById(id);
-        UserDto user = new UserDto(user1.getId(),user1.getLogin(), user1.getPassword(), user1.getEmail());
+        UserDto user = new UserDto(user1.getId(), user1.getLogin(), user1.getPassword(), user1.getEmail());
         model.addAttribute("user", user);
         return "edit";
     }
@@ -57,7 +60,6 @@ public class UserController {
         userService.update(user);
         return "redirect:/userlist";
     }
-
 
 
     @GetMapping("/user/delete/{id}")
