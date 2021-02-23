@@ -3,16 +3,13 @@ package pl.coderslab.nbainsider.service;
 
 import pl.coderslab.nbainsider.dto.UserDto;
 import pl.coderslab.nbainsider.dto.UserItemDto;
-import pl.coderslab.nbainsider.entity.Team;
 import pl.coderslab.nbainsider.entity.User;
 
-
-import java.awt.print.Book;
 import java.util.List;
 
 public interface UserService {
 
-    void save (User user);
+    void save(User user);
 
     List<User> findAllUsers();
 

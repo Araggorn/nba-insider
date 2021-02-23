@@ -82,7 +82,9 @@ public class UserServiceImpl implements UserService {
         return userRepository.getOne(id);
     }
 
-    public User findByLogin (String login) { return userRepository.getByLogin(login); }
+    public User findByLogin(String login) {
+        return userRepository.getByLogin(login);
+    }
 
     public String hashPassword(String password) {
         return BCrypt.hashpw(password, BCrypt.gensalt());
@@ -120,7 +122,7 @@ public class UserServiceImpl implements UserService {
         return userRepository.getByLogin(login);
     }
 
-    public Long countUsers(){
+    public Long countUsers() {
         return userRepository.count();
     }
 

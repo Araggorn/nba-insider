@@ -31,6 +31,7 @@ public class TeamServiceImpl implements TeamService {
     public Team findById(Long id) {
         return teamRepository.getOne(id);
     }
+
     @Override
     public void add(Team team) {
         teamRepository.save(team);
@@ -38,7 +39,7 @@ public class TeamServiceImpl implements TeamService {
 
     @Override
     public List<TeamLikeDto> find4mostlikedteams() {
-        return  teamRepository.findmostlikedteams()
+        return teamRepository.findmostlikedteams()
                 .stream()
                 .map(team -> new TeamLikeDto(team.getCounter(), team.getId(), team.getName()))
                 .collect(Collectors.toList());
@@ -46,7 +47,7 @@ public class TeamServiceImpl implements TeamService {
 
     @Override
     public Team getTeamByUsers() {
-       return teamRepository.getTeamByUser(SecurityUtils.username());
+        return teamRepository.getTeamByUser(SecurityUtils.username());
     }
 
     @Override

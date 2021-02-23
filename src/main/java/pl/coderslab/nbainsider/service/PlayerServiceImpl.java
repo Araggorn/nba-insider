@@ -43,13 +43,13 @@ public class PlayerServiceImpl implements PlayerService {
 
         Iterator<Player> playersIterator = players.iterator();
 
-        while(playersIterator.hasNext()){
+        while (playersIterator.hasNext()) {
             Player next = playersIterator.next();
             if (next.getFirstName().equals(player.getFirstName()) &&
-                    next.getLastName().equals(player.getLastName()))
-            {log.info("Player duplicated");
-                return false;}
-            else continue;
+                    next.getLastName().equals(player.getLastName())) {
+                log.info("Player duplicated");
+                return false;
+            } else continue;
         }
         if (playerDataService.checkIfPlayerExists(player.getFirstName(), player.getLastName())) {
             playerRepository.save(player);
@@ -77,7 +77,7 @@ public class PlayerServiceImpl implements PlayerService {
         return playerRepository.getPlayerFullInfoByUser(SecurityUtils.username());
     }
 
-    public Long countPlayers(){
+    public Long countPlayers() {
         return playerRepository.count();
     }
 
