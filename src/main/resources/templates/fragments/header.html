@@ -25,8 +25,12 @@
 
                     <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li><a style="color: #FFCC00" sec:authorize="hasRole('ROLE_ADMIN')"><span>Login: </span><span th:text="${#request.remoteUser}"></span></a></li>
-                            <li><a style="color: #FFCC00" sec:authorize="hasRole('ROLE_USER')"><span>Login: </span></span><span th:text="${#request.remoteUser}"></span></a></li>
+                            <li><a style="color: #FFCC00"
+                                   sec:authorize="hasRole('ROLE_ADMIN')"><span>Login: </span><span
+                                    th:text="${#request.remoteUser}"></span></a></li>
+                            <li><a style="color: #FFCC00"
+                                   sec:authorize="hasRole('ROLE_USER')"><span>Login: </span></span><span
+                                    th:text="${#request.remoteUser}"></span></a></li>
                             <li sec:authorize="hasRole('ROLE_USER')">
                                 <a style="display: flex;" th:href="@{main}">Main</a></li>
                             <li sec:authorize="hasRole('ROLE_ADMIN')">

@@ -3,36 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Registration</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="keywords" content="Basketball Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="Basketball Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
 
-        <link th:href="@{/css/bootstrap-3.1.1.min.css}" rel="stylesheet" type="text/css">
-        <!-- Custom Theme files -->
-        <link th:href="@{/css/owl.carousel.css}" rel="stylesheet" type="text/css" media="all" />
-        <link th:href="@{/css/style.css}" rel='stylesheet' type='text/css' />
-        <script th:src="@{/js/jquery.min.js}"> </script>
-        <script type="text/javascript" th:src="@{/js/move-top.js}"></script>
-        <script type="text/javascript" th:src="@{/js/easing.js}"></script>
-        <!--/script-->
-        <script type="text/javascript">
-            jQuery(document).ready(function($) {
-                $(".scroll").click(function(event){
-                    event.preventDefault();
-                    $('html,body').animate({scrollTop:$(this.hash).offset().top},900);
-                });
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+
+    <link th:href="@{/css/bootstrap-3.1.1.min.css}" rel="stylesheet" type="text/css">
+    <!-- Custom Theme files -->
+    <link th:href="@{/css/owl.carousel.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{/css/style.css}" rel='stylesheet' type='text/css'/>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/move-top.js}"></script>
+    <script type="text/javascript" th:src="@{/js/easing.js}"></script>
+    <!--/script-->
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 900);
             });
-        </script>
+        });
+    </script>
     <style>
-        .downtown
-        {
+        .downtown {
             background-color: black;
             color: whitesmoke;
             margin: auto;
             width: 60%;
-            border: 5px solid ;
+            border: 5px solid;
             border-color: black;
             padding: 10px;
             text-align: center;
@@ -42,8 +47,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <div th:include="fragments/header :: header"></div>
 <div class="downtown">
-<h1>User registration</h1>
-<!--    <p th:if="${user}" class="error">Wrong user or email</p>-->
+    <h1>User registration</h1>
+    <!--    <p th:if="${user}" class="error">Wrong user or email</p>-->
     <form th:object="${user}" method="post" th:action="@{/registration}">
         <section>
             <label>Login</label>
@@ -52,12 +57,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </section>
         <section>
             <label>Email</label>
-            <input style="color: black"  type="text" th:field="*{email}"/>
+            <input style="color: black" type="text" th:field="*{email}"/>
             <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Don't forget about email format!</span>
         </section>
         <section>
             <label>Password</label>
-            <input style="color: black"  type="password" th:field="*{password}"/>
+            <input style="color: black" type="password" th:field="*{password}"/>
             <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Bad password</span>
         </section>
         <section>

@@ -110,19 +110,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--    </ul>-->
 <!--</div>-->
 
-    <div class="downtown" style="width: 302px; ">
-        <div th:if="${favteam} != null">
-            <a class="twitter-timeline" data-width="300" data-height="500"
-               th:href="'https://twitter.com/' + ${favteam.twitterAddress}">Tweets by Your favourite team:</a>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        </div>
-        <div th:unless="${favteam} != null">
-            <a class="twitter-timeline" data-width="300" data-height="500" href="https://twitter.com/nba">Tweets from
-                NBA: </a>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        </div>
-        <div th:hidden="${#request.remoteUser}"></div>
+<div class="downtown" style="width: 302px; ">
+    <div th:if="${favteam} != null">
+        <a class="twitter-timeline" data-width="300" data-height="500"
+           th:href="'https://twitter.com/' + ${favteam.twitterAddress}">Tweets by Your favourite team:</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
+    <div th:unless="${favteam} != null">
+        <a class="twitter-timeline" data-width="300" data-height="500" href="https://twitter.com/nba">Tweets from
+            NBA: </a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+    <div th:hidden="${#request.remoteUser}"></div>
+</div>
 
 <div class="downtown" style="background: black">
     <div style="padding: 20px" th:if="${howmany} != null">

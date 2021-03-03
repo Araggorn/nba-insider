@@ -139,7 +139,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                       name="firstname" type="text"
                                                       th:field="*{firstName}"/></td>
                         </tr>
-                        <tr><td style="color: red; font-weight: bold" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Firstname Error</td></tr>
+                        <tr>
+                            <td style="color: red; font-weight: bold" th:if="${#fields.hasErrors('firstName')}"
+                                th:errors="*{firstName}">Firstname Error
+                            </td>
+                        </tr>
                         <tr style="border: solid 1px">
                             <th class="tables">Last Name:</th>
                         </tr>
@@ -149,7 +153,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                       th:field="*{lastName}"/></td>
 
                         </tr>
-                        <tr><td style="color: red; font-weight: bold" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Lastname Error</td></tr>
+                        <tr>
+                            <td style="color: red; font-weight: bold" th:if="${#fields.hasErrors('lastName')}"
+                                th:errors="*{lastName}">Lastname Error
+                            </td>
+                        </tr>
                         <tr style="border: solid 1px">
                             <th class="tables">Add player</th>
                         </tr>
