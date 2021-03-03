@@ -18,7 +18,9 @@ public interface PlayerRepository extends JpaRepository<Player, Long> {
         int getCounter();
 
         Long getId();
+
         String getFirstName();
+
         String getLastName();
     }
 
@@ -31,5 +33,5 @@ public interface PlayerRepository extends JpaRepository<Player, Long> {
     Player getPlayerFullInfoByUser(@Param("login") String login);
 
     @Query(value = "select count(u.id) as counter from users u inner join players p on p.id = u.player_id where p.id = :id", nativeQuery = true)
-    Long counterOfLikesForFavPlayer (@Param ("id") Long id);
+    Long counterOfLikesForFavPlayer(@Param("id") Long id);
 }

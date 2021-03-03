@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import pl.coderslab.nbainsider.entity.Contact;
 
 @Repository
-public interface ContactRepository extends JpaRepository <Contact, Long> {
+public interface ContactRepository extends JpaRepository<Contact, Long> {
 }
