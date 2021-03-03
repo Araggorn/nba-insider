@@ -37,7 +37,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         border: 5px solid #FFFF00;
 
-        padding: 10px;}
+        padding: 10px;
+    }
 
     .downtown {
         background: black;
@@ -45,7 +46,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         margin: auto;
 
         width: 60%;
-        border: 5px solid ;
+        border: 5px solid;
         border-color: black;
 
         padding: 10px;
@@ -66,7 +67,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
         </div>
     </div>
-    <button style="padding: 15px; background: darkblue; color: whitesmoke; border-radius: 34%; border-color: black"  type="submit">Choose</button>
+    <button style="padding: 15px; background: darkblue; color: whitesmoke; border-radius: 34%; border-color: black"
+            type="submit">Choose
+    </button>
     <div th:if="${param.success}">
         <p style="color: #4cae4c;">Favourite team has been chosen</p>
     </div>
@@ -74,7 +77,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <form th:object="${userPrefPlayer}" method="post" th:action="@{/change}" class="center" style="background: black">
     <h4 class="downtown" style="color: #FFCC00">Players</h4>
-    <h6 class="downtown" style="color: #FFCC00">If Your favourite player is not here, add him <a th:href="@{playerlist}">HERE</a></h6>
+    <h6 class="downtown" style="color: #FFCC00">If Your favourite player is not here, add him <a
+            th:href="@{playerlist}">HERE</a></h6>
     <div class="form-group"
          style="background: black; color: white; padding: 5%; columns: 2">
 
@@ -86,7 +90,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
         </div>
     </div>
-    <button type="submit" style="padding: 15px; background: darkblue; color: whitesmoke; border-radius: 34%;border-color: black" >Choose</button>
+    <button type="submit"
+            style="padding: 15px; background: darkblue; color: whitesmoke; border-radius: 34%;border-color: black">
+        Choose
+    </button>
 </form>
 <div th:include="fragments/footer :: footer"></div>
 </body>

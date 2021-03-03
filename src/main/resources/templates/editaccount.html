@@ -47,31 +47,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 <div th:include="fragments/headerafterlogin :: header"></div>
-<h3 class="downtown" style="background: black; display: flex; justify-content: center; color: whitesmoke; width: 84%">User editor</h3>
-<h5 class="downtown" style="background: black; display: flex; justify-content: center;padding: 10px; color: hotpink; width: 84%">Remember: after saving new data
+<h3 class="downtown" style="background: black; display: flex; justify-content: center; color: whitesmoke; width: 84%">
+    User editor</h3>
+<h5 class="downtown"
+    style="background: black; display: flex; justify-content: center;padding: 10px; color: hotpink; width: 84%">
+    Remember: after saving new data
     You will be log out!</h5>
 <div class="downtown" style="width: 84%;">
-<form th:object="${user}" method="post" th:action="@{/editaccount}"
-      style="background: black; color: darkslateblue; text-align: center; display: flex; justify-content: center; padding: 70px">
-    <div>
-        <label>Login</label>
-        <input type="text" th:field="*{login}"/>
-        <input type="hidden" th:field="*{id}"/>
-    </div>
-    <div>
-        <label>Email</label>
-        <input type="text" th:field="*{email}"/>
-    </div>
-    <div>
-        <label>Password</label>
-        <input type="password" th:field="*{password}"/>
-    </div>
-    <section class="downtown">
-        <button type="submit"
-                style=" background: darkblue; color: whitesmoke; border-radius: 34%">Save
-        </button>
-    </section>
-</form>
+    <form th:object="${user}" method="post" th:action="@{/editaccount}"
+          style="background: black; color: darkslateblue; text-align: center; display: flex; justify-content: center; padding: 70px">
+        <div>
+            <label>Login</label>
+            <input type="text" th:field="*{login}"/>
+            <input type="hidden" th:field="*{id}"/>
+        </div>
+        <div>
+            <label>Email</label>
+            <input type="text" th:field="*{email}"/>
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="password" th:field="*{password}"/>
+        </div>
+        <section class="downtown">
+            <button type="submit"
+                    style=" background: darkblue; color: whitesmoke; border-radius: 34%">Save
+            </button>
+        </section>
+    </form>
 </div>
 <div th:include="fragments/footer :: footer"></div>
 </body>

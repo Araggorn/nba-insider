@@ -68,7 +68,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <tr style="border: solid 1px">
                     <td class="tables"><input id=email type="text"  th:field="*{email}"/></td>
                 </tr>
-                <td style="color: red; font-weight: bold" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
+                <td style="color: red; font-weight: bold" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+                    Email Error
+                </td>
                 <tr style="border: solid 1px">
                     <th class="tables">Message:</th>
                 </tr>

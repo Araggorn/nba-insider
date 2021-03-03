@@ -35,7 +35,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             color: black;
             margin: auto;
             width: 60%;
-            border: 5px solid ;
+            border: 5px solid;
             border-color: black;
             padding: 10px;
             text-align: center;
@@ -56,29 +56,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <td class="tables" th:text="${team.team}"></td>
 
     </tr>
-<!--</table>-->
-<!--<h3 class="downtown">Favourite Player:</h3>-->
-<!--<table class="downtown">-->
-<!--    <tr style="border: solid 1px">-->
-<!--        <th class="tables">Likes</th>-->
-<!--        <th class="tables">Player firstname</th>-->
-<!--        <th class="tables">Player lastname</th>-->
-
-<!--    </tr>-->
-<!--    <tr style="border: solid 1px" th:each="player: ${players}">-->
-<!--        <td class="tables" th:text="${player.counter}"></td>-->
-<!--        <td class="tables" th:text="${player.firstName}"></td>-->
-<!--        <td class="tables" th:text="${player.lastName}"></td>-->
-
-<!--    </tr>-->
 </table>
 <div style="display:flex; justify-content: space-evenly">
-    <a class="button" th:href="@{/change}"><button class="button" style="min-width: 50px">Choose</button></a>
-    <a class="button" th:href="@{/playerlist}"><button class="button" style="min-width: 50px">Players</button> </a>
-    <a class="button" th:href="@{/teamlist}"><button class="button" style="min-width: 50px">Teams</button> </a>
-    <a class="button" th:href="@{/contactlist}"><button class="button" style="min-width: 50px">Contacts</button> </a>
-    <a class="button" th:href="@{/leastlike}"><button class="button" style="min-width: 50px">Least Liked Teams</button> </a>
-    <a class="button" th:href="@{/logout}"><button class="button" style="min-width: 50px; color: darkred">Logout</button> </a>
+    <a class="button" th:href="@{/change}">
+        <button class="button" style="min-width: 50px">Choose</button>
+    </a>
+    <a class="button" th:href="@{/playerlist}">
+        <button class="button" style="min-width: 50px">Players</button>
+    </a>
+    <a class="button" th:href="@{/teamlist}">
+        <button class="button" style="min-width: 50px">Teams</button>
+    </a>
+    <a class="button" th:href="@{/contactlist}">
+        <button class="button" style="min-width: 50px">Contacts</button>
+    </a>
+    <a class="button" th:href="@{/leastlike}">
+        <button class="button" style="min-width: 50px">Least Liked Teams</button>
+    </a>
+    <a class="button" th:href="@{/logout}">
+        <button class="button" style="min-width: 50px; color: darkred">Logout</button>
+    </a>
 </div>
 
 <div th:include="fragments/footer :: footer"></div>
