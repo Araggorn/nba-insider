@@ -39,6 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth
                 .userDetailsService(customerUserDetailsService).passwordEncoder(passwordEncoder());
     }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
@@ -73,7 +74,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .withUser("admin").password("pass").roles("ADMIN");  }
 
     @Bean
-    public DaoAuthenticationProvider authProvider(){
+    public DaoAuthenticationProvider authProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
         authProvider.setUserDetailsService(customerUserDetailsService);
         authProvider.setPasswordEncoder(passwordEncoder());
