@@ -201,12 +201,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <!--                    <th class="tables">Id</th>-->
                     <th class="tables">First Name</th>
                     <th class="tables">Last Name</th>
+                    <th class="tables">Highlights</th>
 
                 </tr>
                 <tr style="border: solid 1px" th:each="player: ${players}">
-                    <!--                    <td class="tables" th:text="${player.id}"></td>-->
                     <td class="tables" th:text="${player.firstName}"></td>
                     <td class="tables" th:text="${player.lastName}"></td>
+                    <td><a class="tables" th:href="'https://www.youtube.com/results?search_query=' + ${player.firstName} +'+'+ ${player.lastName}">Youtube</a></td>
                 </tr>
             </table>
 

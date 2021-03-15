@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface TeamRepository extends JpaRepository<Team, Long> {
 
-    @Query(value = "select count(u.id) as counter, t.name, t.id from users u inner join teams t on t.id = u.team_id group by t.name, t.id  order by 1 desc limit 5", nativeQuery = true)
+    @Query(value = "select count(u.id) as counter, t.name, t.id from users u inner join teams t on t.id = u.team_id group by t.name, t.id  order by 1 desc limit 10", nativeQuery = true)
     List<MostLikedTeam> findmostlikedteams();
 
     interface MostLikedTeam {
@@ -22,7 +22,7 @@ public interface TeamRepository extends JpaRepository<Team, Long> {
         int getCounter();
     }
 
-    @Query(value = "select count(u.id) as counter, t.name, t.id from users u inner join teams t on t.id = u.team_id group by t.name, t.id  order by 1 asc limit 15", nativeQuery = true)
+    @Query(value = "select count(u.id) as counter, t.name, t.id from users u inner join teams t on t.id = u.team_id group by t.name, t.id  order by 1 asc limit 10", nativeQuery = true)
     List<MostLikedTeam> findlesslikedteams();
 
 

@@ -82,13 +82,6 @@ public class UserServiceImpl implements UserService {
         return userRepository.getOne(id);
     }
 
-    public User findByLogin(String login) {
-        return userRepository.getByLogin(login);
-    }
-
-    public String hashPassword(String password) {
-        return BCrypt.hashpw(password, BCrypt.gensalt());
-    }
 
     @Override
     public List<UserItemDto> find2all() {
