@@ -207,7 +207,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <tr style="border: solid 1px" th:each="player: ${players}">
                     <td class="tables" th:text="${player.firstName}"></td>
                     <td class="tables" th:text="${player.lastName}"></td>
-                    <td><a class="tables" th:href="'https://www.youtube.com/results?search_query=' + ${player.firstName} +'+'+ ${player.lastName}">Youtube</a></td>
+                    <td><a class="tables" th:href="'https://www.youtube.com/results?search_query=' + ${player.firstName} +'+'+ ${player.lastName}">
+                        <span th:text="${player.firstName.substring(0,1).toUpperCase()} + '.' + ${player.lastName.substring(0,1).toUpperCase()} + '. highlights!'"></span></a></td>
                 </tr>
             </table>
 
