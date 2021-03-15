@@ -35,12 +35,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             color: black;
             margin: auto;
 
-            width: 60%;
+           vertical-align: center;
 
             border: 5px solid;
             border-color: black;
             padding: 10px;
             text-align: center;
+        }
+        .left {
+            display: inline-block;
+            width: 40%;
+            vertical-align: top;
+            top: 2px;
+            float: left;
+        }
+
+        .right {
+            display: inline-block;
+            width: 40%;
+            vertical-align: top;
+            top: 2px;
+            margin-left: 15%;
+        }
+        .containerx {
+            width: 80%;
+            height: 200px;
+            background: aqua;
+            margin: auto;
+            padding: 10px;
         }
     </style>
 </head>
@@ -49,7 +71,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <h2 class="center" ,
     style="display: flex; margin-left: auto; margin-right: auto; justify-content: center; padding: 20px; background: black; color: whitesmoke; width: 84%">
 </h2>
-<h3 class="center" style="display: flex; justify-content: center; padding: 10px;">
+<h3 class="center" style="display: flex; justify-content: center; padding: 10px; position: sticky">
     <table style="color: black; width: 40%; display: inline-block; justify-content: center; text-align: center;border: solid 2px;">
         <tr style="border: solid 1px">
             <th class="tables">Your login:</th>
@@ -72,8 +94,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </a>
 <div class="container"
-     style="display: flex; font-family: Lato; justify-content: space-evenly; align-items: center; text-align: center; width: 100%"></div>
-<div class="downtown" style="width: 302px; ">
+     style="display: inline-block; font-family: Lato; justify-content: space-evenly; align-items: center; text-align: center; width: 100%">
+<table>
+    <tr>
+    <th>
+<div class="downtown" style="width: 302px; opacity: 1  ">
     <div th:if="${favteam} != null">
         <a class="twitter-timeline" data-width="300" data-height="500"
            th:href="'https://twitter.com/' + ${favteam.twitterAddress}">Tweets by Your favourite team:</a>
@@ -83,9 +108,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <a class="twitter-timeline" data-width="300" data-height="500" href="https://twitter.com/nba">Tweets from
             NBA: </a>
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    </div>
-    <div th:hidden="${#request.remoteUser}"></div>
-    <div id="ytplayer">
+    </div></div>
+</th>
+  <th>
+    <div class="right" id="ytplayer" style="opacity: 1">
 
 <!--        <iframe type="text/html" width="640" height="360"-->
 <!--                 src="http://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"-->
@@ -94,6 +120,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <iframe type="text/html" width="480" height="240" th:src="'https://www.youtube.com/embed?listType=search&list=' + ${favteam}" frameborder="0"/> </iframe>
         <iframe type="text/html" width="480" height="240" th:src="'https://www.youtube.com/results?search_query=' + ${favplaya}" frameborder="0"/> </iframe>
     </div>
+  </th>
+    </tr>
+</table>
+</div>
 </div>
 <script>
     // Load the IFrame Player API code asynchronously.
@@ -109,10 +139,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         player = new YT.Player('ytplayer', {
             height: '360',
             width: '640',
-            videoId: 'M7lc1UVf-VE'
+            videoId: 'VUNT8ECD3ow'
         });
     }
 </script>
+</div>
 
 <div class="downtown" style="background: black">
     <div style="padding: 20px" th:if="${howmany} != null">
