@@ -111,21 +111,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div></div>
 </th>
   <th>
-    <div class="right" id="ytplayer" style="opacity: 1">
+    <div class="right" id="ytplayer">
 
 <!--        <iframe type="text/html" width="640" height="360"-->
 <!--                 src="http://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"-->
 <!--                 frameborder="0"/>-->
 
-    <iframe type="text/html" width="480" height="240" th:src="'https://www.youtube.com/embed?listType=search&list=' + ${favteam}" frameborder="0"/> </iframe>
-        <iframe type="text/html" width="480" height="240" th:src="'https://www.youtube.com/results?search_query=' + ${favplaya}" frameborder="0"/> </iframe>
+    <iframe type="text/html" width="480" height="240" th:src="'https://www.youtube.com/embed?listType=search&list=' + ${favteam.name}" frameborder="0"/> </iframe>
+        <iframe type="text/html" width="480" height="240" th:src="'https://www.youtube.com/embed?listType=search&list=' + ${favplaya}" frameborder="0"/> </iframe>
     </div>
   </th>
     </tr>
 </table>
 </div>
 </div>
-<script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+    var team = /*[[${favteam.name}]]*/ 'default';
+    console.log(team);
+
+    /*]]>*/
     // Load the IFrame Player API code asynchronously.
     var tag = document.createElement('script');
     tag.src = "https://www.youtube.com/player_api";
@@ -135,11 +141,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     // Replace the 'ytplayer' element with an <iframe> and
     // YouTube player after the API code downloads.
     var player;
+
     function onYouTubePlayerAPIReady() {
         player = new YT.Player('ytplayer', {
             height: '240',
             width: '480',
-            videoId: 'VUNT8ECD3ow'
+            // videoId: 'VUNT8ECD3ow',
+            listType: 'search',
+            list: team
         });
     }
 </script>
