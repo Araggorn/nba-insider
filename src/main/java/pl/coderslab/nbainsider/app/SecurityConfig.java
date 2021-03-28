@@ -65,13 +65,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .disable();
     }
 
-//    @Autowired
-//    protected void configuree(AuthenticationManagerBuilder auth) throws Exception {
-//        auth
-//                .inMemoryAuthentication()
-//                .withUser("user").password("pass").roles("USER")
-//                .and()
-//                .withUser("admin").password("pass").roles("ADMIN");  }
 
     @Bean
     public DaoAuthenticationProvider authProvider() {

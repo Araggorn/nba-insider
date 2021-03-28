@@ -30,10 +30,5 @@ public class CustomerUserDetailsService implements UserDetailsService {
         final pl.coderslab.nbainsider.entity.User userEntity = repository.getByLogin(login);
         UserDetails user = User.withUsername(userEntity.getLogin()).password(userEntity.getPassword()).authorities(userEntity.getRole()).build();
         return user;
-//        return new User(userEntity.getLogin(),
-//                userEntity.getPassword(), Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER")));
-
-        //        userEntity.getRoles().stream().
-        //       map(SimpleGrantedAuthority::new).collect(Collectors.toList()));
     }
 }
