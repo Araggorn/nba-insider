@@ -1,4 +1,4 @@
-# NBA-insider
+# NBA-Insider
 
 My first and most complex project.
 
@@ -17,13 +17,14 @@ Visitor, even if he is not logged user, can check most liked teams and players.
 Admin can manage users, teams, players and contact form (CRUD). 
 
 
-
-
 ### Technologies
 Java 14, JDBC, SQL, Thymeleaf, Spring Boot,
 SpringSecurity, JavaScript, CSS, HTML.
 
-## Setup
+### Setup
 The application can be found online - https://nba-insider.herokuapp.com
+
+
+#####  Enjoy!
 
 

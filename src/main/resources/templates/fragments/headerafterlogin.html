@@ -32,15 +32,15 @@
                             <li><a style="color: #FFCC00"
                                    sec:authorize="hasRole('ROLE_USER')"><span>Login: </span></span><span
                                     th:text="${#request.remoteUser}"></span></a></li>
-                            <li><a th:href="@{main}">Main</a></li>
-                            <li><a th:href="@{playerlist}">Players</a></li>
-                            <li><a th:href="@{teamlist}">Teams</a></li>
-                            <li><a id=button th:href="@{change}">Change preferences</a></li>
-                            <li><a th:href="@{editaccount}">Edit</a></li>
+                            <li><a th:href="@{/main}">Main</a></li>
+                            <li><a th:href="@{/playerlist}">Players</a></li>
+                            <li><a th:href="@{/teamlist}">Teams</a></li>
+                            <li><a id=button th:href="@{/change}">Change preferences</a></li>
+                            <li><a th:href="@{/editaccount}">Edit</a></li>
                             <li sec:authorize="hasRole('ROLE_ADMIN')">
-                                <a style="display: flex; color: #ac2925" th:href="@{userlist}">Admin</a></li>
-                            <li><a th:href="@{top}" target="_blank">Top</a></li>
-                            <li><a th:href="@{logout}">Logout</a></li>
+                                <a style="display: flex; color: #ac2925" th:href="@{/userlist}">Admin</a></li>
+                            <li><a th:href="@{/top}" target="_blank">Top</a></li>
+                            <li><a th:href="@{/logout}">Logout</a></li>
 
                         </ul>
                     </div>
