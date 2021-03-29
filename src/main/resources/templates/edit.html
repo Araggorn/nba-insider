@@ -32,7 +32,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
 </head>
 <body>
-<div th:include="fragments/header :: header"></div>
+<div th:include="fragments/headerafterlogin :: header"></div>
 <h1>User editor</h1>
 <form th:object="${user}" method="post" th:action="@{/edit}">
     <section>
