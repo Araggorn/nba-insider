@@ -16,7 +16,6 @@ App will provide as well Twitter account of his favourite team.
 Visitor, even if he is not logged user, can check most liked teams and players.
 Admin can manage users, teams, players and contact form (CRUD). 
 
-
 ### Technologies
 Java 14, JDBC, SQL, Thymeleaf, Spring Boot,
 SpringSecurity, JavaScript, CSS, HTML.
