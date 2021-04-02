@@ -46,11 +46,6 @@ public class User {
     @Column(name = "role")
     private String role = "ROLE_USER";
 
-//    @Transient
-//    @ElementCollection
-//    @CollectionTable(name = "users_roles", joinColumns = @JoinColumn(name = "username", referencedColumnName = "id"))
-//    @Column(name = "role")
-//    private Set<String> roles;
 
     public User(Long id, String login, String password, String email) {
         this.id = id;
